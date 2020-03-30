@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
-import Nav from './components/Nav';
+import axios from 'axios';
 import Header from './components/Header';
 import Main from './components/Main';
 
@@ -11,19 +11,30 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-
+      currentStatus: {},
     }
+  }
+
+  componentDidMount() {
+    axios({
+      url: `https://corona.lmao.ninja/all`,
+      method: "GET",
+    }).then(res => {
+      this.setState({
+        currentStatus: res.data
+      })
+    })
   }
 
   render() { 
     return ( 
       <Router>
-        <Route path='/' exact >
-          <Header />
+        <Route path='/changmoSungCovid19/' exact >
+          <Header currentStatus={this.state.currentStatus} />
         </Route>
 
-        <Route path='/info/' >
-          <Main />
+        <Route path='/changmoSungCovid19/info/' >
+          <Main currentStatus={this.state.currentStatus} />
         </Route>
       </Router>
      );
