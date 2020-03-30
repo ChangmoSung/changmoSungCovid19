@@ -19,11 +19,11 @@ class Main extends Component {
             <main>
                 <Nav />
 
-                <Route path='/info/statistic'>
-                    <Statistic />
+                <Route path='/changmoSungCovid19/info/statistic'>
+                    <Statistic currentStatus={this.props.currentStatus} />
                 </Route>
 
-                <Route path='/info/news'>
+                <Route path='/changmoSungCovid19/info/news'>
                     <News />
                 </Route>
             </main>
