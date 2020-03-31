@@ -15,17 +15,18 @@ class Statistic extends Component {
             url: `https://corona.lmao.ninja/countries?sort=country`,
             method: "GET",
         }).then(res => {
+            const seriousness = res.data.sort((a, b) => a.cases > b.cases ? -1 : 1);
             this.setState({
-                worldStatus: res.data
+                worldStatus: seriousness
             })
         })
     }
 
     render() { 
-        console.log(this.state.worldStatus[123])
         return ( 
             <div>
                 <ul>
+                    <li>number of affected countries: {this.state.worldStatus.length}</li>
                     <li>total cases: {this.props.currentStatus.cases}</li>
                     <li>deaths: {this.props.currentStatus.deaths}</li>
                     <li>recovered: {this.props.currentStatus.recovered}</li>
