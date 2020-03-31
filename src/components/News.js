@@ -12,8 +12,17 @@ class News extends Component {
 
     componentDidMount() {
         axios({
-            url: `https://newsapi.org/v2/everything?q=COVID&from=2020-03-16&sortBy=publishedAt&apiKey=0741cdf2415e4f44a92f80f69c904834&pageSize=100&page=1`,
+            url: 'https://newsapi.org/v2/top-headlines',
             method: "GET",
+            params: {
+                language: 'en',
+                q: 'COVID',
+                from: '2020-03-16',
+                sortBy: 'publishedAt',
+                apiKey: '0741cdf2415e4f44a92f80f69c904834',
+                pageSize: '50',
+                page: '1'
+            }
         }).then(res => {
             this.setState({
                 news: res.data.articles
@@ -30,9 +39,9 @@ class News extends Component {
                             <li key={i}>
                                 <h3>{news.title}</h3>
 
-                                <p>By {news.author}</p>
+                                <p>By {!news.author || news.author.includes('http') ? 'anonymous author' : news.author}</p>
 
-                                <p>{news.publishedAt}</p>
+                                <p>Published on {news.publishedAt.slice(0, 10)}</p>
 
                                 <div>
                                     <img src={news.urlToImage} alt='article'></img>

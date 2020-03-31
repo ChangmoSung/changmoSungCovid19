@@ -7,8 +7,9 @@ class Statistic extends Component {
 
         this.state = {
             worldStatus: [],
-            matchedCountries: [],
-        }
+            searchedCountry: [],
+        };
+        this.searchInput = React.createRef();
     }
 
     componentDidMount() {
@@ -24,25 +25,23 @@ class Statistic extends Component {
         })
     }
 
-    findMatches = (value, countries) => {
-        return countries.filter(country => {
-            const regex = new RegExp(value, 'gi');
-
-            return country.country.match(regex);
-        })
-    }
-
     searchCountry = (e) => {
-        const matchedCountries = this.findMatches(e.target.value, this.state.worldStatus);
+        e.preventDefault();
+
+        const searchedCountry = this.searchInput.current.value;
+
+        const match = this.state.worldStatus.filter(country => country.country.toLowerCase() === searchedCountry.toLowerCase());
 
         this.setState({
-            matchedCountries: e.target.value.length >= 1 ? matchedCountries : [],
+            searchedCountry: match,
         })
     }
 
     render() { 
         return ( 
             <div className='statistic wrapper'>
+                <h2>As of {this.props.currentDate}</h2>
+
                 <ul className='currentStatusList'>
                     <li>number of affected countries: {this.state.worldStatus.length}</li>
                     <li>total cases: {this.props.currentStatus.cases}</li>
@@ -52,19 +51,27 @@ class Statistic extends Component {
                 </ul>
 
                 <div className='searchFormContainer'>
-                    <form>
+                    <form onSubmit={this.searchCountry}>
                         <label htmlFor='country'>search for country</label>
-                        <input onChange={this.searchCountry} id='country' type='text'></input>
+                        <input ref={this.searchInput} id='country' type='text'></input>
+                        <button>search</button>
                     </form>
-
-                    <ul>
-                        {this.state.matchedCountries.map((matchedCountry, i) => {
-                            return (
-                                <li key={i}>{matchedCountry.country}</li>
-                            )
-                        })}
-                    </ul>
                 </div>
+
+                {this.state.searchedCountry.map((country, i) => {
+                    return (
+                        <p className='searchedCountry' key={i}>
+                            <span>{country.country}</span>
+                            <span>{country.cases}</span>
+                            <span>{country.todayCases}</span>
+                            <span>{country.active}</span>
+                            <span>{country.recovered}</span>
+                            <span>{country.deaths}</span>
+                            <span>{country.todayDeaths}</span>
+                            <span>{(100 / (country.cases / country.deaths)).toFixed(2)}%</span>
+                        </p>
+                    )
+                })}
 
                 <table>
                     <thead>
@@ -76,6 +83,7 @@ class Statistic extends Component {
                             <th>recovered</th>
                             <th>total deaths</th>
                             <th>today deaths</th>
+                            <th>death toll</th>
                         </tr>
                     </thead>
 
@@ -90,6 +98,7 @@ class Statistic extends Component {
                                     <td>{status.recovered}</td>
                                     <td>{status.deaths}</td>
                                     <td>{status.todayDeaths}</td>
+                                    <td>{(100 / (status.cases / status.deaths)).toFixed(2)}%</td>
                                 </tr>
                             )
                         })}
