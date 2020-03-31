@@ -13,7 +13,7 @@ class Nav extends Component {
     }
     render() { 
         return ( 
-            <nav>
+            <nav className='nav'>
                 <ul>
                     <li>
                         <Link to='/changmoSungCovid19/info/statistic'>statistic</Link>

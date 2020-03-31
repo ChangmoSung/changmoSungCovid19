@@ -4,8 +4,10 @@ import {
   Route,
 } from 'react-router-dom';
 import axios from 'axios';
+import Nav from './components/Nav';
 import Header from './components/Header';
-import Main from './components/Main';
+import Statistic from './components/Statistic';
+import News from './components/News';
 
 class App extends Component {
   constructor() {
@@ -29,12 +31,22 @@ class App extends Component {
   render() { 
     return ( 
       <Router>
+        <Nav />
+        
         <Route path='/changmoSungCovid19/' exact >
           <Header currentStatus={this.state.currentStatus} />
         </Route>
 
         <Route path='/changmoSungCovid19/info/' >
-          <Main currentStatus={this.state.currentStatus} />
+          <main>
+            <Route path='/changmoSungCovid19/info/statistic'>
+              <Statistic currentStatus={this.state.currentStatus} />
+            </Route>
+
+            <Route path='/changmoSungCovid19/info/news'>
+              <News />
+            </Route>
+          </main>
         </Route>
       </Router>
      );

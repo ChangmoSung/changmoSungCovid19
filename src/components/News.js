@@ -20,11 +20,11 @@ class News extends Component {
             })
         })
     }
+
     render() { 
-        console.log(this.state.news)
         return ( 
-            <div>
-                <ul>
+            <div className='news'>
+                <ul className='newsList wrapper'>
                     {this.state.news.map((news, i) => {
                         return (
                             <li key={i}>

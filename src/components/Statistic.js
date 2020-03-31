@@ -42,8 +42,8 @@ class Statistic extends Component {
 
     render() { 
         return ( 
-            <div>
-                <ul>
+            <div className='statistic wrapper'>
+                <ul className='currentStatusList'>
                     <li>number of affected countries: {this.state.worldStatus.length}</li>
                     <li>total cases: {this.props.currentStatus.cases}</li>
                     <li>deaths: {this.props.currentStatus.deaths}</li>
@@ -51,7 +51,7 @@ class Statistic extends Component {
                     <li>active: {this.props.currentStatus.active}</li>
                 </ul>
 
-                <div>
+                <div className='searchFormContainer'>
                     <form>
                         <label htmlFor='country'>search for country</label>
                         <input onChange={this.searchCountry} id='country' type='text'></input>
@@ -94,7 +94,6 @@ class Statistic extends Component {
                             )
                         })}
                     </tbody>
-                    
                 </table>
             </div>
          );
