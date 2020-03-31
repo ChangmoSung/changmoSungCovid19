@@ -11,13 +11,13 @@ class Header extends Component {
     render() { 
         return ( 
             <header>
-                <h1>save the one you love</h1>
+                <h1>SAVE THE ONE YOU LOVE</h1>
 
                 <ul className='currentStatusList'>
-                    <li>total cases: {this.props.currentStatus.cases}</li>
-                    <li>deaths: {this.props.currentStatus.deaths}</li>
-                    <li>recovered: {this.props.currentStatus.recovered}</li>
-                    <li>active: {this.props.currentStatus.active}</li>
+                    <li>Total cases: {this.props.currentStatus.cases}</li>
+                    <li>Recovered: {this.props.currentStatus.recovered}</li>
+                    <li>Active: {this.props.currentStatus.active}</li>
+                    <li>Deaths: {this.props.currentStatus.deaths}</li>
                 </ul>
             </header>
          );

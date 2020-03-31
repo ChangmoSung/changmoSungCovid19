@@ -16,11 +16,11 @@ class Nav extends Component {
             <nav className='nav'>
                 <ul>
                     <li>
-                        <Link to='/changmoSungCovid19/info/statistic'>statistic</Link>
+                        <Link to='/changmoSungCovid19/info/statistic'>STATISTIC</Link>
                     </li>
 
                     <li>
-                        <Link to='/changmoSungCovid19/info/news'>news</Link>
+                        <Link to='/changmoSungCovid19/info/news'>NEWS</Link>
                     </li>
                 </ul>
             </nav>
