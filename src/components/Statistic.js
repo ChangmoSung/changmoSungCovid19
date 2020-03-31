@@ -45,11 +45,11 @@ class Statistic extends Component {
                 <h2>As of {this.props.currentDate}</h2>
 
                 <ul className='currentStatusList'>
-                    <li>Number of affected countries: {this.state.worldStatus.length}</li>
+                    <li>Affected countries: {this.state.worldStatus.length}</li>
                     <li>Total cases: {this.props.currentStatus.cases}</li>
-                    <li>Deaths: {this.props.currentStatus.deaths}</li>
-                    <li>Recovered: {this.props.currentStatus.recovered}</li>
-                    <li>Active: {this.props.currentStatus.active}</li>
+                    <li>Total active: {this.props.currentStatus.active}</li>
+                    <li>Total recovered: {this.props.currentStatus.recovered}</li>
+                    <li>Total deaths: {this.props.currentStatus.deaths}</li>
                 </ul>
 
                 <div className='searchFormContainer'>
@@ -80,7 +80,7 @@ class Statistic extends Component {
                         {this.state.searchedCountry.map((country, i) => {
                             return (
                                 <tr key={i}>
-                                    <td>{country.country}</td>
+                                    <td className='searchedCountry'>* {country.country}</td>
 
                                     <td className='totalCases'>
                                         <span>

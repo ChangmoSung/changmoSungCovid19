@@ -15,9 +15,9 @@ class Header extends Component {
 
                 <ul className='currentStatusList'>
                     <li>Total cases: {this.props.currentStatus.cases}</li>
-                    <li>Deaths: {this.props.currentStatus.deaths}</li>
                     <li>Recovered: {this.props.currentStatus.recovered}</li>
                     <li>Active: {this.props.currentStatus.active}</li>
+                    <li>Deaths: {this.props.currentStatus.deaths}</li>
                 </ul>
             </header>
          );

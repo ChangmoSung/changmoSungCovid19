@@ -26,7 +26,11 @@ img {
   list-style: none;
   padding: 0;
   line-height: 4rem;
-  margin: 0;
+  text-align: center;
+}
+
+.currentStatusList li {
+  line-height: 4.5rem;
 }
 
 header {
@@ -39,7 +43,7 @@ header {
 
 .nav {
   width: 100%;
-  height: 7rem;
+  height: 10rem;
   display: flex;
   align-items: center;
   position: absolute;
@@ -68,16 +72,18 @@ h1 {
 
 h2 {
   font-size: 5rem;
+  text-align: center;
+  margin: 3rem 0;
 }
 
 .statistic,
 .news {
-  margin: 12rem auto 5rem;
+  margin: 10rem auto 5rem;
   width: 80%;
 }
 
 .searchFormContainer {
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 .searchFormContainer form {
@@ -100,20 +106,13 @@ h2 {
   height: 100%;
 }
 
-.searchedCountry {
-  display: flex;
-  justify-content: space-between;
-  font-size: 4rem;
-}
-
-.searchedCountry span {
-  width: calc(100% / 8);
-}
-
-
 table {
   margin-top: 5rem;
   width: 100%;
+}
+
+.searchedCountry {
+  color: blue;
 }
 
 tr {
@@ -187,6 +186,18 @@ td {
 }
 
 @media(max-width: 768px) {
+  .statistic {
+    margin-top: 10rem;
+  }
+
+  h2 {
+    margin: 2rem 0;
+  }
+
+  .searchFormContainer {
+    margin-top: 3rem;
+  }
+
   .searchFormContainer input {
     font-size: 2.5rem;
   }
