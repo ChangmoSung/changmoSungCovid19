@@ -39,22 +39,22 @@ class Statistic extends Component {
 
     render() { 
         return ( 
-            <div className='statistic wrapper'>
+            <div className='statistic'>
                 <h2>As of {this.props.currentDate}</h2>
 
                 <ul className='currentStatusList'>
-                    <li>number of affected countries: {this.state.worldStatus.length}</li>
-                    <li>total cases: {this.props.currentStatus.cases}</li>
-                    <li>deaths: {this.props.currentStatus.deaths}</li>
-                    <li>recovered: {this.props.currentStatus.recovered}</li>
-                    <li>active: {this.props.currentStatus.active}</li>
+                    <li>Number of affected countries: {this.state.worldStatus.length}</li>
+                    <li>Total cases: {this.props.currentStatus.cases}</li>
+                    <li>Deaths: {this.props.currentStatus.deaths}</li>
+                    <li>Recovered: {this.props.currentStatus.recovered}</li>
+                    <li>Active: {this.props.currentStatus.active}</li>
                 </ul>
 
                 <div className='searchFormContainer'>
                     <form onSubmit={this.searchCountry}>
-                        <label htmlFor='country'>search for country</label>
+                        <label htmlFor='country'>Search for country</label>
                         <input ref={this.searchInput} id='country' type='text'></input>
-                        <button>search</button>
+                        <button>SEARCH</button>
                     </form>
                 </div>
 
@@ -62,12 +62,19 @@ class Statistic extends Component {
                     return (
                         <p className='searchedCountry' key={i}>
                             <span>{country.country}</span>
+
                             <span>{country.cases}</span>
+
                             <span>{country.todayCases}</span>
+
                             <span>{country.active}</span>
+
                             <span>{country.recovered}</span>
+
                             <span>{country.deaths}</span>
+
                             <span>{country.todayDeaths}</span>
+
                             <span>{(100 / (country.cases / country.deaths)).toFixed(2)}%</span>
                         </p>
                     )
@@ -76,14 +83,17 @@ class Statistic extends Component {
                 <table>
                     <thead>
                         <tr>
-                            <th>country</th>
-                            <th>total cases</th>
-                            <th>today cases</th>
-                            <th>active</th>
-                            <th>recovered</th>
-                            <th>total deaths</th>
-                            <th>today deaths</th>
-                            <th>death toll</th>
+                            <th>Country</th>
+
+                            <th>Cases</th>
+
+                            <th>Active</th>
+
+                            <th>Recovered</th>
+
+                            <th>Deaths</th>
+
+                            <th>Death toll</th>
                         </tr>
                     </thead>
 
@@ -92,12 +102,25 @@ class Statistic extends Component {
                             return (
                                 <tr key={i}>
                                     <td>{status.country}</td>
-                                    <td>{status.cases}</td>
-                                    <td>{status.todayCases}</td>
+
+                                    <td className='totalCases'>
+                                        <span>{status.cases}</span>
+                                        <span><span className='arrow'></span>{status.todayCases}</span>
+                                    </td>
+
                                     <td>{status.active}</td>
+
                                     <td>{status.recovered}</td>
-                                    <td>{status.deaths}</td>
-                                    <td>{status.todayDeaths}</td>
+
+                                    <td className='totalDeaths'>
+                                        <span>{status.deaths}</span>
+                                        <span>
+                                            <span className='arrow'></span>
+
+                                            <span>{status.todayDeaths}</span>
+                                        </span>
+                                    </td>
+
                                     <td>{(100 / (status.cases / status.deaths)).toFixed(2)}%</td>
                                 </tr>
                             )
