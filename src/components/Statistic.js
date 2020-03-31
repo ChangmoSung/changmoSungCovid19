@@ -7,6 +7,7 @@ class Statistic extends Component {
 
         this.state = {
             worldStatus: [],
+            matchedCountries: [],
         }
     }
 
@@ -22,6 +23,22 @@ class Statistic extends Component {
         })
     }
 
+    findMatches = (value, countries) => {
+        return countries.filter(country => {
+            const regex = new RegExp(value, 'gi');
+
+            return country.country.match(regex);
+        })
+    }
+
+    searchCountry = (e) => {
+        const matchedCountries = this.findMatches(e.target.value, this.state.worldStatus);
+
+        this.setState({
+            matchedCountries
+        })
+    }
+
     render() { 
         return ( 
             <div>
@@ -32,6 +49,21 @@ class Statistic extends Component {
                     <li>recovered: {this.props.currentStatus.recovered}</li>
                     <li>active: {this.props.currentStatus.active}</li>
                 </ul>
+
+                <div>
+                    <form>
+                        <label htmlFor='country'>search for country</label>
+                        <input onChange={this.searchCountry} id='country' type='text'></input>
+                    </form>
+
+                    <ul>
+                        {this.state.matchedCountries.map((matchedCountry, i) => {
+                            return (
+                                <li key={i}>{matchedCountry.country}</li>
+                            )
+                        })}
+                    </ul>
+                </div>
 
                 <table>
                     <thead>
