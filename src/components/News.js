@@ -33,7 +33,7 @@ class News extends Component {
     render() { 
         return ( 
             <div className='news'>
-                <ul className='newsList wrapper'>
+                <ul className='newsList'>
                     {this.state.news.map((news, i) => {
                         return (
                             <li key={i}>
@@ -43,13 +43,13 @@ class News extends Component {
 
                                 <p>Published on {news.publishedAt.slice(0, 10)}</p>
 
-                                <div>
+                                <div className='newsArticle'>
                                     <img src={news.urlToImage} alt='article'></img>
                                 </div>
 
-                                <p>{news.description}</p>
+                                <p className='newsDescription'>{news.description}</p>
 
-                                <a href={news.url}>link to the article</a>
+                                <a href={news.url}>Link to the article</a>
                             </li>
                         )
                     })}

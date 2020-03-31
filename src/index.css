@@ -11,18 +11,12 @@ html {
   font-family: 'Open Sans', sans-serif;
 }
 
-.wrapper {
-  width: 85%;
-  margin: 0 auto;
-}
-
 img {
   width: 100%;
   height: 100%;
 }
 
 .currentStatusList {
-  font-size: 2.5rem;
   list-style: none;
   padding: 0;
   line-height: 4rem;
@@ -31,6 +25,7 @@ img {
 
 .currentStatusList li {
   line-height: 4.5rem;
+  font-size: 2.5rem;
 }
 
 header {
@@ -58,16 +53,19 @@ header {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 4rem;
 }
 
 .nav a {
+  font-size: 4rem;
   text-decoration: none;
   color: black;
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 7rem;
+  margin: 0 0 3rem;
+  width: 90%;
+  text-align: center;
 }
 
 h2 {
@@ -107,7 +105,7 @@ h2 {
 }
 
 table {
-  margin-top: 5rem;
+  margin-top: 3rem;
   width: 100%;
 }
 
@@ -159,19 +157,72 @@ td {
 
 .newsList {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   padding: 0;
   margin: 0 auto;
+  list-style: none;
 }
 
 .newsList li {
-  width: 30%;
-  margin-bottom: 7rem;
+  width: 31%;
+  border: 2px solid black;
+  padding: 2rem;
+  margin-bottom: 5rem;
+  border-radius: 1rem;
+}
+
+.newsList li:nth-child(3n + 2) {
+  margin: 0 3.5% 5rem;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.newsArticle {
+  margin: 2rem 0;
+}
+
+.newsList p {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.newsList p:nth-child(5) {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.newsList a {
+  font-size: 1.6rem;
 }
 
 
 @media(max-width: 1120px) {
+  h1 {
+    font-size: 6.5rem;
+  }
+  .nav a {
+    font-size: 3.5rem;
+  }
+
+  .news {
+    width: 90%;
+  }
+
+  .newsList {
+    justify-content: space-between;
+  }
+
+  .newsList li:nth-child(3n + 2) {
+    margin: 0 0 5rem;
+  }
+
+  .newsList li {
+    width: 48%;
+  }
+
   .statistic {
     width: 95%;
   }
@@ -186,6 +237,14 @@ td {
 }
 
 @media(max-width: 768px) {
+  .news {
+    width: 95%;
+  }
+
+  .newsList li {
+    width: 100%;
+  }
+  
   .statistic {
     margin-top: 10rem;
   }
@@ -213,6 +272,19 @@ td {
 }
 
 @media(max-width: 640px) {
+  h1 {
+    font-size: 5.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .currentStatusList li {
+    font-size: 2.2rem;
+    line-height: 4rem;
+  }
+
+  .nav a {
+    font-size: 3rem;
+  }
   .searchFormContainer form {
     height: 5rem;
   }
@@ -241,6 +313,24 @@ td {
 }
 
 @media(max-width: 430px) {
+  h1 {
+    font-size: 5rem;
+    width: 100%;
+  }
+
+  .currentStatusList li {
+    font-size: 2rem;
+    line-height: 3.6rem;
+  }
+
+  .nav a {
+    font-size: 2.7rem;
+  }
+
+  .newsList li {
+    margin-bottom: 3rem;
+  }
+
   .searchFormContainer input {
     width: 65%;
   }
