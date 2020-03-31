@@ -78,29 +78,26 @@ h2 {
 
 .searchFormContainer {
   margin-top: 5rem;
- 
 }
 
 .searchFormContainer form {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.searchFormContainer label {
-  font-size: 3rem;
+  height: 5.5rem;
 }
 
 .searchFormContainer input {
-  height: 5rem;
+  width: 50%;
   font-size: 3rem;
-  margin: 0 3rem;
+  height: 100%;
 }
 
 .searchFormContainer button {
-  width: 16rem;
-  height: 5rem;
+  width: 20rem;
   font-size: 3rem;
+  height: 100%;
 }
 
 .searchedCountry {
@@ -175,7 +172,7 @@ td {
 }
 
 
-@media(max-width: 1100px) {
+@media(max-width: 1120px) {
   .statistic {
     width: 95%;
   }
@@ -190,12 +187,35 @@ td {
 }
 
 @media(max-width: 768px) {
+  .searchFormContainer input {
+    font-size: 2.5rem;
+  }
+
+  .searchFormContainer button {
+    width: 15rem;
+    font-size: 2.5rem;
+  }
+
   th {
     font-size: 2rem;
   }
 }
 
 @media(max-width: 640px) {
+  .searchFormContainer form {
+    height: 5rem;
+  }
+
+  .searchFormContainer input {
+    width: 70%;
+    font-size: 2.2rem;
+  }
+  
+  .searchFormContainer button {
+    width: 30%;
+    font-size: 2.2rem;
+  }
+
   th:nth-child(4),
   th:nth-child(5),
   td:nth-child(4),
@@ -210,6 +230,14 @@ td {
 }
 
 @media(max-width: 430px) {
+  .searchFormContainer input {
+    width: 65%;
+  }
+  
+  .searchFormContainer button {
+    width: 35%;
+  }
+
   tr {
     height: 5.5rem;
   }

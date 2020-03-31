@@ -28,13 +28,15 @@ class Statistic extends Component {
     searchCountry = (e) => {
         e.preventDefault();
 
-        const searchedCountry = this.searchInput.current.value;
+        const country = this.searchInput.current.value;
 
-        const match = this.state.worldStatus.filter(country => country.country.toLowerCase() === searchedCountry.toLowerCase());
+        const searchedCountry = this.state.worldStatus.filter(status => status.country.toLowerCase().includes(country.toLowerCase()));
 
         this.setState({
-            searchedCountry: match,
+            searchedCountry
         })
+
+        this.searchInput.current.value = '';
     }
 
     render() { 
@@ -52,33 +54,10 @@ class Statistic extends Component {
 
                 <div className='searchFormContainer'>
                     <form onSubmit={this.searchCountry}>
-                        <label htmlFor='country'>Search for country</label>
                         <input ref={this.searchInput} id='country' type='text'></input>
                         <button>SEARCH</button>
                     </form>
                 </div>
-
-                {this.state.searchedCountry.map((country, i) => {
-                    return (
-                        <p className='searchedCountry' key={i}>
-                            <span>{country.country}</span>
-
-                            <span>{country.cases}</span>
-
-                            <span>{country.todayCases}</span>
-
-                            <span>{country.active}</span>
-
-                            <span>{country.recovered}</span>
-
-                            <span>{country.deaths}</span>
-
-                            <span>{country.todayDeaths}</span>
-
-                            <span>{(100 / (country.cases / country.deaths)).toFixed(2)}%</span>
-                        </p>
-                    )
-                })}
 
                 <table>
                     <thead>
@@ -98,6 +77,38 @@ class Statistic extends Component {
                     </thead>
 
                     <tbody>
+                        {this.state.searchedCountry.map((country, i) => {
+                            return (
+                                <tr key={i}>
+                                    <td>{country.country}</td>
+
+                                    <td className='totalCases'>
+                                        <span>
+                                            {country.cases}
+                                        </span>
+                                        <span>
+                                            <span className='arrow'></span>
+                                            {country.todayCases}
+                                        </span>
+                                    </td>
+
+                                    <td>{country.active}</td>
+
+                                    <td>{country.recovered}</td>
+
+                                    <td className='totalDeaths'>
+                                        <span>{country.deaths}</span>
+                                        <span>
+                                            <span className='arrow'></span>
+                                            {country.todayDeaths}
+                                        </span>
+                                    </td>
+
+                                    <td>{(100 / (country.cases / country.deaths)).toFixed(2)}%</td>
+                                </tr>
+                            )
+                        })}
+
                         {this.state.worldStatus.map((status, i) => {
                             return (
                                 <tr key={i}>
@@ -105,7 +116,10 @@ class Statistic extends Component {
 
                                     <td className='totalCases'>
                                         <span>{status.cases}</span>
-                                        <span><span className='arrow'></span>{status.todayCases}</span>
+                                        <span>
+                                            <span className='arrow'></span>
+                                            {status.todayCases}
+                                        </span>
                                     </td>
 
                                     <td>{status.active}</td>
