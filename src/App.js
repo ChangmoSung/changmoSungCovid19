@@ -13,16 +13,24 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      currentDate: '',
       currentStatus: {},
     }
   }
 
   componentDidMount() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const date = now.getDate();
+    const currentDate = `${year}-${month > 9 ? `${month + 1}` : `0${month + 1}`}-${date}`;
+
     axios({
       url: `https://corona.lmao.ninja/all`,
       method: "GET",
     }).then(res => {
       this.setState({
+        currentDate,
         currentStatus: res.data
       })
     })
@@ -40,7 +48,7 @@ class App extends Component {
         <Route path='/changmoSungCovid19/info/' >
           <main>
             <Route path='/changmoSungCovid19/info/statistic'>
-              <Statistic currentStatus={this.state.currentStatus} />
+              <Statistic currentDate={this.state.currentDate} currentStatus={this.state.currentStatus} />
             </Route>
 
             <Route path='/changmoSungCovid19/info/news'>

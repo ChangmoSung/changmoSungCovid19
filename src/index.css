@@ -65,6 +65,10 @@ h1 {
   font-size: 6rem;
 }
 
+h2 {
+  font-size: 5rem;
+}
+
 .statistic,
 .news {
   margin: 12rem auto 5rem;
@@ -72,12 +76,13 @@ h1 {
 
 .searchFormContainer {
   margin-top: 5rem;
+ 
 }
 
 .searchFormContainer form {
-  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchFormContainer label {
@@ -86,7 +91,24 @@ h1 {
 
 .searchFormContainer input {
   font-size: 3rem;
+  margin: 0 3rem;
 }
+
+.searchFormContainer button {
+  width: 10rem;
+  height: 4rem;
+}
+
+.searchedCountry {
+  display: flex;
+  justify-content: space-between;
+  font-size: 4rem;
+}
+
+.searchedCountry span {
+  width: calc(100% / 8);
+}
+
 
 table {
   margin-top: 5rem;
