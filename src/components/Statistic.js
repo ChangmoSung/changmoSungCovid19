@@ -17,6 +17,7 @@ class Statistic extends Component {
             method: "GET",
         }).then(res => {
             const seriousness = res.data.sort((a, b) => a.cases > b.cases ? -1 : 1);
+            
             this.setState({
                 worldStatus: seriousness
             })
@@ -35,7 +36,7 @@ class Statistic extends Component {
         const matchedCountries = this.findMatches(e.target.value, this.state.worldStatus);
 
         this.setState({
-            matchedCountries
+            matchedCountries: e.target.value.length >= 1 ? matchedCountries : [],
         })
     }
 
