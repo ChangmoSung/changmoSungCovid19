@@ -18,8 +18,12 @@ class Nav extends Component {
                     <li>
                         <Link to='/changmoSungCovid19/'>HOME</Link>
                     </li>
-                    <li>
 
+                    <li>
+                        <Link to='/changmoSungCovid19/info/selfcheck'>SELF-CHECK</Link>
+                    </li>
+
+                    <li>
                         <Link to='/changmoSungCovid19/info/statistic'>STATISTIC</Link>
                     </li>
 

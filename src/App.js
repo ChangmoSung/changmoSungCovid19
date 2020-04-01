@@ -8,6 +8,7 @@ import Nav from './components/Nav';
 import Header from './components/Header';
 import Statistic from './components/Statistic';
 import News from './components/News';
+import SelfCheck from './components/SelfCheck';
 
 class App extends Component {
   constructor() {
@@ -53,6 +54,10 @@ class App extends Component {
 
             <Route path='/changmoSungCovid19/info/news'>
               <News />
+            </Route>
+
+            <Route path='/changmoSungCovid19/info/selfcheck'>
+              <SelfCheck />
             </Route>
           </main>
         </Route>
