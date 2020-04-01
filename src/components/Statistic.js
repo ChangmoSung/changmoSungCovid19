@@ -32,6 +32,10 @@ class Statistic extends Component {
 
         const searchedCountry = this.state.worldStatus.filter(status => status.country.toLowerCase().includes(country.toLowerCase()));
 
+        if(searchedCountry.length === 0) {
+            alert('There is no matching country');
+        }
+
         this.setState({
             searchedCountry
         })
@@ -42,7 +46,7 @@ class Statistic extends Component {
     render() { 
         return ( 
             <div className='statistic'>
-                <h2>As of {this.props.currentDate}</h2>
+                <h2 className='date'>As of {this.props.currentDate}</h2>
 
                 <ul className='currentStatusList'>
                     <li>Affected countries: {this.state.worldStatus.length}</li>
@@ -54,7 +58,7 @@ class Statistic extends Component {
 
                 <div className='searchFormContainer'>
                     <form onSubmit={this.searchCountry}>
-                        <input ref={this.searchInput} id='country' type='text'></input>
+                        <input ref={this.searchInput} id='country' type='text' required></input>
                         <button>SEARCH</button>
                     </form>
                 </div>
