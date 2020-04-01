@@ -57,7 +57,7 @@ header {
 }
 
 .nav a {
-  font-size: 3.8rem;
+  font-size: 3.2rem;
   text-decoration: none;
   color: black;
 }
@@ -200,14 +200,6 @@ h3 {
   font-size: 1.6rem;
 }
 
-.question1,
-.question2,
-.question3,
-.question4,
-.question5 {
-  display: none;
-}
-
 .selfAssessmentDescription h2 {
   font-size: 3.2rem;
 }
@@ -238,17 +230,123 @@ h3 {
   width: 20rem;
   height: 5rem;
   border-radius: 1rem;
-  /* border: skyblue inset; */
-  box-shadow: 7px 7px skyblue, 0 0 3px 3.5px skyblue;
+  box-shadow: 5px 5px skyblue, 0 0 3px 3.5px skyblue inset;
 }
 
 .selfAssessmentDescription button:hover {
-  top: 3.5px;
-  left: 3.5px;
-  box-shadow: 3.5px 3.5px skyblue, 0 0 3px 3.5px skyblue;
-
+  top: 2.5px;
+  left: 2.5px;
+  box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
 }
 
+.questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 22rem;
+}
+
+.questions h3 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.questions ul {
+  padding: 0;
+  margin: 5rem 0;
+  line-height: 4rem;
+}
+
+.questions li {
+  font-size: 1.9rem;
+}
+
+.questions button,
+.call911 button,
+.consultFamilyDoctor button,
+.selfIsolate button,
+.resultIsSelfIsolate button,
+.noNeedToBeTested button {
+  position: relative;
+  width: 18rem;
+  height: 5rem;
+  margin: 0 7rem;
+  font-size: 2.3rem;
+  text-transform: uppercase;
+  background: white;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 5px 5px skyblue, 0 0 3px 3.5px skyblue inset;
+}
+
+.questions button:hover,
+.call911 button:hover,
+.consultFamilyDoctor button:hover,
+.selfIsolate button:hover,
+.resultIsSelfIsolate button:hover,
+.noNeedToBeTested button:hover {
+  top: 2.5px;
+  left: 2.5px;
+  box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
+}
+
+.call911,
+.consultFamilyDoctor,
+.selfIsolate,
+.resultIsSelfIsolate,
+.noNeedToBeTested {
+  width: 80%;
+  margin: 22rem auto 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultIsSelfIsolate,
+.noNeedToBeTested {
+  margin-top: 17rem;
+}
+
+.call911 h3,
+.consultFamilyDoctor h3,
+.selfIsolate h3,
+.resultIsSelfIsolate h3,
+.noNeedToBeTested h3 {
+  font-size: 6rem;
+  margin: 0;
+}
+
+.call911 h4,
+.consultFamilyDoctor h4,
+.selfIsolate h4,
+.resultIsSelfIsolate h4,
+.noNeedToBeTested h4 {
+ font-size: 3rem;
+ margin: 5rem 0;
+}
+
+.call911 p,
+.consultFamilyDoctor p,
+.selfIsolate p,
+.resultIsSelfIsolate p,
+.noNeedToBeTested p {
+ font-size: 2rem;
+ line-height: 3rem;
+ margin: 0;
+}
+
+.selfIsolate {
+  margin-top: 17rem;
+}
+
+.selfIsolate h3 {
+  margin-bottom: 5rem;
+}
+
+.selfIsolate button {
+  margin-top:  5rem;
+}
 
 @media(max-width: 1120px) {
   h1 {
@@ -261,7 +359,7 @@ h3 {
 
 
   .nav a {
-    font-size: 3.5rem;
+    font-size: 2.9rem;
   }
 
   .news {
@@ -291,9 +389,70 @@ h3 {
   td {
     font-size: 1.6rem;
   }
+
+  .call911,
+  .consultFamilyDoctor,
+  .selfIsolate,
+  .resultIsSelfIsolate,
+  .noNeedToBeTested {
+    width: 100%;
+  }
+
+  .call911 h3,
+  .consultFamilyDoctor h3,
+  .selfIsolate h3,
+  .resultIsSelfIsolate h3,
+  .noNeedToBeTested h3 {
+  font-size: 5.5rem;
+  }
+
+  .call911 h4,
+  .consultFamilyDoctor h4,
+  .selfIsolate h4,
+  .resultIsSelfIsolate h4,
+  .noNeedToBeTested h4 {
+  font-size: 2.7rem;
+  }
+
+  .call911 p,
+  .consultFamilyDoctor p,
+  .selfIsolate p,
+  .resultIsSelfIsolate p,
+  .noNeedToBeTested p {
+  font-size: 1.8rem;
+  }
+
+  .questions {
+    margin-top: 18rem;
+  }
+
+  .questions h3 {
+    font-size: 3.3rem;
+  }
+
+  .questions li {
+    font-size: 1.8rem;
+  }
+
+  .questions button,
+  .call911 button,
+  .consultFamilyDoctor button,
+  .selfIsolate button,
+  .resultIsSelfIsolate button,
+  .noNeedToBeTested button {
+    margin: 0 4rem;
+  }
+
+  .selfIsolate button {
+    margin-top:  5rem;
+  }
 }
 
 @media(max-width: 768px) {
+  .nav a {
+    font-size: 2.7rem;
+  }
+
   .news {
     width: 95%;
   }
@@ -326,6 +485,56 @@ h3 {
   th {
     font-size: 2rem;
   }
+
+  .selfCheck {
+    width: 90%;
+  }
+
+  .call911 h3,
+  .consultFamilyDoctor h3,
+  .selfIsolate h3,
+  .resultIsSelfIsolate h3,
+  .noNeedToBeTested h3 {
+  font-size: 4.8rem;
+  }
+
+  .call911 h4,
+  .consultFamilyDoctor h4,
+  .selfIsolate h4,
+  .resultIsSelfIsolate h4,
+  .noNeedToBeTested h4 {
+  font-size: 2.3rem;
+  }
+
+  .call911 p,
+  .consultFamilyDoctor p,
+  .selfIsolate p,
+  .resultIsSelfIsolate p,
+  .noNeedToBeTested p {
+  font-size: 1.6rem;
+  }
+
+  .questions {
+    margin-top: 15rem;
+  }
+
+  .questions h3 {
+    font-size: 2.8rem;
+  }
+
+  .questions ul {
+    margin: 3rem 0;
+  }
+  
+  .buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .buttonContainer button { 
+    margin: 0;
+  }
 }
 
 @media(max-width: 640px) {
@@ -344,7 +553,7 @@ h3 {
   }
 
   .nav a {
-    font-size: 3rem;
+    font-size: 2.3rem;
   }
   .searchFormContainer form {
     height: 5rem;
@@ -371,6 +580,43 @@ h3 {
   td {
     width: calc(100% / 4);
   }
+
+  .resultIsSelfIsolate,
+  .noNeedToBeTested {
+    margin-top: 14rem;
+  }
+
+  .call911 h3,
+  .consultFamilyDoctor h3,
+  .selfIsolate h3,
+  .resultIsSelfIsolate h3,
+  .noNeedToBeTested h3 {
+  font-size: 4.1rem;
+  }
+
+  .call911 h4,
+  .consultFamilyDoctor h4,
+  .selfIsolate h4,
+  .resultIsSelfIsolate h4,
+  .noNeedToBeTested h4 {
+  font-size: 2.1rem;
+  }
+
+  .call911 p,
+  .consultFamilyDoctor p,
+  .selfIsolate p,
+  .resultIsSelfIsolate p,
+  .noNeedToBeTested p {
+  font-size: 1.5rem;
+  }
+
+  .buttonContainer {
+    justify-content: space-between;
+  }
+
+  .buttonContainer button {
+    width: 16rem;
+  }
 }
 
 @media(max-width: 430px) {
@@ -385,7 +631,7 @@ h3 {
   }
 
   .nav a {
-    font-size: 2.7rem;
+    font-size: 2.1rem;
   }
 
   .newsList li {
@@ -410,5 +656,75 @@ h3 {
 
   td {
     font-size: 1.45rem;
+  }
+
+  .resultIsSelfIsolate,
+  .noNeedToBeTested {
+    margin-top: 0;
+  }
+
+  .call911 h3,
+  .consultFamilyDoctor h3,
+  .selfIsolate h3,
+  .resultIsSelfIsolate h3,
+  .noNeedToBeTested h3 {
+  font-size: 3.5rem;
+  }
+
+  .call911 h4,
+  .consultFamilyDoctor h4,
+  .selfIsolate h4,
+  .resultIsSelfIsolate h4,
+  .noNeedToBeTested h4 {
+  font-size: 1.9rem;
+  }
+
+  .questions {
+    margin-top: 0;
+  }
+
+  .questions h3 {
+    font-size: 2.5rem;
+  }
+
+  .call911 h4,
+  .consultFamilyDoctor h4,
+  .selfIsolate h4,
+  .resultIsSelfIsolate h4,
+  .noNeedToBeTested h4 {
+    margin: 3rem 0;
+  }
+
+  .questions li {
+    font-size: 1.6rem;
+  }
+
+  .buttonContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttonContainer button {
+    width: 65%;
+    margin-bottom: 3rem;
+  }
+}
+
+@media(max-width: 375px) {
+  .nav a {
+    font-size: 1.9rem;  
+  }
+
+  .questions h3 {
+    font-size: 2.7rem;
+  }
+
+  .questions li {
+    font-size: 1.5rem;
+  }
+
+  .questions button {
+    height: 4.7rem;
+    width: 60%;
   }
 }
