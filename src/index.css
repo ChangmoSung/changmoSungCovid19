@@ -202,21 +202,22 @@ h3 {
 
 .selfAssessmentDescription h2 {
   font-size: 3.2rem;
+  margin: 0 0 2rem;
 }
 
 .selfAssessmentDescription h3 {
   font-size: 2.3rem;
-  margin: 2rem 0 0;
+  margin: 3rem 0 0;
 }
 
 .selfAssessmentDescription p {
   font-size: 1.6rem;
   line-height: 2.6rem;
-  margin: 0;
+  margin: 1rem 0 0;
 }
 
 .selfAssessmentDescription p:nth-of-type(4) {
-  margin: 3rem 0 2rem;
+  margin: 3rem 0;
 }
 
 .selfAssessmentDescription li {
@@ -256,11 +257,11 @@ h3 {
 .questions ul {
   padding: 0;
   margin: 5rem 0;
-  line-height: 4rem;
 }
 
 .questions li {
   font-size: 1.9rem;
+  margin-bottom: 2rem;
 }
 
 .questions button,
@@ -290,6 +291,15 @@ h3 {
   top: 2.5px;
   left: 2.5px;
   box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
+}
+
+.buttonContainer {
+  margin-bottom: 5rem;
+}
+
+button.return {
+  width: 42rem;
+  height: 5.5rem;
 }
 
 .call911,
@@ -326,7 +336,7 @@ h3 {
 .resultIsSelfIsolate h4,
 .noNeedToBeTested h4 {
  font-size: 3.8rem;
- margin: 5rem 0;
+ margin: 4rem 0;
 }
 
 .call911 p,
@@ -424,7 +434,7 @@ h3 {
   .selfIsolate h4,
   .resultIsSelfIsolate h4,
   .noNeedToBeTested h4 {
-  font-size: 3rem;
+    font-size: 3rem;
   }
 
   .call911 p,
@@ -626,7 +636,7 @@ h3 {
   .selfIsolate h3,
   .resultIsSelfIsolate h3,
   .noNeedToBeTested h3 {
-  font-size: 4.1rem;
+    font-size: 4.1rem;
   }
 
   .call911 h4,
@@ -646,11 +656,16 @@ h3 {
   }
 
   .buttonContainer {
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .buttonContainer button {
     width: 16rem;
+  }
+
+  button.return {
+    width: 40rem;
+    margin: 0;
   }
 }
 
@@ -732,7 +747,7 @@ h3 {
   .resultIsSelfIsolate h4,
   .noNeedToBeTested h4 {
     font-size: 2.1rem;
-    margin: 3rem 0;
+    margin: 2.5rem 0;
   }
 
   .questions {
@@ -754,7 +769,16 @@ h3 {
 
   .buttonContainer button {
     width: 65%;
+    font-size: 2rem;
+  }
+
+  .buttonContainer button:first-child {
     margin-bottom: 3rem;
+  }
+
+  button.return {
+    font-size: 2rem;
+    width: 34rem;
   }
 }
 
@@ -776,8 +800,14 @@ h3 {
     font-size: 1.5rem;
   }
 
-  .questions button {
+  .buttonContainer button {
     height: 4.7rem;
     width: 60%;
+  }
+
+  button.return {
+    font-size: 1.8rem;
+    width: 90%;
+    padding: 2%;
   }
 }

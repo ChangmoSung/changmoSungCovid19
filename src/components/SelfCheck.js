@@ -15,16 +15,14 @@ class SelfCheck extends Component {
                     example3: 'Having a very hard time waking up',
                     example4: 'Feeling confused',
                     example5: 'Losing consciousness',
-                    yes: this.call911,
-                    no: this.showNextQuestion,
+                    function: this.call911,
                 },
                 {
                     question: 'Are you experiencing any of the following:',
                     example1: 'Mild to moderate shortness of breath',
                     example2: 'Inability to lie down because of difficulty breathing',
                     example3: 'Chronic health conditions that you are having difficulty managing because of difficulty breathing',
-                    yes: this.consultFamilyDoctor,
-                    no: this.showNextQuestion,
+                    function: this.consultFamilyDoctor,
                 },
                 {
                     question: 'Are you experiencing any of the following:',
@@ -32,23 +30,19 @@ class SelfCheck extends Component {
                     example2: 'Cough',
                     example3: 'Sneezing',
                     example4: 'Sore throat',
-                    yes: this.selfIsolate,
-                    no: this.showNextQuestion,
+                    function: this.selfIsolate,
                 },
                 {
                     question: 'Have you travelled abroad within the last 14 days?',
-                    yes: this.resultIsSelfIsolate,
-                    no: this.showNextQuestion,
+                    function: this.resultIsSelfIsolate,
                 },
                 {
                     question: 'Did you provide care or have close contact with a person with COVID-19 (probable or confirmed) while they were ill (cough, fever, sneezing, or sore throat)?',
-                    yes: this.resultIsSelfIsolate,
-                    no: this.showNextQuestion,
+                    function: this.resultIsSelfIsolate,
                 },
                 {
                     question: 'Did you have close contact with a person who travelled outside of Canada in the last 14 days who has become ill (cough, fever, sneezing, or sore throat)?',
-                    yes: this.resultIsSelfIsolate,
-                    no: this.showNextQuestion,
+                    function: this.resultIsSelfIsolate,
                 }
             ],
             call911: false,
@@ -67,34 +61,42 @@ class SelfCheck extends Component {
     }
 
 
-    showNextQuestion = (e) => {
+    returnToPreviousQuestion = () => {
+        if(this.state.questionNumber > 0) {
+            this.setState({
+                questionNumber: this.state.questionNumber - 1,
+            })
+        }
+    }
+
+
+    call911 = (answer) => {
         this.setState({
+            call911: answer,
             questionNumber: this.state.questionNumber + 1,
         })
     }
 
-    call911 = (e) => {
+
+    consultFamilyDoctor = (answer) => {
         this.setState({
-            call911: true,
+            consultFamilyDoctor: answer,
+            questionNumber: this.state.questionNumber + 1,
+
         })
     }
 
 
-    consultFamilyDoctor = (e) => {
+    selfIsolate = (answer) => {
         this.setState({
-            consultFamilyDoctor: true,
+            selfIsolate: answer,
+            resultIsSelfIsolate: answer,
+            questionNumber: parseInt(`${answer ? this.state.questionNumber : this.state.questionNumber + 1}`),
         })
     }
 
 
-    selfIsolate = (e) => {
-        this.setState({
-            selfIsolate: true,
-            resultIsSelfIsolate: true,
-        })
-    }
-
-    selfIsolateConfirmed = (e) => {
+    selfIsolateConfirmed = () => {
         this.setState({
             selfIsolate: false,
             questionNumber: this.state.questionNumber + 1,
@@ -102,9 +104,9 @@ class SelfCheck extends Component {
     }
 
 
-    resultIsSelfIsolate = (e) => {
+    resultIsSelfIsolate = (answer) => {
         this.setState({
-            resultIsSelfIsolate: true,
+            resultIsSelfIsolate: answer,
             questionNumber: this.state.questionNumber + 1,
         })
     }
@@ -166,10 +168,12 @@ class SelfCheck extends Component {
                     </ul>
 
                     <div className='buttonContainer'>
-                        <button onClick={this.state.questions[this.state.questionNumber].yes}>yes</button>
+                        <button onClick={() => this.state.questions[this.state.questionNumber].function(true)}>yes</button>
 
-                        <button onClick={this.state.questions[this.state.questionNumber].no}>no</button>
+                        <button onClick={() => this.state.questions[this.state.questionNumber].function(false)}>no</button>
                     </div>
+
+                    <button className='return' onClick={this.returnToPreviousQuestion}>Return to previous question</button>
                 </div>
                 : null}
 
