@@ -6,6 +6,8 @@ import {
 import axios from 'axios';
 import Nav from './components/Nav';
 import Header from './components/Header';
+import AboutCovid from './components/AboutCovid';
+import SelfCare from './components/SelfCare';
 import Statistic from './components/Statistic';
 import News from './components/News';
 import SelfCheck from './components/SelfCheck';
@@ -48,6 +50,14 @@ class App extends Component {
 
         <Route path='/changmoSungCovid19/info/' >
           <main>
+            <Route path='/changmoSungCovid19/info/aboutCovid19'>
+              <AboutCovid />
+            </Route>
+
+            <Route path='/changmoSungCovid19/info/selfCare'>
+              <SelfCare />
+            </Route>
+
             <Route path='/changmoSungCovid19/info/statistic'>
               <Statistic currentDate={this.state.currentDate} currentStatus={this.state.currentStatus} />
             </Route>
