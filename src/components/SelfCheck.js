@@ -6,6 +6,7 @@ class SelfCheck extends Component {
 
         this.state = {
             assessmentStarted: false,
+            questionNumber: 0,
             questions: [
                 {
                     question: 'Are you experiencing any of the following:',
@@ -14,6 +15,7 @@ class SelfCheck extends Component {
                     example3: 'Having a very hard time waking up',
                     example4: 'Feeling confused',
                     example5: 'Losing consciousness',
+                    yes: this.call911,
                     no: this.showNextQuestion,
                 },
                 {
@@ -21,6 +23,7 @@ class SelfCheck extends Component {
                     example1: 'Mild to moderate shortness of breath',
                     example2: 'Inability to lie down because of difficulty breathing',
                     example3: 'Chronic health conditions that you are having difficulty managing because of difficulty breathing',
+                    yes: this.consultFamilyDoctor,
                     no: this.showNextQuestion,
                 },
                 {
@@ -29,21 +32,30 @@ class SelfCheck extends Component {
                     example2: 'Cough',
                     example3: 'Sneezing',
                     example4: 'Sore throat',
+                    yes: this.selfIsolate,
                     no: this.showNextQuestion,
                 },
                 {
                     question: 'Have you travelled abroad within the last 14 days?',
+                    yes: this.resultIsSelfIsolate,
                     no: this.showNextQuestion,
                 },
                 {
                     question: 'Did you provide care or have close contact with a person with COVID-19 (probable or confirmed) while they were ill (cough, fever, sneezing, or sore throat)?',
+                    yes: this.resultIsSelfIsolate,
                     no: this.showNextQuestion,
                 },
                 {
                     question: 'Did you have close contact with a person who travelled outside of Canada in the last 14 days who has become ill (cough, fever, sneezing, or sore throat)?',
+                    yes: this.resultIsSelfIsolate,
                     no: this.showNextQuestion,
                 }
-            ]
+            ],
+            call911: false,
+            consultFamilyDoctor: false,
+            selfIsolate: false,
+            travelledAbroad: false,
+            resultIsSelfIsolate: false,
         }
     }
 
@@ -53,16 +65,61 @@ class SelfCheck extends Component {
         })
     }
 
-    showNextQuestion = (e) => {
-        const yes = e.target;
 
-        const question = document.querySelector(`${yes.dataset.currentquestion}`)
+    showNextQuestion = (e) => {
+        this.setState({
+            questionNumber: this.state.questionNumber + 1,
+            selfIsolate: false,
+        },() => console.log(this.state.questionNumber))
+
+        this.nextQuestion(e.target);
+    }
+
+
+    nextQuestion = (trigger) => {
+        const triggerToNextQuestion = trigger;
+
+        const question = document.querySelector(`${triggerToNextQuestion.dataset.currentquestion}`)
 
         if (question) {
             question.style.display = 'block';
-
         }
     }
+
+
+    call911 = () => {
+        this.setState({
+            call911: true,
+            questionNumber: this.state.questionNumber + 1,
+        })
+    }
+
+
+    consultFamilyDoctor = () => {
+        this.setState({
+            consultFamilyDoctor: true,
+            questionNumber: this.state.questionNumber + 1,
+        })
+    }
+
+
+    selfIsolate = (e) => {
+        this.setState({
+            selfIsolate: true,
+            questionNumber: this.state.questionNumber + 1,
+        })
+        this.nextQuestion(e.target);
+    }
+
+
+    resultIsSelfIsolate = (e) => {
+        this.setState({
+            resultIsSelfIsolate: true,
+            questionNumber: this.state.questionNumber + 1,
+        })
+        this.nextQuestion(e.target);
+    }
+
 
     render() { 
         return ( 
@@ -104,7 +161,7 @@ class SelfCheck extends Component {
                 :null}
 
 
-                {this.state.assessmentStarted 
+                {this.state.assessmentStarted && this.state.questionNumber < 6
                 ? 
                 this.state.questions.map((question, i) => {
                     return (
@@ -124,7 +181,7 @@ class SelfCheck extends Component {
                             </ul>
 
                             <div>
-                                <button>yes</button>
+                                <button data-currentquestion={`.question${i + 1}`} onClick={question.yes}>yes</button>
                                 
                                 <button data-currentquestion={`.question${i + 1}`} onClick={question.no}>no</button>
                             </div>
@@ -132,6 +189,77 @@ class SelfCheck extends Component {
                     )
                 })
                 : null}
+
+
+                {this.state.call911
+                ?
+                <div className='call911'>
+                    <h3>Our recommendation</h3>
+
+                    <h4>Please call 9-1-1 or go directly to your nearest emergency department.</h4>
+
+                    <p>These symptoms require immediate attention. You should call 9-1-1 immediately, or go directly to your nearest emergency department.</p>
+                </div>
+                : null}
+
+                {this.state.consultFamilyDoctor
+                ? 
+                    <div className='consultFamilyDoctor'>
+                        <h3>Our recommendation</h3>
+
+                        <h4>Please consult your family doctor. If you are unable to reach your regular health care provider, call 8-1-1 to speak with HealthLink BC.</h4>
+
+                        <p>A nurse at HealthLink BC can speak with you about your symptoms and provide health advice.</p>
+                    </div>
+                : null}
+
+
+                {this.state.selfIsolate
+                ?
+                    <div className='selfIsolate'>
+                        <h3>Please stay at home.</h3>
+
+                        <p>As a precaution, the Ministry of Health is asking anyone with symptoms (fever, coughm sneezing, or sore throat) to stay home for 10 days.</p>
+
+                        <p>If your symptoms worsen, call your family physician. If you are unable to reach your regular health care provider, call 8-1-1 to speak with HealthLink BC.</p>
+
+                        <h4>Your self-assessment is not complete.</h4>
+                        <p>Finish the remaining questions to obtain complete recommendations on what steps you should take.</p>
+
+                        <button onClick={this.showNextQuestion} data-currentquestion='.question3'>Continue</button>
+                    </div>
+                : null}
+
+
+                {this.state.questionNumber === 6 && this.state.resultIsSelfIsolate 
+                ? 
+                    <div className='resultIsSelfIsolate'>
+                        <h3>Our recommendation</h3>
+
+                        <h4>Please self-isolate for 14 days. You do not need testing for COVID-19.</h4>
+
+                        <p>Since you don't have symptoms, you do not need testing for COVID-19 at this time. However, there's a chance you could get sick. You should self-monitor for any symptoms (fever, cough, sneezing, sore throat, or difficulty breathing). If you begin to develop these, you should take this self-assessment again.</p>
+                        
+                        <p>If you are a health care worker, follow the advice of your employer. If you need more information, go to <a>BCCDC's COVID-19 website</a></p>
+
+                        <p>If you are experiencing symptoms other than COVID-19, contact your family physician. If you are unable to reach your regular health care provider, call 8-1-1 to speak with HealthLink BC, or visit the <a>HealthLinkBC's Symptom Checker</a></p>
+                    </div>
+                : null}
+
+                {this.state.questionNumber === 6 && !this.state.resultIsSelfIsolate
+                ? 
+                    <div className='noNeedToBeTested'>
+                        <h3>Our recommendation</h3>
+
+                        <h4>Since you don't have any COVID-19 symptoms, you don't need to be tested for COVID-19.</h4>
+
+                        <p>Please self-monitor, wash your hands frequently, and practice physical distancing.If you develop any symptoms (fever, cough, sneezing, sore throat, or difficulty breathing), or become aware of any potential exposures to cases of COVID-19, take this self-assessment again.</p>
+
+                        <p>If you are experiencing symptoms other than COVID-19, contact your family physician. If you are unable to reach your regular health care provider, call 8-1-1 to speak with HealthLink BC, or visit the <a>healthLinkBC's Symptom Checker</a></p>
+
+                    </div>
+                : null}
+
             </div>
          );
     }
