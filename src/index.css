@@ -64,7 +64,7 @@ header {
 
 h1 {
   font-size: 7rem;
-  margin: 0 0 3rem;
+  margin: 0;
   width: 90%;
   text-align: center;
 }
@@ -206,25 +206,27 @@ h3 {
 
 .selfAssessmentDescription h3 {
   font-size: 2.3rem;
-}
-
-.selfAssessmentDescription h4 {
-  font-size: 2rem;
+  margin: 2rem 0 0;
 }
 
 .selfAssessmentDescription p {
   font-size: 1.6rem;
   line-height: 2.6rem;
+  margin: 0;
+}
+
+.selfAssessmentDescription p:nth-of-type(4) {
+  margin: 3rem 0 2rem;
 }
 
 .selfAssessmentDescription li {
   font-size: 1.6rem;
+  line-height: 2.6rem;
 }
 
 .selfAssessmentDescription button {
   position: relative;
   font-size: 2.3rem;
-  margin: 0 auto;
   background: white;
   border: none;
   width: 20rem;
@@ -501,6 +503,19 @@ h3 {
     width: 90%;
   }
 
+  .selfAssessmentDescription h2 {
+    font-size: 2.9rem;
+  }
+
+  .selfAssessmentDescription h3 {
+    font-size: 2rem;
+  }
+
+  .selfAssessmentDescription p,
+  .selfAssessmentDescription li {
+    font-size: 1.5rem;
+  }
+
   .call911,
   .consultFamilyDoctor,
   .selfIsolate {
@@ -687,6 +702,20 @@ h3 {
   .call911,
   .consultFamilyDoctor {
     margin-top: 16rem;
+  }
+
+  .selfAssessmentDescription h2 {
+    font-size: 2.7rem;
+  }
+
+  .selfAssessmentDescription h3 {
+    font-size: 1.8rem;
+  }
+
+  .selfAssessmentDescription p,
+  .selfAssessmentDescription li {
+    font-size: 1.4rem;
+    line-height: 2.3rem;
   }
 
   .call911 h3,

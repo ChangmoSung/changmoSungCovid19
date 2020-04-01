@@ -24,7 +24,7 @@ class App extends Component {
     const year = now.getFullYear();
     const month = now.getMonth();
     const date = now.getDate();
-    const currentDate = `${year}-${month > 9 ? `${month + 1}` : `0${month + 1}`}-${date}`;
+    const currentDate = `${year}-${month > 9 ? `${month + 1}` : `0${month + 1}`}-${date > 9 ? `${date}` : `0${date}`}`;
 
     axios({
       url: `https://corona.lmao.ninja/all`,
@@ -43,7 +43,7 @@ class App extends Component {
         <Nav />
         
         <Route path='/changmoSungCovid19/' exact >
-          <Header currentStatus={this.state.currentStatus} />
+          <Header currentDate={this.state.currentDate} currentStatus={this.state.currentStatus} />
         </Route>
 
         <Route path='/changmoSungCovid19/info/' >

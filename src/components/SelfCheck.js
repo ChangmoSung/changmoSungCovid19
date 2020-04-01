@@ -118,13 +118,11 @@ class SelfCheck extends Component {
                 <div className='selfAssessmentDescription'>
                     <h2>COVID-19 Self-Check</h2>
 
-                    <p>This self-assessment tool, developed with the BC Ministry of Health, will help determine whether you may need further assessment or testing for COVID-19. You can complete this assessment for yourself, or on behalf of someone else</p>
-
-                    <p>If you have respiratory symptoms and a serious ongoing condition, or are in the third trimester of pregnancy, please follow the advice of your specialist.</p>
+                    <p>This self-assessment tool, developed with the BC Ministry of Health, will help determine whether you may need further assessment or testing for COVID-19. You can complete this assessment for yourself, or on behalf of someone else. If you have respiratory symptoms and a serious ongoing condition, or are in the third trimester of pregnancy, please follow the advice of your specialist.</p>
 
                     <h3>Most people do not need to be tested for COVID-19 because it will not change your care.</h3>
 
-                    <h4>People who do not need to be tested for COVID-19 includes:</h4>
+                    <p>People who do not need to be tested for COVID-19 includes:</p>
 
                     <ul>
                         <li>People without symptoms</li>
@@ -134,7 +132,7 @@ class SelfCheck extends Component {
 
                     <h3>Who should be tested for COVID-19?</h3>
 
-                    <h4>People with respiratory symptoms who may require testing for COVID-19 include people who are:</h4>
+                    <p>People with respiratory symptoms who may require testing for COVID-19 include people who are:</p>
 
                     <ul>
                         <li>Hospitalized, or likely to be hospitalized</li>
@@ -143,7 +141,7 @@ class SelfCheck extends Component {
                         <li>Part of an investigation of a cluster or outbreak</li>
                     </ul>
 
-                    <h3>Anyone who has symptoms - including a fever, cough, sneezing, or sore throat - should self-isolate for 10 days. Continue to complete this assessment to determine if you may need care.</h3>
+                    <p>Anyone who has symptoms - including a fever, cough, sneezing, or sore throat - should self-isolate for 10 days. Continue to complete this assessment to determine if you may need care.</p>
 
                     <button onClick={this.startAssessment}>Self-Check</button>
                 </div>
