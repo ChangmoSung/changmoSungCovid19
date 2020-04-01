@@ -1,0 +1,33 @@
+.aboutCovid {
+    margin: 12rem auto 5rem;
+    width: 80%;
+
+    h2 {
+        font-size: 4.5rem;
+    }
+
+    h3 {
+        font-size: 3.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    ul {
+        font-size:1.6rem; 
+
+        li {
+            margin-bottom: 1rem;
+        }
+    }
+
+    p {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+        margin: 1rem 0;
+    }
+
+    button {
+        @include button;
+        width: 25rem;
+        margin: 4rem 0 0;
+    }
+}
