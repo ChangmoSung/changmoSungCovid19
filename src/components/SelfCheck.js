@@ -59,6 +59,7 @@ class SelfCheck extends Component {
         }
     }
 
+
     startAssessment = () => {
         this.setState({
             assessmentStarted: true,
@@ -69,36 +70,19 @@ class SelfCheck extends Component {
     showNextQuestion = (e) => {
         this.setState({
             questionNumber: this.state.questionNumber + 1,
-            selfIsolate: false,
-        },() => console.log(this.state.questionNumber))
-
-        this.nextQuestion(e.target);
+        })
     }
 
-
-    nextQuestion = (trigger) => {
-        const triggerToNextQuestion = trigger;
-
-        const question = document.querySelector(`${triggerToNextQuestion.dataset.currentquestion}`)
-
-        if (question) {
-            question.style.display = 'block';
-        }
-    }
-
-
-    call911 = () => {
+    call911 = (e) => {
         this.setState({
             call911: true,
-            questionNumber: this.state.questionNumber + 1,
         })
     }
 
 
-    consultFamilyDoctor = () => {
+    consultFamilyDoctor = (e) => {
         this.setState({
             consultFamilyDoctor: true,
-            questionNumber: this.state.questionNumber + 1,
         })
     }
 
@@ -106,9 +90,15 @@ class SelfCheck extends Component {
     selfIsolate = (e) => {
         this.setState({
             selfIsolate: true,
+            resultIsSelfIsolate: true,
+        })
+    }
+
+    selfIsolateConfirmed = (e) => {
+        this.setState({
+            selfIsolate: false,
             questionNumber: this.state.questionNumber + 1,
         })
-        this.nextQuestion(e.target);
     }
 
 
@@ -117,7 +107,6 @@ class SelfCheck extends Component {
             resultIsSelfIsolate: true,
             questionNumber: this.state.questionNumber + 1,
         })
-        this.nextQuestion(e.target);
     }
 
 
@@ -126,8 +115,8 @@ class SelfCheck extends Component {
             <div className='selfCheck'>
                 {!this.state.assessmentStarted 
                 ? 
-                <div>
-                    <h2 className='selfcheckTitle'>COVID-19 Self-Check</h2>
+                <div className='selfAssessmentDescription'>
+                    <h2>COVID-19 Self-Check</h2>
 
                     <p>This self-assessment tool, developed with the BC Ministry of Health, will help determine whether you may need further assessment or testing for COVID-19. You can complete this assessment for yourself, or on behalf of someone else</p>
 
@@ -161,33 +150,29 @@ class SelfCheck extends Component {
                 :null}
 
 
-                {this.state.assessmentStarted && this.state.questionNumber < 6
+                {this.state.assessmentStarted && this.state.questionNumber < 6 && !this.state.call911 && !this.state.consultFamilyDoctor && !this.state.selfIsolate 
                 ? 
-                this.state.questions.map((question, i) => {
-                    return (
-                        <div key={i} className={`question${i}`}>
-                            <h3>{question.question}</h3>
+                <div className='questions'>
+                    <h3>{this.state.questions[this.state.questionNumber].question}</h3>
 
-                            <ul>
-                                {question.example1 ? <li>{question.example1}</li> : null}
+                    <ul>
+                        {this.state.questions[this.state.questionNumber].example1 ? <li>{this.state.questions[this.state.questionNumber].example1}</li> : null}
 
-                                {question.example2 ? <li>{question.example2}</li> : null}
+                        {this.state.questions[this.state.questionNumber].example2 ? <li>{this.state.questions[this.state.questionNumber].example2}</li> : null}
 
-                                {question.example3 ? <li>{question.example3}</li> : null}
+                        {this.state.questions[this.state.questionNumber].example3 ? <li>{this.state.questions[this.state.questionNumber].example3}</li> : null}
 
-                                {question.example4 ? <li>{question.example4}</li> : null}
+                        {this.state.questions[this.state.questionNumber].example4 ? <li>{this.state.questions[this.state.questionNumber].example4}</li> : null}
 
-                                {question.example5 ? <li>{question.example5}</li> : null}
-                            </ul>
+                        {this.state.questions[this.state.questionNumber].example5 ? <li>{this.state.questions[this.state.questionNumber].example5}</li> : null}
+                    </ul>
 
-                            <div>
-                                <button data-currentquestion={`.question${i + 1}`} onClick={question.yes}>yes</button>
-                                
-                                <button data-currentquestion={`.question${i + 1}`} onClick={question.no}>no</button>
-                            </div>
-                        </div>
-                    )
-                })
+                    <div className='buttonContainer'>
+                        <button onClick={this.state.questions[this.state.questionNumber].yes}>yes</button>
+
+                        <button onClick={this.state.questions[this.state.questionNumber].no}>no</button>
+                    </div>
+                </div>
                 : null}
 
 
@@ -201,6 +186,7 @@ class SelfCheck extends Component {
                     <p>These symptoms require immediate attention. You should call 9-1-1 immediately, or go directly to your nearest emergency department.</p>
                 </div>
                 : null}
+
 
                 {this.state.consultFamilyDoctor
                 ? 
@@ -226,7 +212,7 @@ class SelfCheck extends Component {
                         <h4>Your self-assessment is not complete.</h4>
                         <p>Finish the remaining questions to obtain complete recommendations on what steps you should take.</p>
 
-                        <button onClick={this.showNextQuestion} data-currentquestion='.question3'>Continue</button>
+                        <button onClick={this.selfIsolateConfirmed} data-question='2' data-currentquestion='.question3'>Continue</button>
                     </div>
                 : null}
 
@@ -259,7 +245,6 @@ class SelfCheck extends Component {
 
                     </div>
                 : null}
-
             </div>
          );
     }
