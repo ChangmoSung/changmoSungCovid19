@@ -76,8 +76,9 @@ h1 {
 }
 
 .statistic,
-.news {
-  margin: 10rem auto 5rem;
+.news,
+.selfCheck {
+  margin: 12rem auto 5rem;
   width: 80%;
 }
 
@@ -205,6 +206,47 @@ h3 {
 .question4,
 .question5 {
   display: none;
+}
+
+.selfAssessmentDescription h2 {
+  font-size: 3.2rem;
+}
+
+.selfAssessmentDescription h3 {
+  font-size: 2.3rem;
+}
+
+.selfAssessmentDescription h4 {
+  font-size: 2rem;
+}
+
+.selfAssessmentDescription p {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+.selfAssessmentDescription li {
+  font-size: 1.6rem;
+}
+
+.selfAssessmentDescription button {
+  position: relative;
+  font-size: 2.3rem;
+  margin: 0 auto;
+  background: white;
+  border: none;
+  width: 20rem;
+  height: 5rem;
+  border-radius: 1rem;
+  /* border: skyblue inset; */
+  box-shadow: 7px 7px skyblue, 0 0 3px 3.5px skyblue;
+}
+
+.selfAssessmentDescription button:hover {
+  top: 3.5px;
+  left: 3.5px;
+  box-shadow: 3.5px 3.5px skyblue, 0 0 3px 3.5px skyblue;
+
 }
 
 

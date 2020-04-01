@@ -7,6 +7,7 @@ class SelfCheck extends Component {
         this.state = {
             assessmentStarted: false,
             questionNumber: 0,
+            questionNumberChecker: 0,
             questions: [
                 {
                     question: 'Are you experiencing any of the following:',
@@ -59,6 +60,7 @@ class SelfCheck extends Component {
         }
     }
 
+    
     startAssessment = () => {
         this.setState({
             assessmentStarted: true,
@@ -67,12 +69,14 @@ class SelfCheck extends Component {
 
 
     showNextQuestion = (e) => {
-        this.setState({
-            questionNumber: this.state.questionNumber + 1,
-            selfIsolate: false,
-        },() => console.log(this.state.questionNumber))
-
-        this.nextQuestion(e.target);
+        if(this.state.questionNumber === parseInt(e.target.dataset.question, 10)) {
+            this.setState({
+                questionNumber: this.state.questionNumber + 1,
+                selfIsolate: false,
+            })
+    
+            this.nextQuestion(e.target);
+        }
     }
 
 
@@ -84,40 +88,59 @@ class SelfCheck extends Component {
         if (question) {
             question.style.display = 'block';
         }
+
+        if(this.state.selfIsolate) {
+            this.setState({
+                selfIsolate: false,
+            })
+        }
     }
 
 
-    call911 = () => {
+    call911 = (e) => {
         this.setState({
             call911: true,
+            selfIsolate: false,
             questionNumber: this.state.questionNumber + 1,
         })
     }
 
 
-    consultFamilyDoctor = () => {
+    consultFamilyDoctor = (e) => {
         this.setState({
             consultFamilyDoctor: true,
+            selfIsolate: false,
             questionNumber: this.state.questionNumber + 1,
         })
     }
 
 
-    selfIsolate = (e) => {
+    selfIsolate = () => {
         this.setState({
             selfIsolate: true,
-            questionNumber: this.state.questionNumber + 1,
         })
-        this.nextQuestion(e.target);
+    }
+
+    selfIsolateConfirmed = (e) => {
+        if (this.state.questionNumber === parseInt(e.target.dataset.question)) {
+            this.setState({
+                selfIsolate: false,
+                questionNumber: this.state.questionNumber + 1,
+            })
+            this.nextQuestion(e.target);
+        }
     }
 
 
     resultIsSelfIsolate = (e) => {
-        this.setState({
-            resultIsSelfIsolate: true,
-            questionNumber: this.state.questionNumber + 1,
-        })
-        this.nextQuestion(e.target);
+        if(this.state.questionNumber === parseInt(e.target.dataset.question)) {
+            this.setState({
+                resultIsSelfIsolate: true,
+                selfIsolate: false,
+                questionNumber: this.state.questionNumber + 1,
+            })
+            this.nextQuestion(e.target);
+        }
     }
 
 
@@ -126,8 +149,8 @@ class SelfCheck extends Component {
             <div className='selfCheck'>
                 {!this.state.assessmentStarted 
                 ? 
-                <div>
-                    <h2 className='selfcheckTitle'>COVID-19 Self-Check</h2>
+                <div className='selfAssessmentDescription'>
+                    <h2>COVID-19 Self-Check</h2>
 
                     <p>This self-assessment tool, developed with the BC Ministry of Health, will help determine whether you may need further assessment or testing for COVID-19. You can complete this assessment for yourself, or on behalf of someone else</p>
 
@@ -161,7 +184,7 @@ class SelfCheck extends Component {
                 :null}
 
 
-                {this.state.assessmentStarted && this.state.questionNumber < 6
+                {this.state.assessmentStarted && this.state.questionNumber < 6 && !this.state.call911 && !this.state.consultFamilyDoctor
                 ? 
                 this.state.questions.map((question, i) => {
                     return (
@@ -181,9 +204,9 @@ class SelfCheck extends Component {
                             </ul>
 
                             <div>
-                                <button data-currentquestion={`.question${i + 1}`} onClick={question.yes}>yes</button>
+                                <button data-question={i} data-currentquestion={`.question${i + 1}`} onClick={question.yes}>yes</button>
                                 
-                                <button data-currentquestion={`.question${i + 1}`} onClick={question.no}>no</button>
+                                <button data-question={i} data-currentquestion={`.question${i + 1}`} onClick={question.no}>no</button>
                             </div>
                         </div>
                     )
@@ -226,7 +249,7 @@ class SelfCheck extends Component {
                         <h4>Your self-assessment is not complete.</h4>
                         <p>Finish the remaining questions to obtain complete recommendations on what steps you should take.</p>
 
-                        <button onClick={this.showNextQuestion} data-currentquestion='.question3'>Continue</button>
+                        <button onClick={this.selfIsolateConfirmed} data-question='2' data-currentquestion='.question3'>Continue</button>
                     </div>
                 : null}
 
