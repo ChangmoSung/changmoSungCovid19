@@ -1,0 +1,77 @@
+.selfCheck {
+    margin: 12rem auto 5rem;
+    width: 80%;
+
+    @include mq768 {
+        width: 90%;
+    }
+
+    .selfAssessmentDescription {
+
+        h2 {
+            font-size: 3.2rem;
+            margin: 0 0 2rem;
+
+            @include mq768 {
+                font-size: 2.9rem;
+            }
+
+            @include mq430 {
+                font-size: 2.7rem;
+            }
+        }
+
+        h3 {
+            font-size: 2.3rem;
+            margin: 3rem 0 0;
+
+            @include mq768 {
+                font-size: 2rem;
+            }
+
+            @include mq430 {
+                font-size: 1.8rem;
+            }
+        }
+
+        li,
+        p {
+            font-size: 1.6rem;
+            line-height: 2.6rem;
+
+            @include mq768 {
+                font-size: 1.5rem;
+            }
+
+            @include mq430 {
+                font-size: 1.4rem;
+                line-height: 2.3rem;
+            }
+        }
+
+        p {
+            margin: 1rem 0 0;
+        }
+
+        p:nth-of-type(4) {
+            margin: 3rem 0;
+        }
+
+        button {
+            position: relative;
+            font-size: 2.3rem;
+            background: white;
+            border: none;
+            width: 20rem;
+            height: 5rem;
+            border-radius: 1rem;
+            box-shadow: 5px 5px skyblue, 0 0 3px 3.5px skyblue inset;
+
+            &:hover {
+                top: 2.5px;
+                left: 2.5px;
+                box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
+            }
+        }
+    }
+}

@@ -4,10 +4,10 @@ import {
   Route,
 } from 'react-router-dom';
 import axios from 'axios';
+import './styles/style.css';
 import Nav from './components/Nav';
 import Header from './components/Header';
 import AboutCovid from './components/AboutCovid';
-import SelfCare from './components/SelfCare';
 import Statistic from './components/Statistic';
 import News from './components/News';
 import SelfCheck from './components/SelfCheck';
@@ -52,10 +52,6 @@ class App extends Component {
           <main>
             <Route path='/changmoSungCovid19/info/aboutCovid19'>
               <AboutCovid />
-            </Route>
-
-            <Route path='/changmoSungCovid19/info/selfCare'>
-              <SelfCare />
             </Route>
 
             <Route path='/changmoSungCovid19/info/statistic'>

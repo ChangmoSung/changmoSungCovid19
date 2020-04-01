@@ -1,0 +1,36 @@
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 7rem;
+    margin: 0;
+    width: 90%;
+    text-align: center;
+
+    @include mq1120 {
+      font-size: 6.5rem;
+    }
+
+    @include mq640 {
+      font-size: 5.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @include mq430 {
+      font-size: 5rem;
+      width: 100%;
+    }
+  }
+
+  .date {
+    @include date;
+  }
+
+  .currentStatusList {
+    @include currentStatusList;
+  }
+}
