@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/changmoSungCovid19/static/css/main.b21ded6f.chunk.css",
+    "main.css": "/changmoSungCovid19/static/css/main.86b6d492.chunk.css",
     "main.js": "/changmoSungCovid19/static/js/main.6f475c9c.chunk.js",
     "main.js.map": "/changmoSungCovid19/static/js/main.6f475c9c.chunk.js.map",
     "runtime-main.js": "/changmoSungCovid19/static/js/runtime-main.fa3d2561.js",
@@ -8,15 +8,15 @@
     "static/js/2.04e089c9.chunk.js": "/changmoSungCovid19/static/js/2.04e089c9.chunk.js",
     "static/js/2.04e089c9.chunk.js.map": "/changmoSungCovid19/static/js/2.04e089c9.chunk.js.map",
     "index.html": "/changmoSungCovid19/index.html",
-    "precache-manifest.1cf3bff6a7bf8bf2e7f23b732185d45a.js": "/changmoSungCovid19/precache-manifest.1cf3bff6a7bf8bf2e7f23b732185d45a.js",
+    "precache-manifest.52101ec140a55327468425705d1ccde7.js": "/changmoSungCovid19/precache-manifest.52101ec140a55327468425705d1ccde7.js",
     "service-worker.js": "/changmoSungCovid19/service-worker.js",
-    "static/css/main.b21ded6f.chunk.css.map": "/changmoSungCovid19/static/css/main.b21ded6f.chunk.css.map",
+    "static/css/main.86b6d492.chunk.css.map": "/changmoSungCovid19/static/css/main.86b6d492.chunk.css.map",
     "static/js/2.04e089c9.chunk.js.LICENSE.txt": "/changmoSungCovid19/static/js/2.04e089c9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fa3d2561.js",
     "static/js/2.04e089c9.chunk.js",
-    "static/css/main.b21ded6f.chunk.css",
+    "static/css/main.86b6d492.chunk.css",
     "static/js/main.6f475c9c.chunk.js"
   ]
 }
