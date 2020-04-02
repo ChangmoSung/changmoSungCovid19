@@ -3,16 +3,43 @@
     width: 80%;
 
     h2 {
-        font-size: 4.5rem;
+        font-size: 4rem;
+        line-height: 5.5rem;
+
+        @include mq768 {
+            font-size: 3.5rem;
+            line-height: 5rem;
+        }
+
+        @include mq430 {
+            font-size: 3.2rem;
+            line-height: 4.5rem;
+        }
     }
 
     h3 {
         font-size: 3.2rem;
         margin-bottom: 1rem;
+
+        @include mq768 {
+            font-size: 2.8rem;
+        }
+
+        @include mq430 {
+            font-size: 2.5rem;
+        }
     }
     
     ul {
         font-size:1.6rem; 
+
+        @include mq768 {
+            font-size: 1.5rem;
+        }
+
+        @include mq430 {
+            font-size: 1.4rem;
+        }
 
         li {
             margin-bottom: 1rem;
@@ -23,6 +50,15 @@
         font-size: 1.6rem;
         line-height: 2.6rem;
         margin: 1rem 0;
+
+        @include mq768 {
+            font-size: 1.5rem;
+        }
+
+        @include mq430 {
+            font-size: 1.4rem;
+            line-height: 2.5rem;
+        }
     }
 
     button {

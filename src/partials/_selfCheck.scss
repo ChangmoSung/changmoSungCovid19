@@ -9,15 +9,15 @@
     .selfAssessmentDescription {
 
         h2 {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             margin: 0 0 2rem;
 
             @include mq768 {
-                font-size: 2.9rem;
+                font-size: 3.2rem;
             }
 
             @include mq430 {
-                font-size: 2.7rem;
+                font-size: 3rem;
             }
         }
 
@@ -30,7 +30,7 @@
             }
 
             @include mq430 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
         }
 
