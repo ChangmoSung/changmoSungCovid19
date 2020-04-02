@@ -9,10 +9,15 @@
 
   @include mq768 {
     margin: 2rem 0;
+    font-size: 4rem;
   }
 
-  @include mq640 {
-    font-size: 4rem;
+  @include mq430 {
+    font-size: 3.7rem;
+  }
+
+  @include mq375 {
+    font-size: 3.5rem;
   }
 }
 
@@ -26,19 +31,19 @@
     background: white;
     border: none;
     border-radius: 1rem;
-    box-shadow: 5px 5px skyblue, 0 0 3px 3.5px skyblue inset;
+    box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
     cursor: pointer;
 
     &:hover {
         top: 2.5px;
         left: 2.5px;
-        box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
+        box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
     }
 }
 
 @mixin resultDescription {
   width: 80%;
-  margin: 22rem auto 5rem;
+  margin: 20rem auto 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,14 +61,18 @@
     line-height: 4.5rem;
     font-size: 2.5rem;
 
-    @include mq640 {
+    @include mq768 {
       font-size: 2.2rem;
-      line-height: 4rem;
+      line-height: 3.7rem;
     }
 
     @include mq430 {
       font-size: 2rem;
-      line-height: 3.6rem;
+      line-height: 3.4rem;
+    }
+
+    @include mq375 {
+      font-size: 1.8rem;
     }
   }
 }

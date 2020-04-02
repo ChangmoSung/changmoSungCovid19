@@ -70,7 +70,7 @@ class SelfCheck extends Component {
     }
 
 
-    call911 = (answer) => {
+    call911 = answer => {
         this.setState({
             call911: answer,
             questionNumber: this.state.questionNumber + 1,
@@ -78,7 +78,7 @@ class SelfCheck extends Component {
     }
 
 
-    consultFamilyDoctor = (answer) => {
+    consultFamilyDoctor = answer => {
         this.setState({
             consultFamilyDoctor: answer,
             questionNumber: this.state.questionNumber + 1,
@@ -87,7 +87,7 @@ class SelfCheck extends Component {
     }
 
 
-    selfIsolate = (answer) => {
+    selfIsolate = answer => {
         this.setState({
             selfIsolate: answer,
             resultIsSelfIsolate: answer,
@@ -104,9 +104,9 @@ class SelfCheck extends Component {
     }
 
 
-    resultIsSelfIsolate = (answer) => {
+    resultIsSelfIsolate = answer => {
         this.setState({
-            resultIsSelfIsolate: answer,
+            resultIsSelfIsolate: `${this.state.resultIsSelfIsolate ? true : answer}`,
             questionNumber: this.state.questionNumber + 1,
         })
     }
@@ -173,7 +173,7 @@ class SelfCheck extends Component {
                         <button onClick={() => this.state.questions[this.state.questionNumber].function(false)}>no</button>
                     </div>
 
-                    <button className='return' onClick={this.returnToPreviousQuestion}>Return to previous question</button>
+                    <button className='return' onClick={this.returnToPreviousQuestion}><span>Return to previous question</span></button>
                 </div>
                 : null}
 
@@ -209,9 +209,10 @@ class SelfCheck extends Component {
 
                         <p>As a precaution, the Ministry of Health is asking anyone with symptoms (fever, coughm sneezing, or sore throat) to stay home for 10 days.</p>
 
-                        <p>If your symptoms worsen, call your family physician. If you are unable to reach your regular health care provider, call 8-1-1 to speak with HealthLink BC.</p>
+                        <p>If your symptoms worsen, call your family physician.</p>
 
                         <h4>Your self-assessment is not complete.</h4>
+
                         <p>Finish the remaining questions to obtain complete recommendations on what steps you should take.</p>
 
                         <button onClick={this.selfIsolateConfirmed} data-question='2' data-currentquestion='.question3'>Continue</button>
@@ -227,10 +228,9 @@ class SelfCheck extends Component {
                         <h4>Please self-isolate for 14 days. You do not need testing for COVID-19.</h4>
 
                         <p>Since you don't have symptoms, you do not need testing for COVID-19 at this time. However, there's a chance you could get sick. You should self-monitor for any symptoms (fever, cough, sneezing, sore throat, or difficulty breathing). If you begin to develop these, you should take this self-assessment again.</p>
-                        
-                        <p>If you are a health care worker, follow the advice of your employer. If you need more information, go to <a>BCCDC's COVID-19 website</a></p>
 
-                        <p>If you are experiencing symptoms other than COVID-19, contact your family physician. If you are unable to reach your regular health care provider, call 8-1-1 to speak with HealthLink BC, or visit the <a>HealthLinkBC's Symptom Checker</a></p>
+                        <p>If you are experiencing symptoms other than COVID-19, contact your family physician.</p>
+
                     </div>
                 : null}
 
@@ -243,7 +243,7 @@ class SelfCheck extends Component {
 
                         <p>Please self-monitor, wash your hands frequently, and practice physical distancing.If you develop any symptoms (fever, cough, sneezing, sore throat, or difficulty breathing), or become aware of any potential exposures to cases of COVID-19, take this self-assessment again.</p>
 
-                        <p>If you are experiencing symptoms other than COVID-19, contact your family physician. If you are unable to reach your regular health care provider, call 8-1-1 to speak with HealthLink BC, or visit the <a>healthLinkBC's Symptom Checker</a></p>
+                        <p>If you are experiencing symptoms other than COVID-19, contact your family physician.</p>
 
                     </div>
                 : null}

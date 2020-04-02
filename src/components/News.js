@@ -49,7 +49,7 @@ class News extends Component {
 
                                 <p className='newsDescription'>{news.description}</p>
 
-                                <a href={news.url}>Link to the article</a>
+                                <a href={news.url}><span tabIndex='0'>Link to the article</span></a>
                             </li>
                         )
                     })}

@@ -242,13 +242,14 @@ img {
 
 .nav {
   width: 100%;
-  height: 10rem;
+  height: 9rem;
   display: flex;
   align-items: center;
   position: absolute;
   top: 0;
   left: 0;
   transition: all 0.5s;
+  background: #3816d4;
 }
 .nav.showNav {
   top: 0;
@@ -258,34 +259,40 @@ img {
   .nav {
     height: 100vh;
     top: -110%;
-    background: yellow;
+    background: #3816d4;
     position: fixed;
   }
 }
 .nav .navTrigger {
   display: none;
+  justify-content: center;
+  align-items: center;
   position: fixed;
+  z-index: 999;
+  padding: 0;
   right: 2rem;
   top: 2rem;
-  width: 6rem;
-  line-height: 6rem;
-  text-align: center;
+  width: 5rem;
+  line-height: 5rem;
   border: none;
   background: white;
   border-radius: 1rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
   transition: all 0.3s;
-  box-shadow: 5px 5px skyblue, 0 0 3px 3.5px skyblue inset;
+  box-shadow: 5px 5px #3816d4, 0 0 3px 3.5px #3816d4 inset;
   cursor: pointer;
+}
+.nav .navTrigger.hideNavTrigger {
+  display: none;
 }
 .nav .navTrigger:hover {
   top: 2.25rem;
   right: 1.75rem;
-  box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
+  box-shadow: 2.5px 2.5px #3816d4, 0 0 3px 3.5px #3816d4 inset;
 }
 @media (max-width: 768px) {
   .nav .navTrigger {
-    display: inline;
+    display: flex;
   }
 }
 .nav ul {
@@ -307,16 +314,11 @@ img {
 .nav ul a {
   font-size: 3.2rem;
   text-decoration: none;
-  color: black;
+  color: white;
 }
 @media (max-width: 1120px) {
   .nav ul a {
     font-size: 2.9rem;
-  }
-}
-@media (max-width: 768px) {
-  .nav ul a {
-    font-size: 2.5rem;
   }
 }
 
@@ -335,19 +337,24 @@ header h1 {
 }
 @media (max-width: 1120px) {
   header h1 {
-    font-size: 6.5rem;
+    font-size: 6rem;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   header h1 {
-    font-size: 5.5rem;
+    width: 95%;
+    font-size: 5.3rem;
     margin-bottom: 2rem;
   }
 }
 @media (max-width: 430px) {
   header h1 {
-    font-size: 5rem;
-    width: 100%;
+    font-size: 4.6rem;
+  }
+}
+@media (max-width: 375px) {
+  header h1 {
+    font-size: 4.2rem;
   }
 }
 header .date {
@@ -363,11 +370,17 @@ header .date {
 @media (max-width: 768px) {
   header .date {
     margin: 2rem 0;
+    font-size: 4rem;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 430px) {
   header .date {
-    font-size: 4rem;
+    font-size: 3.7rem;
+  }
+}
+@media (max-width: 375px) {
+  header .date {
+    font-size: 3.5rem;
   }
 }
 header .currentStatusList {
@@ -381,22 +394,32 @@ header .currentStatusList li {
   line-height: 4.5rem;
   font-size: 2.5rem;
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   header .currentStatusList li {
     font-size: 2.2rem;
-    line-height: 4rem;
+    line-height: 3.7rem;
   }
 }
 @media (max-width: 430px) {
   header .currentStatusList li {
     font-size: 2rem;
-    line-height: 3.6rem;
+    line-height: 3.4rem;
+  }
+}
+@media (max-width: 375px) {
+  header .currentStatusList li {
+    font-size: 1.8rem;
   }
 }
 
 .aboutCovid {
-  margin: 12rem auto 5rem;
+  margin: 15rem auto 5rem;
   width: 80%;
+}
+@media (max-width: 768px) {
+  .aboutCovid {
+    margin-top: 8rem;
+  }
 }
 .aboutCovid h2 {
   font-size: 4rem;
@@ -444,7 +467,6 @@ header .currentStatusList li {
 }
 .aboutCovid ul {
   font-size: 1.6rem;
-  padding-left: 2rem;
 }
 @media (max-width: 768px) {
   .aboutCovid ul {
@@ -454,6 +476,7 @@ header .currentStatusList li {
 @media (max-width: 430px) {
   .aboutCovid ul {
     font-size: 1.4rem;
+    padding-left: 2rem;
   }
 }
 .aboutCovid ul li {
@@ -485,7 +508,7 @@ header .currentStatusList li {
   background: white;
   border: none;
   border-radius: 1rem;
-  box-shadow: 5px 5px skyblue, 0 0 3px 3.5px skyblue inset;
+  box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
   cursor: pointer;
   width: 25rem;
   margin: 4rem 3rem 0 0;
@@ -493,7 +516,7 @@ header .currentStatusList li {
 .aboutCovid button:hover {
   top: 2.5px;
   left: 2.5px;
-  box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
+  box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
 }
 
 .selfCheck {
@@ -503,6 +526,7 @@ header .currentStatusList li {
 @media (max-width: 768px) {
   .selfCheck {
     width: 90%;
+    margin-top: 8rem;
   }
 }
 .selfCheck .selfAssessmentDescription h2 {
@@ -559,18 +583,24 @@ header .currentStatusList li {
 }
 .selfCheck .selfAssessmentDescription button {
   position: relative;
+  width: 18rem;
+  height: 5rem;
+  margin: 0 7rem;
   font-size: 2.3rem;
+  text-transform: uppercase;
   background: white;
   border: none;
+  border-radius: 1rem;
+  box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
+  cursor: pointer;
+  margin: 0;
   width: 20rem;
   height: 5rem;
-  border-radius: 1rem;
-  box-shadow: 5px 5px skyblue, 0 0 3px 3.5px skyblue inset;
 }
 .selfCheck .selfAssessmentDescription button:hover {
   top: 2.5px;
   left: 2.5px;
-  box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
+  box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
 }
 
 .questions {
@@ -597,29 +627,27 @@ header .currentStatusList li {
 .questions h3 {
   font-size: 4rem;
   margin: 0;
+  line-height: 5.5rem;
 }
 @media (max-width: 1120px) {
   .questions h3 {
     font-size: 3.3rem;
+    line-height: 4.7rem;
   }
 }
 @media (max-width: 768px) {
   .questions h3 {
     font-size: 2.8rem;
+    line-height: 4.2rem;
   }
 }
 @media (max-width: 430px) {
   .questions h3 {
     font-size: 2.5rem;
-  }
-}
-@media (max-width: 375px) {
-  .questions h3 {
-    font-size: 2.7rem;
+    line-height: 3.7rem;
   }
 }
 .questions ul {
-  padding: 0;
   margin: 5rem 0;
 }
 @media (max-width: 768px) {
@@ -673,13 +701,13 @@ header .currentStatusList li {
   background: white;
   border: none;
   border-radius: 1rem;
-  box-shadow: 5px 5px skyblue, 0 0 3px 3.5px skyblue inset;
+  box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
   cursor: pointer;
 }
 .questions .buttonContainer button:hover {
   top: 2.5px;
   left: 2.5px;
-  box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
+  box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
 }
 @media (max-width: 1120px) {
   .questions .buttonContainer button {
@@ -723,15 +751,18 @@ header .currentStatusList li {
   background: white;
   border: none;
   border-radius: 1rem;
-  box-shadow: 5px 5px skyblue, 0 0 3px 3.5px skyblue inset;
+  box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
   cursor: pointer;
   width: 42rem;
-  height: 5.5rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .questions .return:hover {
   top: 2.5px;
   left: 2.5px;
-  box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
+  box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
 }
 @media (max-width: 640px) {
   .questions .return {
@@ -759,7 +790,7 @@ header .currentStatusList li {
 .resultIsSelfIsolate,
 .noNeedToBeTested {
   width: 80%;
-  margin: 22rem auto 5rem;
+  margin: 20rem auto 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -771,8 +802,7 @@ header .currentStatusList li {
 .selfIsolate,
 .resultIsSelfIsolate,
 .noNeedToBeTested {
-    width: 100%;
-    margin-top: 20rem;
+    width: 95%;
   }
 }
 .call911 h3,
@@ -871,7 +901,7 @@ header .currentStatusList li {
 .noNeedToBeTested p {
   font-size: 2rem;
   line-height: 3rem;
-  margin: 0;
+  margin: 0 0 2rem;
 }
 @media (max-width: 1120px) {
   .call911 p,
@@ -915,7 +945,7 @@ header .currentStatusList li {
 .noNeedToBeTested {
   margin-top: 16rem;
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .selfIsolate,
 .resultIsSelfIsolate,
 .noNeedToBeTested {
@@ -937,7 +967,7 @@ header .currentStatusList li {
 }
 @media (max-width: 768px) {
   .selfIsolate {
-    margin-top: 15rem;
+    margin-top: 13rem;
   }
 }
 .selfIsolate h3 {
@@ -959,24 +989,18 @@ header .currentStatusList li {
   background: white;
   border: none;
   border-radius: 1rem;
-  box-shadow: 5px 5px skyblue, 0 0 3px 3.5px skyblue inset;
+  box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
   cursor: pointer;
 }
 .selfIsolate button:hover {
   top: 2.5px;
   left: 2.5px;
-  box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
+  box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
 }
 @media (max-width: 1120px) {
   .selfIsolate button {
     margin-top: 4rem;
   }
-}
-
-.call911,
-.consultFamilyDoctor,
-.selfIsolate {
-  margin-top: 18rem;
 }
 
 .call911,
@@ -986,12 +1010,12 @@ header .currentStatusList li {
 @media (max-width: 375px) {
   .call911,
 .consultFamilyDoctor {
-    margin-top: 0;
+    margin-top: 12rem;
   }
 }
 
 .statistic {
-  margin: 12rem auto 5rem;
+  margin: 15rem auto 5rem;
   width: 80%;
 }
 @media (max-width: 1120px) {
@@ -1001,7 +1025,7 @@ header .currentStatusList li {
 }
 @media (max-width: 768px) {
   .statistic {
-    margin-top: 10rem;
+    margin-top: 8rem;
   }
 }
 .statistic .date {
@@ -1017,11 +1041,17 @@ header .currentStatusList li {
 @media (max-width: 768px) {
   .statistic .date {
     margin: 2rem 0;
+    font-size: 4rem;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 430px) {
   .statistic .date {
-    font-size: 4rem;
+    font-size: 3.7rem;
+  }
+}
+@media (max-width: 375px) {
+  .statistic .date {
+    font-size: 3.5rem;
   }
 }
 .statistic .currentStatusList {
@@ -1035,16 +1065,21 @@ header .currentStatusList li {
   line-height: 4.5rem;
   font-size: 2.5rem;
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .statistic .currentStatusList li {
     font-size: 2.2rem;
-    line-height: 4rem;
+    line-height: 3.7rem;
   }
 }
 @media (max-width: 430px) {
   .statistic .currentStatusList li {
     font-size: 2rem;
-    line-height: 3.6rem;
+    line-height: 3.4rem;
+  }
+}
+@media (max-width: 375px) {
+  .statistic .currentStatusList li {
+    font-size: 1.8rem;
   }
 }
 .statistic .searchFormContainer {
@@ -1069,8 +1104,11 @@ header .currentStatusList li {
 }
 .statistic .searchFormContainer form input {
   width: 50%;
-  font-size: 3rem;
+  font-size: 2.8rem;
   height: 100%;
+  border: 3px solid #3816d4;
+  border-radius: 1rem 0 0 1rem;
+  padding-left: 1.5rem;
 }
 @media (max-width: 768px) {
   .statistic .searchFormContainer form input {
@@ -1089,14 +1127,19 @@ header .currentStatusList li {
   }
 }
 .statistic .searchFormContainer form button {
+  margin: 0;
   width: 20rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
   height: 100%;
+  border-radius: 0 1rem 1rem 0;
+  background: #3816d4;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 @media (max-width: 768px) {
   .statistic .searchFormContainer form button {
     width: 15rem;
-    font-size: 2.5rem;
   }
 }
 @media (max-width: 640px) {
@@ -1221,6 +1264,7 @@ header .currentStatusList li {
 @media (max-width: 768px) {
   .news {
     width: 95%;
+    margin-top: 8rem;
   }
 }
 .news .newsList {

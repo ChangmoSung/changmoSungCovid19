@@ -1,5 +1,5 @@
 .statistic {
-    margin: 12rem auto 5rem;
+    margin: 15rem auto 5rem;
     width: 80%;
 
     @include mq1120 {
@@ -7,7 +7,7 @@
     }
 
     @include mq768 {
-        margin-top: 10rem;
+        margin-top: 8rem;
     }
 
     .date {
@@ -38,8 +38,11 @@
 
             input {
                 width: 50%;
-                font-size: 3rem;
+                font-size: 2.8rem;
                 height: 100%;
+                border: 3px solid #3816d4;
+                border-radius: 1rem 0 0 1rem;
+                padding-left: 1.5rem;
 
                 @include mq768 {
                     font-size: 2.5rem;
@@ -56,13 +59,18 @@
             }
 
             button {
+                margin: 0;
                 width: 20rem;
-                font-size: 3rem;
+                font-size: 2.5rem;
                 height: 100%;
+                border-radius: 0 1rem 1rem 0;
+                background: #3816d4;
+                color: white;
+                border: none;
+                cursor: pointer;
 
                 @include mq768 {
                     width: 15rem;
-                    font-size: 2.5rem;
                 }
 
                 @include mq640 {

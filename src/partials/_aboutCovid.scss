@@ -1,6 +1,10 @@
 .aboutCovid {
-    margin: 12rem auto 5rem;
+    margin: 15rem auto 5rem;
     width: 80%;
+
+    @include mq768 {
+        margin-top: 8rem;
+    }
 
     h2 {
         font-size: 4rem;
@@ -45,7 +49,6 @@
     
     ul {
         font-size:1.6rem; 
-        padding-left: 2rem;
 
         @include mq768 {
             font-size: 1.5rem;
@@ -53,6 +56,7 @@
 
         @include mq430 {
             font-size: 1.4rem;
+            padding-left: 2rem;
         }
 
         li {

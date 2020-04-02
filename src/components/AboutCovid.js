@@ -60,11 +60,11 @@ class AboutCovid extends Component {
 
                         <ul>
                             <li>
-                                <a href='https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html' target='_blank'>Health Canada</a>
+                                <a href='https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html' rel='noopener noreferrer' target='_blank'>Health Canada</a>
                             </li>
 
                             <li>
-                                <a href='https://www.who.int/emergencies/diseases/novel-coronavirus-2019' target='_blank'>World Health Organization</a>
+                                <a href='https://www.who.int/emergencies/diseases/novel-coronavirus-2019' rel='noopener noreferrer' target='_blank'>World Health Organization</a>
                             </li>
                         </ul>
 
@@ -74,7 +74,7 @@ class AboutCovid extends Component {
 
                         <h3>Have calm conversations</h3>
 
-                        <p>Maintaining a sense of calm, especially when <a href='http://www.bccdc.ca/Health-Info-Site/Documents/COVID19%20QA%20for%20kids%20Feb%202020.pdf' target='_blank'>talking to children</a> will go a long way toward easing their fears and uncertainty. Provide age-appropriate, factual information and give them the opportunity to ask questions and share how they are feeling.</p>
+                        <p>Maintaining a sense of calm, especially when <a href='http://www.bccdc.ca/Health-Info-Site/Documents/COVID19%20QA%20for%20kids%20Feb%202020.pdf' rel='noopener noreferrer' target='_blank'>talking to children</a> will go a long way toward easing their fears and uncertainty. Provide age-appropriate, factual information and give them the opportunity to ask questions and share how they are feeling.</p>
 
                         <h3>Practice self-care</h3>
 

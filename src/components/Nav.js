@@ -18,32 +18,33 @@ class Nav extends Component {
         })
 
         document.querySelector('nav').classList.toggle('showNav');
+        document.querySelector('.navTrigger').classList.toggle('hideNavTrigger')
     }
 
     render() { 
         return ( 
             <nav className='nav'>
-                <button className='navTrigger' onClick={this.toggleNav}>X</button>
+                <button className='navTrigger' onClick={this.toggleNav}><span>X</span></button>
 
                 <ul>
                     <li>
-                        <Link to='/changmoSungCovid19/' onClick={this.toggleNav}>HOME</Link>
+                        <Link to='/changmoSungCovid19/' onClick={this.toggleNav}><span tabIndex='0'>HOME</span></Link>
                     </li>
 
                     <li>
-                        <Link to='/changmoSungCovid19/info/aboutCovid19' onClick={this.toggleNav}>COVID-19</Link>
+                        <Link to='/changmoSungCovid19/info/aboutCovid19' onClick={this.toggleNav}><span tabIndex='0'>COVID-19</span></Link>
                     </li>
 
                     <li>
-                        <Link to='/changmoSungCovid19/info/selfcheck' onClick={this.toggleNav}>SELF-CHECK</Link>
+                        <Link to='/changmoSungCovid19/info/selfcheck' onClick={this.toggleNav}><span tabIndex='0'>SELF-CHECK</span></Link>
                     </li>
 
                     <li>
-                        <Link to='/changmoSungCovid19/info/statistic' onClick={this.toggleNav}>STATISTIC</Link>
+                        <Link to='/changmoSungCovid19/info/statistic' onClick={this.toggleNav}><span tabIndex='0'>STATISTIC</span></Link>
                     </li>
 
                     <li>
-                        <Link to='/changmoSungCovid19/info/news' onClick={this.toggleNav}>NEWS</Link>
+                        <Link to='/changmoSungCovid19/info/news' onClick={this.toggleNav}><span tabIndex='0'>NEWS</span></Link>
                     </li>
                 </ul>
             </nav>
