@@ -440,6 +440,7 @@ header .currentStatusList li {
 .aboutCovid h3 {
   font-size: 3.2rem;
   margin-bottom: 1rem;
+  line-height: 3.3rem;
 }
 @media (max-width: 768px) {
   .aboutCovid h3 {
@@ -503,6 +504,7 @@ header .currentStatusList li {
   width: 18rem;
   height: 5rem;
   margin: 0 7rem;
+  padding: 0;
   font-size: 2.3rem;
   text-transform: uppercase;
   background: white;
@@ -518,6 +520,12 @@ header .currentStatusList li {
   left: 2.5px;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
 }
+@media (max-width: 430px) {
+  .aboutCovid button {
+    font-size: 1.8rem;
+    height: 4.7rem;
+  }
+}
 
 .selfCheck {
   margin: 12rem auto 5rem;
@@ -530,12 +538,12 @@ header .currentStatusList li {
   }
 }
 .selfCheck .selfAssessmentDescription h2 {
-  font-size: 3.5rem;
+  font-size: 3.7rem;
   margin: 0 0 2rem;
 }
 @media (max-width: 768px) {
   .selfCheck .selfAssessmentDescription h2 {
-    font-size: 3.2rem;
+    font-size: 3.3rem;
   }
 }
 @media (max-width: 430px) {
@@ -545,22 +553,26 @@ header .currentStatusList li {
 }
 .selfCheck .selfAssessmentDescription h3 {
   font-size: 2.3rem;
+  line-height: 3.2rem;
   margin: 3rem 0 0;
 }
 @media (max-width: 768px) {
   .selfCheck .selfAssessmentDescription h3 {
     font-size: 2rem;
+    line-height: 3rem;
   }
 }
 @media (max-width: 430px) {
   .selfCheck .selfAssessmentDescription h3 {
     font-size: 1.7rem;
+    line-height: 2.8rem;
   }
 }
 .selfCheck .selfAssessmentDescription li,
 .selfCheck .selfAssessmentDescription p {
   font-size: 1.6rem;
   line-height: 2.6rem;
+  margin-bottom: 0.5rem;
 }
 @media (max-width: 768px) {
   .selfCheck .selfAssessmentDescription li,
@@ -586,6 +598,7 @@ header .currentStatusList li {
   width: 18rem;
   height: 5rem;
   margin: 0 7rem;
+  padding: 0;
   font-size: 2.3rem;
   text-transform: uppercase;
   background: white;
@@ -595,12 +608,17 @@ header .currentStatusList li {
   cursor: pointer;
   margin: 0;
   width: 20rem;
-  height: 5rem;
 }
 .selfCheck .selfAssessmentDescription button:hover {
   top: 2.5px;
   left: 2.5px;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
+}
+@media (max-width: 430px) {
+  .selfCheck .selfAssessmentDescription button {
+    height: 4.7rem;
+    font-size: 1.8rem;
+  }
 }
 
 .questions {
@@ -659,6 +677,7 @@ header .currentStatusList li {
 .questions ul li {
   font-size: 1.9rem;
   margin-bottom: 2rem;
+  line-height: 2.9rem;
 }
 @media (max-width: 1120px) {
   .questions ul li {
@@ -668,11 +687,13 @@ header .currentStatusList li {
 @media (max-width: 430px) {
   .questions ul li {
     font-size: 1.6rem;
+    line-height: 2.7rem;
   }
 }
 @media (max-width: 375px) {
   .questions ul li {
     font-size: 1.5rem;
+    line-height: 2.5rem;
   }
 }
 .questions .buttonContainer {
@@ -696,6 +717,7 @@ header .currentStatusList li {
   width: 18rem;
   height: 5rem;
   margin: 0 7rem;
+  padding: 0;
   font-size: 2.3rem;
   text-transform: uppercase;
   background: white;
@@ -728,6 +750,7 @@ header .currentStatusList li {
   .questions .buttonContainer button {
     width: 65%;
     font-size: 2rem;
+    height: 4.7rem;
   }
 }
 @media (max-width: 375px) {
@@ -746,6 +769,7 @@ header .currentStatusList li {
   width: 18rem;
   height: 5rem;
   margin: 0 7rem;
+  padding: 0;
   font-size: 2.3rem;
   text-transform: uppercase;
   background: white;
@@ -772,15 +796,10 @@ header .currentStatusList li {
 }
 @media (max-width: 430px) {
   .questions .return {
-    font-size: 2rem;
-    width: 34rem;
-  }
-}
-@media (max-width: 375px) {
-  .questions .return {
     font-size: 1.8rem;
     width: 90%;
     padding: 2%;
+    height: 5.5rem;
   }
 }
 
@@ -856,6 +875,7 @@ header .currentStatusList li {
 .noNeedToBeTested h4 {
   font-size: 3.8rem;
   margin: 4rem 0;
+  line-height: 5rem;
 }
 @media (max-width: 1120px) {
   .call911 h4,
@@ -864,6 +884,7 @@ header .currentStatusList li {
 .resultIsSelfIsolate h4,
 .noNeedToBeTested h4 {
     font-size: 3rem;
+    line-height: 4.2rem;
   }
 }
 @media (max-width: 768px) {
@@ -873,6 +894,7 @@ header .currentStatusList li {
 .resultIsSelfIsolate h4,
 .noNeedToBeTested h4 {
     font-size: 2.6rem;
+    line-height: 3.6rem;
   }
 }
 @media (max-width: 640px) {
@@ -882,6 +904,7 @@ header .currentStatusList li {
 .resultIsSelfIsolate h4,
 .noNeedToBeTested h4 {
     font-size: 2.3rem;
+    line-height: 3.2rem;
   }
 }
 @media (max-width: 430px) {
@@ -892,6 +915,7 @@ header .currentStatusList li {
 .noNeedToBeTested h4 {
     font-size: 2.1rem;
     margin: 2.5rem 0;
+    line-height: 3rem;
   }
 }
 .call911 p,
@@ -919,6 +943,7 @@ header .currentStatusList li {
 .resultIsSelfIsolate p,
 .noNeedToBeTested p {
     font-size: 1.6rem;
+    line-height: 2.7rem;
   }
 }
 @media (max-width: 640px) {
@@ -928,6 +953,7 @@ header .currentStatusList li {
 .resultIsSelfIsolate p,
 .noNeedToBeTested p {
     font-size: 1.5rem;
+    line-height: 2.5rem;
   }
 }
 @media (max-width: 1120px) {
@@ -984,6 +1010,7 @@ header .currentStatusList li {
   width: 18rem;
   height: 5rem;
   margin: 0 7rem;
+  padding: 0;
   font-size: 2.3rem;
   text-transform: uppercase;
   background: white;
@@ -1304,6 +1331,7 @@ header .currentStatusList li {
 .news .newsList li h3 {
   font-size: 2rem;
   margin-top: 0;
+  line-height: 2.7rem;
 }
 .news .newsList li .newsArticle {
   margin: 2rem 0;
@@ -1311,6 +1339,7 @@ header .currentStatusList li {
 .news .newsList li p {
   font-size: 1.3rem;
   margin: 0;
+  line-height: 2.3rem;
 }
 .news .newsList li a {
   font-size: 1.6rem;
@@ -1318,6 +1347,7 @@ header .currentStatusList li {
 .news .newsList li p:nth-child(5) {
   font-size: 1.6rem;
   margin-bottom: 2rem;
+  line-height: 2.5rem;
 }
 .news .newsList li:nth-child(3n+2) {
   margin: 0 3.5% 5rem;

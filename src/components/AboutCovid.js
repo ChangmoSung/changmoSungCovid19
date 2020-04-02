@@ -9,17 +9,20 @@ class AboutCovid extends Component {
         }
     }
 
+
     toggleSelfCare = () => {
         this.setState({
             showSelfCare: !this.state.showSelfCare
         })
     }
 
+
     toggleHandHygiene = () => {
         this.setState({
             showHandHygiene: !this.state.showHandHygiene,
         })
     }
+    
     
     render() { 
         return ( 

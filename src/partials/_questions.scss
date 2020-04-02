@@ -48,6 +48,7 @@
         li {
             font-size: 1.9rem;
             margin-bottom: 2rem;
+            line-height: 2.9rem;
 
             @include mq1120 {
                 font-size: 1.8rem;
@@ -55,10 +56,12 @@
 
             @include mq430 {
                 font-size: 1.6rem;
+                line-height: 2.7rem;
             }
 
             @include mq375 {
                 font-size: 1.5rem;
+                line-height: 2.5rem;
             }
         }
     }
@@ -95,6 +98,7 @@
             @include mq430 {
                 width: 65%;
                 font-size: 2rem;
+                height: 4.7rem;
             }
 
             @include mq375 {
@@ -123,14 +127,10 @@
         }
 
         @include mq430 {
-            font-size: 2rem;
-            width: 34rem;
-        }
-        
-        @include mq375 {
             font-size: 1.8rem;
             width: 90%;
             padding: 2%;
+            height: 5.5rem;
         }
     }
 }
@@ -170,22 +170,27 @@
     h4 {
         font-size: 3.8rem;
         margin: 4rem 0;
+        line-height: 5rem;
 
         @include mq1120 {
             font-size: 3rem;
+            line-height: 4.2rem;
         }
 
         @include mq768 {
             font-size: 2.6rem;
+            line-height: 3.6rem;
         }
 
         @include mq640 {
             font-size: 2.3rem;
+            line-height: 3.2rem;
         }
 
         @include mq430 {
             font-size: 2.1rem;
             margin: 2.5rem 0;
+            line-height: 3rem;
         }
     }
 
@@ -200,10 +205,12 @@
 
         @include mq768 {
             font-size: 1.6rem;
+            line-height: 2.7rem;
         }
 
         @include mq640 {
             font-size: 1.5rem;
+            line-height: 2.5rem;
         }
     }
 

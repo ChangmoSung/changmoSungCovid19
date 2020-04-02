@@ -44,7 +44,11 @@ class News extends Component {
                                 <p>Published on {news.publishedAt.slice(0, 10)}</p>
 
                                 <div className='newsArticle'>
-                                    <img src={news.urlToImage} alt='article'></img>
+                                    {news.urlToImage 
+                                    ?
+                                        <img src={news.urlToImage} alt='article'></img>
+                                    : 
+                                        <p>There is no image for this article</p>}
                                 </div>
 
                                 <p className='newsDescription'>{news.description}</p>

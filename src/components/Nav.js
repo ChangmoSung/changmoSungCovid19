@@ -12,6 +12,7 @@ class Nav extends Component {
         }
     }
 
+
     toggleNav = () => {
         this.setState({
             navOpened: !this.state.navOpened,
@@ -21,6 +22,7 @@ class Nav extends Component {
         document.querySelector('.navTrigger').classList.toggle('hideNavTrigger')
     }
 
+    
     render() { 
         return ( 
             <nav className='nav'>
