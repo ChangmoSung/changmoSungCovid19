@@ -29,9 +29,23 @@
             font-size: 2.5rem;
         }
     }
+
+    h4 {
+        font-size: 2.5rem;
+        margin: 3rem 0 0;
+
+        @include mq768 {
+            font-size: 2.1rem;
+        }
+
+        @include mq430 {
+            font-size: 1.9rem;
+        }
+    }
     
     ul {
         font-size:1.6rem; 
+        padding-left: 2rem;
 
         @include mq768 {
             font-size: 1.5rem;
@@ -64,6 +78,6 @@
     button {
         @include button;
         width: 25rem;
-        margin: 4rem 0 0;
+        margin: 4rem 3rem 0 0;
     }
 }

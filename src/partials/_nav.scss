@@ -10,11 +10,12 @@
 
   &.showNav {
     top:0;
+    z-index: 999;
   }
 
-  @include mq640 {
+  @include mq768 {
     height: 100vh;
-    top: -100%;
+    top: -110%;
     background: yellow;
     position: fixed;
   }
@@ -25,13 +26,15 @@
     right: 2rem;
     top: 2rem;
     width: 6rem;
-    height: 6rem;
+    line-height: 6rem;
+    text-align: center;
     border: none;
     background: white;
     border-radius: 1rem;
     font-size: 3rem;
     transition: all 0.3s;
     box-shadow: 5px 5px skyblue, 0 0 3px 3.5px skyblue inset;
+    cursor: pointer;
 
     &:hover {
       top: 2.25rem;
@@ -39,7 +42,7 @@
       box-shadow: 2.5px 2.5px skyblue, 0 0 3px 3.5px skyblue inset;
     }
 
-    @include mq640 {
+    @include mq768 {
       display: inline;
     }
   }
@@ -52,7 +55,7 @@
     padding: 0;
     list-style: none;
 
-    @include mq640 {
+    @include mq768 {
       height: 100%;
       flex-direction: column;
       justify-content: space-evenly;
