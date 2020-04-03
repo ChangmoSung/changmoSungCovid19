@@ -140,7 +140,9 @@ const HandHygiene = () => {
                 <li>Change cleaning cloths daily and launder them using detergent. Germs thrive on moist surfaces</li>
             </ul>
 
-            <Link to='/changmoSungCovid19/info/aboutCovid19' className='routerLink'>go back</Link>
+            <Link to='/changmoSungCovid19/info/aboutCovid19' className='routerLink'>
+                <span tabIndex='0'>go back</span>
+            </Link>
         </div>
         );
 }

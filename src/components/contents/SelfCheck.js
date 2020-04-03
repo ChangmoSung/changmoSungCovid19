@@ -52,7 +52,8 @@ class SelfCheck extends Component {
 
                     <button onClick={() => this.setState({checkStarted: true})}>Self-Check</button>
                 </div>
-                : <Questions />}
+                : 
+                <Questions />}
             </div>
          );
     }

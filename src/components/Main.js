@@ -3,12 +3,12 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
-import AboutCovid from './AboutCovid';
-import SelfCare from './covidCareInfo/SelfCare';
-import HandHygiene from './covidCareInfo/HandHygiene';
-import Statistic from './Statistic';
-import Article from './Article';
-import SelfCheck from './SelfCheck';
+import AboutCovid from './contents/AboutCovid';
+import SelfCare from './contents/covidCareInfo/SelfCare';
+import HandHygiene from './contents/covidCareInfo/HandHygiene';
+import Statistic from './contents/Statistic';
+import Article from './contents/Article';
+import SelfCheck from './contents/SelfCheck';
 
 const Main = props => {
     return ( 

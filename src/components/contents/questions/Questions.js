@@ -63,6 +63,7 @@ class Questions extends Component {
             questionNumber: 0,
             call911: false,
             consultFamilyDoctor: false,
+            resultIsSelfIsolate: false,
         })
     }
 
@@ -88,7 +89,6 @@ class Questions extends Component {
         this.setState({
             consultFamilyDoctor: answer,
             questionNumber: this.state.questionNumber + 1,
-
         })
     }
 
@@ -111,16 +111,15 @@ class Questions extends Component {
 
 
     resultIsSelfIsolate = answer => {
-        if (this.state.resultIsSelfIsolate) {
-            this.setState({
-                questionNumber: this.state.questionNumber + 1,
-            })
-        } else {
+        this.setState({
+            questionNumber: this.state.questionNumber + 1,
+        })
+
+        if (!this.state.resultIsSelfIsolate) {
             this.setState({
                 resultIsSelfIsolate: answer,
-                questionNumber: this.state.questionNumber + 1,
             })
-        }
+        } 
     }
 
 
@@ -132,47 +131,68 @@ class Questions extends Component {
                 && !this.state.selfIsolate
                 && this.state.questionNumber < 6
                 ?
-                    < div className='questionContainer'>
-                        {this.state.questions[this.state.questionNumber].question
+                < div className='questionContainer'>
+                    <h3>{this.state.questions[this.state.questionNumber].question}</h3>
+
+                    {this.state.questions[this.state.questionNumber].paragraph 
+                    ? 
+                        <p>{this.state.questions[this.state.questionNumber].paragraph}</p> 
+                    : null}
+
+                    <ul>
+                        {this.state.questions[this.state.questionNumber].example1 
                         ? 
-                            <h3>{this.state.questions[this.state.questionNumber].question}</h3>
+                            <li>{this.state.questions[this.state.questionNumber].example1}</li> 
                         : null}
 
-                        {this.state.questions[this.state.questionNumber].paragraph ? <p>{this.state.questions[this.state.questionNumber].paragraph}</p> : null}
+                        {this.state.questions[this.state.questionNumber].example2 
+                        ? 
+                            <li>{this.state.questions[this.state.questionNumber].example2}</li> 
+                        : null}
 
-                        <ul>
-                            {this.state.questions[this.state.questionNumber].example1 ? <li>{this.state.questions[this.state.questionNumber].example1}</li> : null}
+                        {this.state.questions[this.state.questionNumber].example3 
+                        ? 
+                            <li>{this.state.questions[this.state.questionNumber].example3}</li> 
+                        : null}
 
-                            {this.state.questions[this.state.questionNumber].example2 ? <li>{this.state.questions[this.state.questionNumber].example2}</li> : null}
+                        {this.state.questions[this.state.questionNumber].example4 
+                        ? 
+                            <li>{this.state.questions[this.state.questionNumber].example4}</li> 
+                        : null}
 
-                            {this.state.questions[this.state.questionNumber].example3 ? <li>{this.state.questions[this.state.questionNumber].example3}</li> : null}
+                        {this.state.questions[this.state.questionNumber].example5 
+                        ? 
+                            <li>{this.state.questions[this.state.questionNumber].example5}</li> 
+                        : null}
+                    </ul>
 
-                            {this.state.questions[this.state.questionNumber].example4 ? <li>{this.state.questions[this.state.questionNumber].example4}</li> : null}
-
-                            {this.state.questions[this.state.questionNumber].example5 ? <li>{this.state.questions[this.state.questionNumber].example5}</li> : null}
-                        </ul>
-
-                        <div className='buttonContainer'>
+                    <div className='buttonContainer'>
+                        <div>
                             <button onClick={() => this.state.questions[this.state.questionNumber].function(true)}>yes</button>
 
                             <button onClick={() => this.state.questions[this.state.questionNumber].function(false)}>no</button>
                         </div>
 
-                        <button className='return' onClick={this.returnToPreviousQuestion}>
-                            <span>Return to previous question</span>
-                        </button>
+                            <button className='goBack' onClick={this.tryAgain}>
+                                <span>go back</span>
+                            </button>
                     </div>
-                : null}
-                
-                <Results 
+
+                    
+                </div>
+                : 
+                <Results
+                    questionNumber={this.state.questionNumber}
+                    tryAgain={this.tryAgain}
                     call911={this.state.call911}
                     consultFamilyDoctor={this.state.consultFamilyDoctor}
-                    resultIsSelfIsolate={this.state.resultIsSelfIsolate}
                     selfIsolate={this.state.selfIsolate}
                     selfIsolateConfirmed={this.selfIsolateConfirmed}
-                    tryAgain={this.tryAgain}
-                    questionNumber={this.state.questionNumber}
+                    resultIsSelfIsolate={this.state.resultIsSelfIsolate}
                 />
+                }
+                
+                
             </div>
         );
     }

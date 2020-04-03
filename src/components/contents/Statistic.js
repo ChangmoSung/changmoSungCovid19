@@ -98,7 +98,7 @@ class Statistic extends Component {
                         {this.state.searchedCountry.map((country, i) => {
                             return (
                                 <tr key={i}>
-                                    <td className='searchedCountry'>* {this.addCommas(country.country)}</td>
+                                    <td className='searchedCountry'>* {country.country}</td>
 
                                     <td className='totalCases'>
                                         <span>

@@ -14,11 +14,15 @@ const SelfCare = () => {
 
             <ul>
                 <li>
-                    <a href='https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html' rel='noopener noreferrer' target='_blank'>Health Canada</a>
+                    <a href='https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html' rel='noopener noreferrer' target='_blank' >
+                        <span tabIndex='0'>Health Canada</span>
+                    </a>
                 </li>
 
                 <li>
-                    <a href='https://www.who.int/emergencies/diseases/novel-coronavirus-2019' rel='noopener noreferrer' target='_blank'>World Health Organization</a>
+                    <a href='https://www.who.int/emergencies/diseases/novel-coronavirus-2019' rel='noopener noreferrer' target='_blank'>
+                        <span tabIndex='0'>World Health Organization</span>
+                    </a>
                 </li>
             </ul>
 
@@ -56,7 +60,9 @@ const SelfCare = () => {
 
             <p>You know your body and your body's signs of stress. If you are having trouble managing your mental health, contact your healthcare provider or call 8-1-1.</p>
 
-            <Link to='/changmoSungCovid19/info/aboutCovid19' className='routerLink'>go back</Link>
+            <Link to='/changmoSungCovid19/info/aboutCovid19' className='routerLink'>
+                <span tabIndex='0'>go back</span>
+            </Link>
         </div>
     );
 }

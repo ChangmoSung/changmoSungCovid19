@@ -21,11 +21,11 @@ const AboutCovid = () => {
 
                 <div className='linkContainer'>
                     <Link to='/changmoSungCovid19/info/aboutCovid19/selfCare'>
-                        <span>show self care</span>
+                        <span tabIndex='0'>show self care</span>
                     </Link>
 
                     <Link to='/changmoSungCovid19/info/aboutCovid19/handHygiene'>
-                        <span>hand hygiene</span>
+                        <span tabIndex='0'>hand hygiene</span>
                     </Link>
                 </div>
             </div>
