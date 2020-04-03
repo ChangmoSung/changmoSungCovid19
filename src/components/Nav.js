@@ -1,57 +1,56 @@
-import React, { Component } from 'react';
-import {
-    Link
-} from 'react-router-dom';
+import React  from 'react';
+import { Link } from 'react-router-dom';
 
-class Nav extends Component {
-    constructor() {
-        super();
+const Nav = () => {
+    let navOpened = false;
 
-        this.state = {
-            navOpened: false,
-        }
-    }
-
-
-    toggleNav = () => {
-        this.setState({
-            navOpened: !this.state.navOpened,
-        })
+    const toggleNav = () => {
+        navOpened = !navOpened
 
         document.querySelector('nav').classList.toggle('showNav');
+
         document.querySelector('.navTrigger').classList.toggle('hideNavTrigger')
     }
 
-    
-    render() { 
-        return ( 
-            <nav className='nav'>
-                <button className='navTrigger' onClick={this.toggleNav}><span>X</span></button>
+    return ( 
+        <nav className='nav'>
+            <button className='navTrigger' onClick={toggleNav}>
+                <span>X</span>
+            </button>
 
-                <ul>
-                    <li>
-                        <Link to='/changmoSungCovid19/' onClick={this.toggleNav}><span tabIndex='0'>HOME</span></Link>
-                    </li>
+            <ul>
+                <li>
+                    <Link to='/changmoSungCovid19/' onClick={toggleNav}>
+                        <span tabIndex='0'>home</span>
+                    </Link>
+                </li>
 
-                    <li>
-                        <Link to='/changmoSungCovid19/info/aboutCovid19' onClick={this.toggleNav}><span tabIndex='0'>COVID-19</span></Link>
-                    </li>
+                <li>
+                    <Link to='/changmoSungCovid19/info/aboutCovid19' onClick={toggleNav}>
+                        <span tabIndex='0'>covid-19</span>
+                    </Link>
+                </li>
 
-                    <li>
-                        <Link to='/changmoSungCovid19/info/selfcheck' onClick={this.toggleNav}><span tabIndex='0'>SELF-CHECK</span></Link>
-                    </li>
+                <li>
+                    <Link to='/changmoSungCovid19/info/selfcheck' onClick={toggleNav}>
+                        <span tabIndex='0'>self-check</span>
+                    </Link>
+                </li>
 
-                    <li>
-                        <Link to='/changmoSungCovid19/info/statistic' onClick={this.toggleNav}><span tabIndex='0'>STATISTIC</span></Link>
-                    </li>
+                <li>
+                    <Link to='/changmoSungCovid19/info/statistic' onClick={toggleNav}>
+                        <span tabIndex='0'>statistic</span>
+                    </Link>
+                </li>
 
-                    <li>
-                        <Link to='/changmoSungCovid19/info/news' onClick={this.toggleNav}><span tabIndex='0'>NEWS</span></Link>
-                    </li>
-                </ul>
-            </nav>
-         );
-    }
+                <li>
+                    <Link to='/changmoSungCovid19/info/article' onClick={toggleNav}>
+                        <span tabIndex='0'>article</span>
+                    </Link>
+                </li>
+            </ul>
+        </nav>
+    );
 }
  
 export default Nav;

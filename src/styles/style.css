@@ -283,7 +283,10 @@ img {
   cursor: pointer;
 }
 .nav .navTrigger.hideNavTrigger {
-  display: none;
+  box-shadow: none;
+  background: none;
+  color: white;
+  font-size: 4rem;
 }
 .nav .navTrigger:hover {
   top: 2.25rem;
@@ -315,6 +318,7 @@ img {
   font-size: 3.2rem;
   text-decoration: none;
   color: white;
+  text-transform: uppercase;
 }
 @media (max-width: 1120px) {
   .nav ul a {
@@ -499,31 +503,102 @@ header .currentStatusList li {
     line-height: 2.5rem;
   }
 }
-.aboutCovid button {
+.aboutCovid .linkContainer {
+  display: flex;
+}
+@media (max-width: 768px) {
+  .aboutCovid .linkContainer {
+    flex-direction: column;
+  }
+}
+.aboutCovid .linkContainer a {
   position: relative;
-  width: 18rem;
-  height: 5rem;
-  margin: 0 7rem;
+  width: 16rem;
+  height: 4.8rem;
   padding: 0;
-  font-size: 2.3rem;
+  font-size: 2rem;
   text-transform: uppercase;
   background: white;
   border: none;
   border-radius: 1rem;
   box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
   cursor: pointer;
-  width: 25rem;
-  margin: 4rem 3rem 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+  width: 23rem;
+  margin: 4rem 5rem 0 0;
 }
-.aboutCovid button:hover {
+.aboutCovid .linkContainer a:hover {
   top: 2.5px;
   left: 2.5px;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
 }
-@media (max-width: 430px) {
-  .aboutCovid button {
+@media (max-width: 768px) {
+  .aboutCovid .linkContainer a {
     font-size: 1.8rem;
+    width: 20rem;
     height: 4.7rem;
+  }
+}
+@media (max-width: 430px) {
+  .aboutCovid .linkContainer a {
+    font-size: 1.65rem;
+    width: 18.5rem;
+  }
+}
+@media (max-width: 375px) {
+  .aboutCovid .linkContainer a {
+    font-size: 1.55rem;
+    width: 17.5rem;
+    height: 4.5rem;
+  }
+}
+.aboutCovid .routerLink {
+  position: relative;
+  width: 16rem;
+  height: 4.8rem;
+  padding: 0;
+  font-size: 2rem;
+  text-transform: uppercase;
+  background: white;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+  width: 23rem;
+  margin: 4rem 5rem 0 0;
+}
+.aboutCovid .routerLink:hover {
+  top: 2.5px;
+  left: 2.5px;
+  box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
+}
+@media (max-width: 768px) {
+  .aboutCovid .routerLink {
+    font-size: 1.8rem;
+    width: 20rem;
+    height: 4.7rem;
+  }
+}
+@media (max-width: 430px) {
+  .aboutCovid .routerLink {
+    font-size: 1.65rem;
+    width: 18.5rem;
+  }
+}
+@media (max-width: 375px) {
+  .aboutCovid .routerLink {
+    font-size: 1.55rem;
+    width: 17.5rem;
+    height: 4.5rem;
   }
 }
 
@@ -595,11 +670,10 @@ header .currentStatusList li {
 }
 .selfCheck .selfAssessmentDescription button {
   position: relative;
-  width: 18rem;
-  height: 5rem;
-  margin: 0 7rem;
+  width: 16rem;
+  height: 4.8rem;
   padding: 0;
-  font-size: 2.3rem;
+  font-size: 2rem;
   text-transform: uppercase;
   background: white;
   border: none;
@@ -625,152 +699,158 @@ header .currentStatusList li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 22rem;
-}
-@media (max-width: 1120px) {
-  .questions {
-    margin-top: 18rem;
-  }
+  margin-top: 14rem;
 }
 @media (max-width: 768px) {
-  .questions {
-    margin-top: 15rem;
-  }
-}
-@media (max-width: 430px) {
   .questions {
     margin-top: 0;
   }
 }
-.questions h3 {
-  font-size: 4rem;
+.questions .questionContainer h3 {
+  font-size: 3rem;
   margin: 0;
-  line-height: 5.5rem;
+  line-height: 4.5rem;
 }
 @media (max-width: 1120px) {
-  .questions h3 {
-    font-size: 3.3rem;
-    line-height: 4.7rem;
+  .questions .questionContainer h3 {
+    font-size: 2.6rem;
+    line-height: 4rem;
   }
 }
 @media (max-width: 768px) {
-  .questions h3 {
-    font-size: 2.8rem;
-    line-height: 4.2rem;
+  .questions .questionContainer h3 {
+    font-size: 2.4rem;
+    line-height: 3.5rem;
   }
 }
 @media (max-width: 430px) {
-  .questions h3 {
-    font-size: 2.5rem;
-    line-height: 3.7rem;
-  }
-}
-.questions ul {
-  margin: 5rem 0;
-}
-@media (max-width: 768px) {
-  .questions ul {
-    margin: 3rem 0;
-    width: 90%;
-  }
-}
-.questions ul li {
-  font-size: 1.9rem;
-  margin-bottom: 2rem;
-  line-height: 2.9rem;
-}
-@media (max-width: 1120px) {
-  .questions ul li {
-    font-size: 1.8rem;
-  }
-}
-@media (max-width: 430px) {
-  .questions ul li {
-    font-size: 1.6rem;
-    line-height: 2.7rem;
+  .questions .questionContainer h3 {
+    font-size: 2.1rem;
+    line-height: 3.2rem;
   }
 }
 @media (max-width: 375px) {
-  .questions ul li {
+  .questions .questionContainer h3 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+}
+.questions .questionContainer p {
+  font-size: 1.9rem;
+  margin: 3rem 0 0;
+}
+@media (max-width: 1120px) {
+  .questions .questionContainer p {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 768px) {
+  .questions .questionContainer p {
+    font-size: 1.7rem;
+  }
+}
+@media (max-width: 430px) {
+  .questions .questionContainer p {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 375px) {
+  .questions .questionContainer p {
+    font-size: 1.5rem;
+  }
+}
+.questions .questionContainer ul {
+  margin: 3rem 0 5rem;
+}
+.questions .questionContainer ul li {
+  font-size: 1.9rem;
+  margin-bottom: 2rem;
+  line-height: 3rem;
+}
+@media (max-width: 1120px) {
+  .questions .questionContainer ul li {
+    font-size: 1.8rem;
+    line-height: 2.9rem;
+  }
+}
+@media (max-width: 768px) {
+  .questions .questionContainer ul li {
+    font-size: 1.7rem;
+    line-height: 2.8rem;
+  }
+}
+@media (max-width: 430px) {
+  .questions .questionContainer ul li {
+    font-size: 1.6rem;
+    line-height: 2.7rem;
+    margin-bottom: 1.5rem;
+  }
+}
+@media (max-width: 375px) {
+  .questions .questionContainer ul li {
     font-size: 1.5rem;
     line-height: 2.5rem;
   }
 }
-.questions .buttonContainer {
+.questions .questionContainer .buttonContainer {
   margin-bottom: 5rem;
 }
-@media (max-width: 768px) {
-  .questions .buttonContainer {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-  }
-}
 @media (max-width: 430px) {
-  .questions .buttonContainer {
+  .questions .questionContainer .buttonContainer {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 4rem;
   }
 }
-.questions .buttonContainer button {
+.questions .questionContainer .buttonContainer button {
   position: relative;
-  width: 18rem;
-  height: 5rem;
-  margin: 0 7rem;
+  width: 16rem;
+  height: 4.8rem;
   padding: 0;
-  font-size: 2.3rem;
+  font-size: 2rem;
   text-transform: uppercase;
   background: white;
   border: none;
   border-radius: 1rem;
   box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
   cursor: pointer;
+  margin-right: 5rem;
 }
-.questions .buttonContainer button:hover {
+.questions .questionContainer .buttonContainer button:hover {
   top: 2.5px;
   left: 2.5px;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
 }
-@media (max-width: 1120px) {
-  .questions .buttonContainer button {
-    margin: 0 4rem;
-  }
-}
 @media (max-width: 768px) {
-  .questions .buttonContainer button {
-    margin: 0;
-  }
-}
-@media (max-width: 640px) {
-  .questions .buttonContainer button {
-    width: 16rem;
+  .questions .questionContainer .buttonContainer button {
+    font-size: 1.9rem;
+    height: 4.5rem;
+    width: 15rem;
   }
 }
 @media (max-width: 430px) {
-  .questions .buttonContainer button {
-    width: 65%;
-    font-size: 2rem;
-    height: 4.7rem;
+  .questions .questionContainer .buttonContainer button {
+    width: 50%;
   }
 }
 @media (max-width: 375px) {
-  .questions .buttonContainer button {
-    height: 4.7rem;
-    width: 60%;
+  .questions .questionContainer .buttonContainer button {
+    font-size: 1.8rem;
+    width: 45%;
   }
 }
 @media (max-width: 430px) {
-  .questions .buttonContainer button:first-child {
-    margin-bottom: 3rem;
+  .questions .questionContainer .buttonContainer button:first-child {
+    margin-bottom: 4rem;
   }
 }
-.questions .return {
+.questions .questionContainer .return {
   position: relative;
-  width: 18rem;
-  height: 5rem;
-  margin: 0 7rem;
+  width: 16rem;
+  height: 4.8rem;
   padding: 0;
-  font-size: 2.3rem;
+  font-size: 2rem;
   text-transform: uppercase;
   background: white;
   border: none;
@@ -778,28 +858,34 @@ header .currentStatusList li {
   box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
   cursor: pointer;
   width: 42rem;
-  height: 6rem;
+  height: 5.3rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.questions .return:hover {
+.questions .questionContainer .return:hover {
   top: 2.5px;
   left: 2.5px;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
 }
-@media (max-width: 640px) {
-  .questions .return {
-    width: 40rem;
-    margin: 0;
+@media (max-width: 768px) {
+  .questions .questionContainer .return {
+    font-size: 1.9rem;
+    width: 38rem;
+    height: 5rem;
   }
 }
 @media (max-width: 430px) {
-  .questions .return {
+  .questions .questionContainer .return {
     font-size: 1.8rem;
     width: 90%;
     padding: 2%;
     height: 5.5rem;
+  }
+}
+@media (max-width: 375px) {
+  .questions .questionContainer .return {
+    font-size: 1.75rem;
   }
 }
 
@@ -809,7 +895,7 @@ header .currentStatusList li {
 .resultIsSelfIsolate,
 .noNeedToBeTested {
   width: 80%;
-  margin: 20rem auto 5rem;
+  margin: 16rem auto 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -824,12 +910,30 @@ header .currentStatusList li {
     width: 95%;
   }
 }
+@media (max-width: 768px) {
+  .call911,
+.consultFamilyDoctor,
+.selfIsolate,
+.resultIsSelfIsolate,
+.noNeedToBeTested {
+    margin-top: 14rem;
+  }
+}
+@media (max-width: 430px) {
+  .call911,
+.consultFamilyDoctor,
+.selfIsolate,
+.resultIsSelfIsolate,
+.noNeedToBeTested {
+    margin-top: 10rem;
+  }
+}
 .call911 h3,
 .consultFamilyDoctor h3,
 .selfIsolate h3,
 .resultIsSelfIsolate h3,
 .noNeedToBeTested h3 {
-  font-size: 5.8rem;
+  font-size: 5.5rem;
   margin: 0;
 }
 @media (max-width: 1120px) {
@@ -838,7 +942,7 @@ header .currentStatusList li {
 .selfIsolate h3,
 .resultIsSelfIsolate h3,
 .noNeedToBeTested h3 {
-    font-size: 5.5rem;
+    font-size: 5rem;
   }
 }
 @media (max-width: 768px) {
@@ -847,16 +951,7 @@ header .currentStatusList li {
 .selfIsolate h3,
 .resultIsSelfIsolate h3,
 .noNeedToBeTested h3 {
-    font-size: 4.8rem;
-  }
-}
-@media (max-width: 640px) {
-  .call911 h3,
-.consultFamilyDoctor h3,
-.selfIsolate h3,
-.resultIsSelfIsolate h3,
-.noNeedToBeTested h3 {
-    font-size: 4.1rem;
+    font-size: 4.3rem;
   }
 }
 @media (max-width: 430px) {
@@ -873,9 +968,9 @@ header .currentStatusList li {
 .selfIsolate h4,
 .resultIsSelfIsolate h4,
 .noNeedToBeTested h4 {
-  font-size: 3.8rem;
+  font-size: 2.9rem;
   margin: 4rem 0;
-  line-height: 5rem;
+  line-height: 3.9rem;
 }
 @media (max-width: 1120px) {
   .call911 h4,
@@ -883,8 +978,8 @@ header .currentStatusList li {
 .selfIsolate h4,
 .resultIsSelfIsolate h4,
 .noNeedToBeTested h4 {
-    font-size: 3rem;
-    line-height: 4.2rem;
+    font-size: 2.65rem;
+    line-height: 3.7rem;
   }
 }
 @media (max-width: 768px) {
@@ -893,18 +988,8 @@ header .currentStatusList li {
 .selfIsolate h4,
 .resultIsSelfIsolate h4,
 .noNeedToBeTested h4 {
-    font-size: 2.6rem;
-    line-height: 3.6rem;
-  }
-}
-@media (max-width: 640px) {
-  .call911 h4,
-.consultFamilyDoctor h4,
-.selfIsolate h4,
-.resultIsSelfIsolate h4,
-.noNeedToBeTested h4 {
-    font-size: 2.3rem;
-    line-height: 3.2rem;
+    font-size: 2rem;
+    line-height: 3rem;
   }
 }
 @media (max-width: 430px) {
@@ -913,9 +998,9 @@ header .currentStatusList li {
 .selfIsolate h4,
 .resultIsSelfIsolate h4,
 .noNeedToBeTested h4 {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     margin: 2.5rem 0;
-    line-height: 3rem;
+    line-height: 2.7rem;
   }
 }
 .call911 p,
@@ -925,7 +1010,7 @@ header .currentStatusList li {
 .noNeedToBeTested p {
   font-size: 2rem;
   line-height: 3rem;
-  margin: 0 0 2rem;
+  margin: 0 0 4rem;
 }
 @media (max-width: 1120px) {
   .call911 p,
@@ -933,7 +1018,7 @@ header .currentStatusList li {
 .selfIsolate p,
 .resultIsSelfIsolate p,
 .noNeedToBeTested p {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
 }
 @media (max-width: 768px) {
@@ -942,11 +1027,11 @@ header .currentStatusList li {
 .selfIsolate p,
 .resultIsSelfIsolate p,
 .noNeedToBeTested p {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     line-height: 2.7rem;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 430px) {
   .call911 p,
 .consultFamilyDoctor p,
 .selfIsolate p,
@@ -962,11 +1047,10 @@ header .currentStatusList li {
 .resultIsSelfIsolate button,
 .noNeedToBeTested button {
   position: relative;
-  width: 18rem;
-  height: 5rem;
-  margin: 0 7rem;
+  width: 16rem;
+  height: 4.8rem;
   padding: 0;
-  font-size: 2.3rem;
+  font-size: 2rem;
   text-transform: uppercase;
   background: white;
   border: none;
@@ -992,47 +1076,27 @@ header .currentStatusList li {
     margin: 0 4rem;
   }
 }
+@media (max-width: 768px) {
+  .call911 button,
+.consultFamilyDoctor button,
+.selfIsolate button,
+.resultIsSelfIsolate button,
+.noNeedToBeTested button {
+    font-size: 1.9rem;
+    height: 4.7rem;
+  }
+}
 @media (max-width: 430px) {
   .call911 button,
 .consultFamilyDoctor button,
 .selfIsolate button,
 .resultIsSelfIsolate button,
 .noNeedToBeTested button {
-    height: 4.7rem;
-    font-size: 1.8rem;
+    font-size: 1.75rem;
+    height: 4.5rem;
   }
 }
 
-.selfIsolate,
-.resultIsSelfIsolate,
-.noNeedToBeTested {
-  margin-top: 16rem;
-}
-@media (max-width: 768px) {
-  .selfIsolate,
-.resultIsSelfIsolate,
-.noNeedToBeTested {
-    margin-top: 14rem;
-  }
-}
-@media (max-width: 430px) {
-  .selfIsolate,
-.resultIsSelfIsolate,
-.noNeedToBeTested {
-    margin-top: 0;
-  }
-}
-
-@media (max-width: 1120px) {
-  .selfIsolate {
-    margin-top: 15rem;
-  }
-}
-@media (max-width: 768px) {
-  .selfIsolate {
-    margin-top: 13rem;
-  }
-}
 .selfIsolate h3 {
   margin-bottom: 5rem;
 }
@@ -1041,25 +1105,19 @@ header .currentStatusList li {
     margin-bottom: 3rem;
   }
 }
+.selfIsolate h4 {
+  margin: 4rem 0 2rem;
+}
+@media (max-width: 430px) {
+  .selfIsolate h4 {
+    margin: 3rem 0 1.5rem;
+  }
+}
+.selfIsolate p {
+  margin-bottom: 1rem;
+}
 .selfIsolate button {
   margin-top: 5rem;
-  position: relative;
-  width: 18rem;
-  height: 5rem;
-  margin: 0 7rem;
-  padding: 0;
-  font-size: 2.3rem;
-  text-transform: uppercase;
-  background: white;
-  border: none;
-  border-radius: 1rem;
-  box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
-  cursor: pointer;
-}
-.selfIsolate button:hover {
-  top: 2.5px;
-  left: 2.5px;
-  box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
 }
 @media (max-width: 1120px) {
   .selfIsolate button {
@@ -1067,19 +1125,8 @@ header .currentStatusList li {
   }
 }
 
-.call911,
-.consultFamilyDoctor {
-  margin-top: 16rem;
-}
-@media (max-width: 375px) {
-  .call911,
-.consultFamilyDoctor {
-    margin-top: 12rem;
-  }
-}
-
 .statistic {
-  margin: 15rem auto 5rem;
+  margin: 13rem auto 5rem;
   width: 80%;
 }
 @media (max-width: 1120px) {
@@ -1316,22 +1363,22 @@ header .currentStatusList li {
   margin-right: 0.15rem;
 }
 
-.news {
+.article {
   margin: 12rem auto 5rem;
   width: 80%;
 }
 @media (max-width: 1120px) {
-  .news {
+  .article {
     width: 90%;
   }
 }
 @media (max-width: 768px) {
-  .news {
+  .article {
     width: 95%;
     margin-top: 8rem;
   }
 }
-.news .newsList {
+.article .articleList {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
@@ -1339,11 +1386,11 @@ header .currentStatusList li {
   list-style: none;
 }
 @media (max-width: 1120px) {
-  .news .newsList {
+  .article .articleList {
     justify-content: space-between;
   }
 }
-.news .newsList li {
+.article .articleList li {
   width: 31%;
   border: 2px solid black;
   padding: 2rem;
@@ -1351,46 +1398,46 @@ header .currentStatusList li {
   border-radius: 1rem;
 }
 @media (max-width: 1120px) {
-  .news .newsList li {
+  .article .articleList li {
     width: 48%;
   }
 }
 @media (max-width: 768px) {
-  .news .newsList li {
+  .article .articleList li {
     width: 100%;
   }
 }
 @media (max-width: 430px) {
-  .news .newsList li {
+  .article .articleList li {
     margin-bottom: 3rem;
   }
 }
-.news .newsList li h3 {
+.article .articleList li h3 {
   font-size: 2rem;
   margin-top: 0;
   line-height: 2.7rem;
 }
-.news .newsList li .newsArticle {
+.article .articleList li .articleImage {
   margin: 2rem 0;
 }
-.news .newsList li p {
+.article .articleList li p {
   font-size: 1.3rem;
   margin: 0;
   line-height: 2.3rem;
 }
-.news .newsList li a {
+.article .articleList li a {
   font-size: 1.6rem;
 }
-.news .newsList li p:nth-child(5) {
+.article .articleList li p:nth-child(5) {
   font-size: 1.6rem;
   margin-bottom: 2rem;
   line-height: 2.5rem;
 }
-.news .newsList li:nth-child(3n+2) {
+.article .articleList li:nth-child(3n+2) {
   margin: 0 3.5% 5rem;
 }
 @media (max-width: 1120px) {
-  .news .newsList li:nth-child(3n+2) {
+  .article .articleList li:nth-child(3n+2) {
     margin: 0 0 5rem;
   }
 }

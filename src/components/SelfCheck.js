@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import Call911 from './questionResults/Call911';
+import ConsultFamilyDoctor from './questionResults/ConsultFamilyDoctor'
+import SelfIsolate from './questionResults/SelfIsolate';
+import NoNeedToBeTested from './questionResults/NoNeedToBeTested';
+import ResultIsSelfIsolate from './questionResults/ResultIsSelfIsolate';
 
 class SelfCheck extends Component {
     constructor() {
@@ -33,22 +38,26 @@ class SelfCheck extends Component {
                     function: this.selfIsolate,
                 },
                 {
-                    question: 'Have you travelled abroad within the last 14 days?',
+                    question: 'Did you provide care or have close contact with a person with COVID-19 (probable or confirmed) while they were ill (cough, fever, sneezing, or sore throat)?',
+                    paragraph: 'A close contact is defined as a person who:',
+                    example1: 'provided care for the individual, including healthcare workers, family members or other caregivers, or who had other similar close physical contact without consistent and appropriate use of personal protective equipment ',
+                    example2: 'who lived with or otherwise had close prolonged contact (within 2 meters) with the person while they were infectious',
+                    example3: 'had direct contact with infectious bodily fluids of the person (e.g. was coughed or sneezed on) while not wearing recommended personal protective equipment',
                     function: this.resultIsSelfIsolate,
                 },
                 {
-                    question: 'Did you provide care or have close contact with a person with COVID-19 (probable or confirmed) while they were ill (cough, fever, sneezing, or sore throat)?',
+                    question: 'Have you travelled abroad within the last 14 days?',
+                    paragraph: 'Travel includes passing through an airport.',
                     function: this.resultIsSelfIsolate,
                 },
                 {
                     question: 'Did you have close contact with a person who travelled outside of Canada in the last 14 days who has become ill (cough, fever, sneezing, or sore throat)?',
                     function: this.resultIsSelfIsolate,
-                }
+                },
             ],
             call911: false,
             consultFamilyDoctor: false,
             selfIsolate: false,
-            travelledAbroad: false,
             resultIsSelfIsolate: false,
         }
     }
@@ -64,6 +73,8 @@ class SelfCheck extends Component {
     tryAgain = () => {
         this.setState({
             questionNumber: 0,
+            call911: false,
+            consultFamilyDoctor: false,
         })
     }
 
@@ -133,7 +144,7 @@ class SelfCheck extends Component {
                 <div className='selfAssessmentDescription'>
                     <h2>COVID-19 Self-Check</h2>
 
-                    <p>This self-assessment tool, developed with the BC Ministry of Health, will help determine whether you may need further assessment or testing for COVID-19. You can complete this assessment for yourself, or on behalf of someone else. If you have respiratory symptoms and a serious ongoing condition, or are in the third trimester of pregnancy, please follow the advice of your specialist.</p>
+                    <p>This self-assessment tool, developed with 811 HealthLine, will help determine whether you may need further assessment or testing for COVID-19. You can complete this assessment for yourself, or on behalf of someone else. If you have respiratory symptoms and a serious ongoing condition, or are in the third trimester of pregnancy, please follow the advice of your specialist.</p>
 
                     <h3>Most people do not need to be tested for COVID-19 because it will not change your care.</h3>
 
@@ -141,7 +152,9 @@ class SelfCheck extends Component {
 
                     <ul>
                         <li>People without symptoms</li>
+
                         <li>People who have mild respiratory symptoms that can be managed at home</li>
+
                         <li>Returning travellers</li>
                     </ul>
 
@@ -151,116 +164,86 @@ class SelfCheck extends Component {
 
                     <ul>
                         <li>Hospitalized, or likely to be hospitalized</li>
+
                         <li>Health Care Workers</li>
+
                         <li>Residents of long-term care facilities</li>
+
                         <li>Part of an investigation of a cluster or outbreak</li>
                     </ul>
 
-                    <p>Anyone who has symptoms - including a fever, cough, sneezing, or sore throat - should self-isolate for 10 days. Continue to complete this assessment to determine if you may need care.</p>
+                    <p>Anyone who has symptoms - including a fever, cough, sneezing, or sore throat - should self-isolate for 14 days. Continue to complete this assessment to determine if you may need care.</p>
 
                     <button onClick={this.startAssessment}>Self-Check</button>
                 </div>
                 :null}
 
 
-                {this.state.assessmentStarted && this.state.questionNumber < 6 && !this.state.call911 && !this.state.consultFamilyDoctor && !this.state.selfIsolate 
+                {this.state.assessmentStarted 
+                && this.state.questionNumber < 6 
+                && !this.state.call911 
+                && !this.state.consultFamilyDoctor 
+                && !this.state.selfIsolate 
                 ? 
                 <div className='questions'>
-                    <h3>{this.state.questions[this.state.questionNumber].question}</h3>
+                    <div className='questionContainer'>
+                        <h3>{this.state.questions[this.state.questionNumber].question}</h3>
 
-                    <ul>
-                        {this.state.questions[this.state.questionNumber].example1 ? <li>{this.state.questions[this.state.questionNumber].example1}</li> : null}
+                        {this.state.questions[this.state.questionNumber].paragraph ? <p>{this.state.questions[this.state.questionNumber].paragraph}</p> :null}
 
-                        {this.state.questions[this.state.questionNumber].example2 ? <li>{this.state.questions[this.state.questionNumber].example2}</li> : null}
+                        <ul>
+                            {this.state.questions[this.state.questionNumber].example1 ? <li>{this.state.questions[this.state.questionNumber].example1}</li> : null}
 
-                        {this.state.questions[this.state.questionNumber].example3 ? <li>{this.state.questions[this.state.questionNumber].example3}</li> : null}
+                            {this.state.questions[this.state.questionNumber].example2 ? <li>{this.state.questions[this.state.questionNumber].example2}</li> : null}
 
-                        {this.state.questions[this.state.questionNumber].example4 ? <li>{this.state.questions[this.state.questionNumber].example4}</li> : null}
+                            {this.state.questions[this.state.questionNumber].example3 ? <li>{this.state.questions[this.state.questionNumber].example3}</li> : null}
 
-                        {this.state.questions[this.state.questionNumber].example5 ? <li>{this.state.questions[this.state.questionNumber].example5}</li> : null}
-                    </ul>
+                            {this.state.questions[this.state.questionNumber].example4 ? <li>{this.state.questions[this.state.questionNumber].example4}</li> : null}
 
-                    <div className='buttonContainer'>
-                        <button onClick={() => this.state.questions[this.state.questionNumber].function(true)}>yes</button>
+                            {this.state.questions[this.state.questionNumber].example5 ? <li>{this.state.questions[this.state.questionNumber].example5}</li> : null}
+                        </ul>
 
-                        <button onClick={() => this.state.questions[this.state.questionNumber].function(false)}>no</button>
+                        <div className='buttonContainer'>
+                            <button onClick={() => this.state.questions[this.state.questionNumber].function(true)}>yes</button>
+
+                            <button onClick={() => this.state.questions[this.state.questionNumber].function(false)}>no</button>
+                        </div>
+
+                        <button className='return' onClick={this.returnToPreviousQuestion}><span>Return to previous question</span></button>
                     </div>
-
-                    <button className='return' onClick={this.returnToPreviousQuestion}><span>Return to previous question</span></button>
                 </div>
                 : null}
 
 
                 {this.state.call911
                 ?
-                <div className='call911'>
-                    <h3>Our recommendation</h3>
-
-                    <h4>Please call 9-1-1 or go directly to your nearest emergency department.</h4>
-
-                    <p>These symptoms require immediate attention. You should call 9-1-1 immediately, or go directly to your nearest emergency department.</p>
-                </div>
+                    <Call911 tryAgain={this.tryAgain} />
                 : null}
 
 
                 {this.state.consultFamilyDoctor
                 ? 
-                    <div className='consultFamilyDoctor'>
-                        <h3>Our recommendation</h3>
-
-                        <h4>Please consult your family doctor. If you are unable to reach your regular health care provider, call 8-1-1 to speak with HealthLink BC.</h4>
-
-                        <p>A nurse at HealthLink BC can speak with you about your symptoms and provide health advice.</p>
-                    </div>
+                    <ConsultFamilyDoctor tryAgain={this.tryAgain}/>
                 : null}
 
 
                 {this.state.selfIsolate
                 ?
-                    <div className='selfIsolate'>
-                        <h3>Please stay at home.</h3>
-
-                        <p>As a precaution, the Ministry of Health is asking anyone with symptoms (fever, coughm sneezing, or sore throat) to stay home for 10 days.</p>
-
-                        <p>If your symptoms worsen, call your family physician.</p>
-
-                        <h4>Your self-assessment is not complete.</h4>
-
-                        <p>Finish the remaining questions to obtain complete recommendations on what steps you should take.</p>
-
-                        <button onClick={this.selfIsolateConfirmed}>Continue</button>
-                    </div>
+                    <SelfIsolate selfIsolateConfirmed={this.selfIsolateConfirmed}/>
                 : null}
 
 
-                {this.state.questionNumber === 6 && this.state.resultIsSelfIsolate 
+                {this.state.questionNumber === 6 
+                && this.state.resultIsSelfIsolate 
                 ? 
-                    <div className='resultIsSelfIsolate'>
-                        <h3>Our recommendation</h3>
-
-                        <h4>Please self-isolate for 14 days. You do not need testing for COVID-19.</h4>
-
-                        <p>Since you don't have symptoms, you do not need testing for COVID-19 at this time. However, there's a chance you could get sick. You should self-monitor for any symptoms (fever, cough, sneezing, sore throat, or difficulty breathing). If you begin to develop these, you should take this self-assessment again.</p>
-
-                        <p>If you are experiencing symptoms other than COVID-19, contact your family physician.</p>
-                        
-                        <button onClick={this.tryAgain}>Try again</button>
-                    </div>
+                    <ResultIsSelfIsolate tryAgain={this.tryAgain} />
                 : null}
 
-                {this.state.questionNumber === 6 && !this.state.resultIsSelfIsolate
+
+                {this.state.questionNumber === 6 
+                && !this.state.resultIsSelfIsolate
                 ? 
-                    <div className='noNeedToBeTested'>
-                        <h3>Our recommendation</h3>
-
-                        <h4>Since you don't have any COVID-19 symptoms, you don't need to be tested for COVID-19.</h4>
-
-                        <p>Please self-monitor, wash your hands frequently, and practice physical distancing.If you develop any symptoms (fever, cough, sneezing, sore throat, or difficulty breathing), or become aware of any potential exposures to cases of COVID-19, take this self-assessment again.</p>
-
-                        <p>If you are experiencing symptoms other than COVID-19, contact your family physician.</p>
-
-                        <button onClick={this.tryAgain}>try again</button>
-                    </div>
+                    <NoNeedToBeTested tryAgain={this.tryAgain} />
                 : null}
             </div>
          );

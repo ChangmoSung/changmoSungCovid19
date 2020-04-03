@@ -80,14 +80,19 @@
         }
     }
 
-    button {
-        @include button;
-        width: 25rem;
-        margin: 4rem 3rem 0 0;
-
-        @include mq430 {
-            font-size: 1.8rem;
-            height: 4.7rem;
+    .linkContainer {
+        display: flex;
+        
+        @include mq768 {
+            flex-direction: column;
         }
+
+        a {
+           @include link;
+        }
+    }
+
+    .routerLink {
+        @include link;
     }
 }

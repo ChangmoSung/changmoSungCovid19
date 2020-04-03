@@ -7,10 +7,7 @@ import axios from 'axios';
 import './styles/style.css';
 import Nav from './components/Nav';
 import Header from './components/Header';
-import AboutCovid from './components/AboutCovid';
-import Statistic from './components/Statistic';
-import News from './components/News';
-import SelfCheck from './components/SelfCheck';
+import Main from './components/Main';
 
 class App extends Component {
   constructor() {
@@ -45,27 +42,17 @@ class App extends Component {
         <Nav />
         
         <Route path='/changmoSungCovid19/' exact >
-          <Header currentDate={this.state.currentDate} currentStatus={this.state.currentStatus} />
+          <Header 
+            currentDate={this.state.currentDate}
+            currentStatus={this.state.currentStatus} 
+          />
         </Route>
 
         <Route path='/changmoSungCovid19/info/' >
-          <main>
-            <Route path='/changmoSungCovid19/info/aboutCovid19'>
-              <AboutCovid />
-            </Route>
-
-            <Route path='/changmoSungCovid19/info/statistic'>
-              <Statistic currentDate={this.state.currentDate} currentStatus={this.state.currentStatus} />
-            </Route>
-
-            <Route path='/changmoSungCovid19/info/news'>
-              <News />
-            </Route>
-
-            <Route path='/changmoSungCovid19/info/selfcheck'>
-              <SelfCheck />
-            </Route>
-          </main>
+          <Main 
+            currentDate={this.state.currentDate}
+            currentStatus={this.state.currentStatus}
+          />
         </Route>
       </Router>
      );

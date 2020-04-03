@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Header extends Component {
-    addCommas = num => {
+const Header = props => {
+    const addCommas = num => {
         if (typeof num === 'number') {
             return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         } else {
@@ -9,23 +9,23 @@ class Header extends Component {
         }
     }
 
+    return ( 
+        <header>
+            <h1>SAVE THE ONE YOU LOVE</h1>
 
-    render() { 
-        return ( 
-            <header>
-                <h1>SAVE THE ONE YOU LOVE</h1>
+            <h2 className='date'>As of {props.currentDate}</h2>
 
-                <h2 className='date'>As of {this.props.currentDate}</h2>
+            <ul className='currentStatusList'>
+                <li>Total cases: {addCommas(props.currentStatus.cases)}</li>
 
-                <ul className='currentStatusList'>
-                    <li>Total cases: {this.addCommas(this.props.currentStatus.cases)}</li>
-                    <li>Total active: {this.addCommas(this.props.currentStatus.active)}</li>
-                    <li>Total recovered: {this.addCommas(this.props.currentStatus.recovered)}</li>
-                    <li>Total deaths: {this.addCommas(this.props.currentStatus.deaths)}</li>
-                </ul>
-            </header>
-         );
-    }
+                <li>Total active: {addCommas(props.currentStatus.active)}</li>
+
+                <li>Total recovered: {addCommas(props.currentStatus.recovered)}</li>
+                
+                <li>Total deaths: {addCommas(props.currentStatus.deaths)}</li>
+            </ul>
+        </header>
+    );
 }
  
 export default Header;
