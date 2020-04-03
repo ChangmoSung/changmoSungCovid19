@@ -28,11 +28,7 @@ class Statistic extends Component {
 
 
     addCommas = num => {
-        if(typeof num === 'number') {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        } else {
-            return 0;
-        }
+        return `${typeof num === 'number' ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}`
     }
 
 

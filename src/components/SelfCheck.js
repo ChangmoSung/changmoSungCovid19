@@ -61,6 +61,13 @@ class SelfCheck extends Component {
     }
 
 
+    tryAgain = () => {
+        this.setState({
+            questionNumber: 0,
+        })
+    }
+
+
     returnToPreviousQuestion = () => {
         if(this.state.questionNumber > 0) {
             this.setState({
@@ -105,10 +112,16 @@ class SelfCheck extends Component {
 
 
     resultIsSelfIsolate = answer => {
-        this.setState({
-            resultIsSelfIsolate: `${this.state.resultIsSelfIsolate ? true : answer}`,
-            questionNumber: this.state.questionNumber + 1,
-        })
+        if(this.state.resultIsSelfIsolate) {
+            this.setState({
+                questionNumber: this.state.questionNumber + 1,
+            })
+        } else {
+            this.setState({
+                resultIsSelfIsolate: answer,
+                questionNumber: this.state.questionNumber + 1,
+            })
+        }
     }
 
 
@@ -215,7 +228,7 @@ class SelfCheck extends Component {
 
                         <p>Finish the remaining questions to obtain complete recommendations on what steps you should take.</p>
 
-                        <button onClick={this.selfIsolateConfirmed} data-question='2' data-currentquestion='.question3'>Continue</button>
+                        <button onClick={this.selfIsolateConfirmed}>Continue</button>
                     </div>
                 : null}
 
@@ -230,7 +243,8 @@ class SelfCheck extends Component {
                         <p>Since you don't have symptoms, you do not need testing for COVID-19 at this time. However, there's a chance you could get sick. You should self-monitor for any symptoms (fever, cough, sneezing, sore throat, or difficulty breathing). If you begin to develop these, you should take this self-assessment again.</p>
 
                         <p>If you are experiencing symptoms other than COVID-19, contact your family physician.</p>
-
+                        
+                        <button onClick={this.tryAgain}>Try again</button>
                     </div>
                 : null}
 
@@ -245,6 +259,7 @@ class SelfCheck extends Component {
 
                         <p>If you are experiencing symptoms other than COVID-19, contact your family physician.</p>
 
+                        <button onClick={this.tryAgain}>try again</button>
                     </div>
                 : null}
             </div>

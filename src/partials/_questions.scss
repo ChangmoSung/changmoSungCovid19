@@ -215,8 +215,15 @@
     }
 
     button {
+        @include button;
+
         @include mq1120 {
             margin: 0 4rem;
+        }
+
+        @include mq430 {
+            height: 4.7rem;
+            font-size: 1.8rem;
         }
     }
 }
