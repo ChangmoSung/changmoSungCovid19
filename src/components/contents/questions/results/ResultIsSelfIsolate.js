@@ -11,7 +11,7 @@ const ResultIsSelfIsolate = props => {
 
             <p>If your symptoms become worse, call 811. 811 is currently experiencing heavy call volumes. You may be asked to leave a message. We’ll get back to you as ask quickly as possible.</p>
 
-            <button onClick={props.tryAgain}>try again</button>
+            <button onClick={props.startAgain}>try again</button>
         </div>
      );
 }

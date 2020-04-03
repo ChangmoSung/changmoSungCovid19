@@ -9,7 +9,7 @@ const ConsultFamilyDoctor = props => {
 
             <p>A nurse at 811 HealthLine can speak with you about your symptoms and provide health advice.</p>
 
-            <button onClick={props.tryAgain}>try again</button>
+            <button onClick={props.startAgain}>try again</button>
         </div>
      );
 }

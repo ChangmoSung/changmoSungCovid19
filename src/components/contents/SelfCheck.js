@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Questions from './questions/Questions';
+import { Link } from 'react-router-dom';
 
 
 class SelfCheck extends Component {
@@ -15,8 +15,7 @@ class SelfCheck extends Component {
     render() { 
         return ( 
             <div className='selfCheck'>
-                {!this.state.checkStarted 
-                ? 
+                
                 <div className='selfCheckDescription'>
                     <h2>COVID-19 Self-Check</h2>
 
@@ -50,10 +49,10 @@ class SelfCheck extends Component {
 
                     <p>Anyone who has symptoms - including a fever, cough, sneezing, or sore throat - should self-isolate for 14 days. Continue to complete this assessment to determine if you may need care.</p>
 
-                    <button onClick={() => this.setState({checkStarted: true})}>Self-Check</button>
+                    <Link to='/changmoSungCovid19/info/selfcheck/questions'>
+                        <span tabIndex='0'>self-check</span>
+                    </Link>
                 </div>
-                : 
-                <Questions />}
             </div>
          );
     }

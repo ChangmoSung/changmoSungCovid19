@@ -11,7 +11,7 @@ const NoNeedToBeTested = props => {
 
             <p>If you are experiencing symptoms other than COVID-19, contact your family physician.</p>
 
-            <button onClick={props.tryAgain}>try again</button>
+            <button onClick={props.startAgain}>try again</button>
         </div>
     );
 }

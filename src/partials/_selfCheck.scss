@@ -62,9 +62,13 @@
             margin: 3rem 0;
         }
 
-        button {
+        a {
             @include button;
-            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: black;
             width: 20rem;
 
             @include mq430 {

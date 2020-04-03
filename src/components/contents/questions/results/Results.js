@@ -10,13 +10,13 @@ const Results = props => {
         <div>
             {props.call911
             ?
-                <Call911 tryAgain={props.tryAgain} />
+                <Call911 startAgain={props.startAgain} />
             : null}
 
 
             {props.consultFamilyDoctor
             ?
-                <ConsultFamilyDoctor tryAgain={props.tryAgain} />
+                <ConsultFamilyDoctor startAgain={props.startAgain} />
             : null}
 
 
@@ -29,14 +29,14 @@ const Results = props => {
             {props.questionNumber === 6
             && props.resultIsSelfIsolate
             ?
-                <ResultIsSelfIsolate tryAgain={props.tryAgain} />
+                <ResultIsSelfIsolate startAgain={props.startAgain} />
             : null}
 
 
             {props.questionNumber === 6
             && !props.resultIsSelfIsolate
             ?
-                <NoNeedToBeTested tryAgain={props.tryAgain} />
+                <NoNeedToBeTested startAgain={props.startAgain} />
             : null}
         </div>
     );

@@ -9,6 +9,7 @@ import HandHygiene from './contents/covidCareInfo/HandHygiene';
 import Statistic from './contents/Statistic';
 import Article from './contents/Article';
 import SelfCheck from './contents/SelfCheck';
+import Questions from './contents/questions/Questions';
 
 const Main = props => {
     return ( 
@@ -28,9 +29,15 @@ const Main = props => {
             </Switch>
 
 
-            <Route path='/changmoSungCovid19/info/selfcheck'>
-                <SelfCheck />
-            </Route>
+            <Switch>
+                <Route path='/changmoSungCovid19/info/selfcheck/questions'>
+                    <Questions />
+                </Route>
+
+                <Route path='/changmoSungCovid19/info/selfcheck'>
+                    <SelfCheck />
+                </Route>
+            </Switch>
 
 
             <Route path='/changmoSungCovid19/info/statistic'>

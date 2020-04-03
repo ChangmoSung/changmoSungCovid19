@@ -9,7 +9,7 @@ const Call911 = props => {
 
             <p>These symptoms require immediate attention. You should call 9-1-1 immediately, or go directly to your nearest emergency department.</p>
 
-            <button onClick={props.tryAgain}>try again</button>
+            <button onClick={props.startAgain}>try again</button>
         </div>
      );
 }

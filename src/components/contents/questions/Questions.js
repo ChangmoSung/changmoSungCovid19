@@ -58,7 +58,7 @@ class Questions extends Component {
     }
 
 
-    tryAgain = () => {
+    startAgain = () => {
         this.setState({
             questionNumber: 0,
             call911: false,
@@ -172,18 +172,17 @@ class Questions extends Component {
 
                             <button onClick={() => this.state.questions[this.state.questionNumber].function(false)}>no</button>
                         </div>
-
-                            <button className='goBack' onClick={this.tryAgain}>
-                                <span>go back</span>
-                            </button>
+                        
+                        {this.state.questionNumber > 0 
+                        ?
+                            <button className='startAgain' onClick={this.startAgain}>start again</button>
+                        :null}
                     </div>
-
-                    
                 </div>
                 : 
                 <Results
                     questionNumber={this.state.questionNumber}
-                    tryAgain={this.tryAgain}
+                    startAgain={this.startAgain}
                     call911={this.state.call911}
                     consultFamilyDoctor={this.state.consultFamilyDoctor}
                     selfIsolate={this.state.selfIsolate}
