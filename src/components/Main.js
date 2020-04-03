@@ -27,13 +27,19 @@ const Main = props => {
                 </Route>
             </Switch>
 
+
             <Route path='/changmoSungCovid19/info/selfcheck'>
                 <SelfCheck />
             </Route>
 
+
             <Route path='/changmoSungCovid19/info/statistic'>
-                <Statistic currentDate={props.currentDate} currentStatus={props.currentStatus} />
+                <Statistic 
+                    currentDate={props.currentDate} 
+                    currentStatus={props.currentStatus}
+                />
             </Route>
+
 
             <Route path='/changmoSungCovid19/info/article'>
                 <Article />

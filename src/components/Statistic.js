@@ -66,7 +66,13 @@ class Statistic extends Component {
 
                 <div className='searchFormContainer'>
                     <form onSubmit={this.searchCountry}>
-                        <input ref={this.searchInput} id='country' type='text' required></input>
+                        <input
+                            ref={this.searchInput} 
+                            id='country'
+                            type='text'
+                            required>
+                        </input>
+
                         <button>SEARCH</button>
                     </form>
                 </div>
@@ -114,6 +120,7 @@ class Statistic extends Component {
 
                                     <td className='totalDeaths'>
                                         <span>{this.addCommas(country.deaths)}</span>
+                                        
                                         {country.todayDeaths > 0 
                                         ?
                                             <span>

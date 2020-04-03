@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 14rem;
+    margin-top: 15rem;
 
     @include mq768 {
         margin-top: 0;
     }
 
     .questionContainer {
+        width: 70%;
 
         h3 {
             font-size: 3rem;
@@ -165,11 +166,11 @@
     }
 
     @include mq768 {
-        margin-top: 14rem;
+        margin-top: 10rem;
     }
 
     @include mq430 {
-        margin-top: 10rem;
+        margin-top: 4rem;
     }
 
     h3 {
@@ -252,6 +253,7 @@
 
 
 .selfIsolate {
+    
     h3 {
         margin-bottom: 5rem;
 
