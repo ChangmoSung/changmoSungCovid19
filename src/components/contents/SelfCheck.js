@@ -12,10 +12,10 @@ class SelfCheck extends Component {
     }
 
 
-    render() { 
-        return ( 
+    render() {
+        return (
             <div className='selfCheck'>
-                
+
                 <div className='selfCheckDescription'>
                     <h2>COVID-19 Self-Check</h2>
 
@@ -54,8 +54,8 @@ class SelfCheck extends Component {
                     </Link>
                 </div>
             </div>
-         );
+        );
     }
 }
- 
+
 export default SelfCheck;

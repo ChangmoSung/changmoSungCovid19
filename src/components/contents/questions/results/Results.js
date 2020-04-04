@@ -6,7 +6,7 @@ import NoNeedToBeTested from './NoNeedToBeTested';
 import ResultIsSelfIsolate from './ResultIsSelfIsolate';
 
 const Results = props => {
-    return ( 
+    return (
         <div>
             {props.call911
             ?
@@ -41,5 +41,5 @@ const Results = props => {
         </div>
     );
 }
- 
+
 export default Results;

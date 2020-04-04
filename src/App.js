@@ -30,8 +30,8 @@ class App extends Component {
       method: "GET",
     }).then(res => {
       this.setState({
+        currentStatus: res.data,
         currentDate,
-        currentStatus: res.data
       })
     })
   }
@@ -43,15 +43,15 @@ class App extends Component {
         
         <Route path='/changmoSungCovid19/' exact >
           <Header 
-            currentDate={this.state.currentDate}
-            currentStatus={this.state.currentStatus} 
+            currentStatus={this.state.currentStatus}
+            currentDate={this.state.currentDate} 
           />
         </Route>
 
         <Route path='/changmoSungCovid19/info/' >
           <Main 
-            currentDate={this.state.currentDate}
             currentStatus={this.state.currentStatus}
+            currentDate={this.state.currentDate} 
           />
         </Route>
       </Router>

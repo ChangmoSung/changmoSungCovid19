@@ -4,8 +4,17 @@
 .resultIsSelfIsolate,
 .noNeedToBeTested {
     @include resultDescription;
+    width: 60%;
 
     @include mq1120 {
+        width: 75%;
+    }
+
+    @include mq768 {
+        width: 80%;
+    }
+
+    @include mq430 {
         width: 85%;
     }
 

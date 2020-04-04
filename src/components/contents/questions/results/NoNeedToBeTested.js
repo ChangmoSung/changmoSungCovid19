@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NoNeedToBeTested = props => {
-    return ( 
+    return (
         <div className='noNeedToBeTested'>
             <h3>Our recommendation</h3>
 
@@ -15,5 +15,5 @@ const NoNeedToBeTested = props => {
         </div>
     );
 }
- 
+
 export default NoNeedToBeTested;

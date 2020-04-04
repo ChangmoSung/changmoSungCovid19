@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SelfIsolate = props => {
-    return ( 
+    return (
         <div className='selfIsolate'>
             <h3>Please stay at home.</h3>
 
@@ -15,7 +15,7 @@ const SelfIsolate = props => {
 
             <button onClick={props.selfIsolateConfirmed}>continue</button>
         </div>
-     );
+    );
 }
- 
+
 export default SelfIsolate;

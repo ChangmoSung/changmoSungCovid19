@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Call911 = props => {
-    return ( 
+    return (
         <div className='call911'>
             <h3>Our recommendation</h3>
 
@@ -11,7 +11,7 @@ const Call911 = props => {
 
             <button onClick={props.startAgain}>try again</button>
         </div>
-     );
+    );
 }
- 
+
 export default Call911;

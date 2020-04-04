@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ResultIsSelfIsolate = props => {
-    return ( 
+    return (
         <div className='resultIsSelfIsolate'>
             <h3>Our recommendation</h3>
 
@@ -13,7 +13,7 @@ const ResultIsSelfIsolate = props => {
 
             <button onClick={props.startAgain}>try again</button>
         </div>
-     );
+    );
 }
- 
+
 export default ResultIsSelfIsolate;

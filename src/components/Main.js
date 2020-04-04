@@ -12,7 +12,7 @@ import SelfCheck from './contents/SelfCheck';
 import Questions from './contents/questions/Questions';
 
 const Main = props => {
-    return ( 
+    return (
         <main>
             <Switch>
                 <Route path='/changmoSungCovid19/info/aboutCovid19/selfCare'>
@@ -41,8 +41,8 @@ const Main = props => {
 
 
             <Route path='/changmoSungCovid19/info/statistic'>
-                <Statistic 
-                    currentDate={props.currentDate} 
+                <Statistic
+                    currentDate={props.currentDate}
                     currentStatus={props.currentStatus}
                 />
             </Route>
@@ -54,5 +54,5 @@ const Main = props => {
         </main>
     );
 }
- 
+
 export default Main;

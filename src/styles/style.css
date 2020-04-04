@@ -710,8 +710,27 @@ header .currentStatusList li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 60%;
 }
 @media (max-width: 1120px) {
+  .call911,
+.consultFamilyDoctor,
+.selfIsolate,
+.resultIsSelfIsolate,
+.noNeedToBeTested {
+    width: 75%;
+  }
+}
+@media (max-width: 768px) {
+  .call911,
+.consultFamilyDoctor,
+.selfIsolate,
+.resultIsSelfIsolate,
+.noNeedToBeTested {
+    width: 80%;
+  }
+}
+@media (max-width: 430px) {
   .call911,
 .consultFamilyDoctor,
 .selfIsolate,
@@ -941,21 +960,21 @@ header .currentStatusList li {
   }
 }
 .questions .questionContainer {
-  width: 70%;
+  width: 60%;
 }
 @media (max-width: 1120px) {
   .questions .questionContainer {
-    width: 85%;
+    width: 75%;
   }
 }
 @media (max-width: 768px) {
   .questions .questionContainer {
-    width: 90%;
+    width: 80%;
   }
 }
 @media (max-width: 430px) {
   .questions .questionContainer {
-    width: 100%;
+    width: 85%;
   }
 }
 .questions .questionContainer h3 {
@@ -1046,23 +1065,22 @@ header .currentStatusList li {
 }
 .questions .questionContainer .buttonContainer {
   margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 @media (max-width: 430px) {
   .questions .questionContainer .buttonContainer {
-    display: flex;
-    flex-direction: column;
     align-items: center;
   }
 }
 .questions .questionContainer .buttonContainer div {
-  margin-bottom: 5rem;
+  display: flex;
+  justify-content: space-around;
 }
 @media (max-width: 430px) {
   .questions .questionContainer .buttonContainer div {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 2rem;
   }
 }
 .questions .questionContainer .buttonContainer div button {
@@ -1086,7 +1104,7 @@ header .currentStatusList li {
 @media (max-width: 768px) {
   .questions .questionContainer .buttonContainer div button {
     font-size: 1.9rem;
-    height: 4.5rem;
+    height: 4.7rem;
     width: 15rem;
   }
 }
@@ -1102,12 +1120,11 @@ header .currentStatusList li {
   }
 }
 .questions .questionContainer .buttonContainer div button:first-child {
-  margin-right: 5rem;
+  margin: 0 5rem 5rem 0;
 }
 @media (max-width: 430px) {
   .questions .questionContainer .buttonContainer div button:first-child {
     margin-right: 0;
-    margin-bottom: 4rem;
   }
 }
 .questions .questionContainer .startAgain {
@@ -1122,6 +1139,7 @@ header .currentStatusList li {
   border-radius: 1rem;
   box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
   cursor: pointer;
+  width: 22rem;
 }
 .questions .questionContainer .startAgain:hover {
   top: 2.5px;
@@ -1131,8 +1149,7 @@ header .currentStatusList li {
 @media (max-width: 768px) {
   .questions .questionContainer .startAgain {
     font-size: 1.9rem;
-    height: 4.5rem;
-    width: 15rem;
+    height: 4.7rem;
   }
 }
 @media (max-width: 430px) {
@@ -1143,7 +1160,6 @@ header .currentStatusList li {
 @media (max-width: 375px) {
   .questions .questionContainer .startAgain {
     font-size: 1.8rem;
-    width: 45%;
   }
 }
 
