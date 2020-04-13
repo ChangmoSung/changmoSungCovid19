@@ -53,7 +53,7 @@ class Statistic extends Component {
 
     render() { 
         return ( 
-            <div className='statistic'>
+            <div className='statistics'>
                 <h2 className='date'>As of {this.props.currentDate}</h2>
                 
                 <ul className='currentStatusList'>
@@ -70,6 +70,7 @@ class Statistic extends Component {
                             ref={this.searchInput} 
                             id='country'
                             type='text'
+                            placeholder='type a country'
                             required>
                         </input>
 

@@ -1,13 +1,14 @@
-.statistic {
-    margin: 13rem auto 5rem;
+.statistics {
+    margin: 15rem auto 5rem;
     width: 80%;
 
     @include mq1120 {
         width: 95%;
+        margin-top: 14.3rem;
     }
 
     @include mq768 {
-        margin-top: 8rem;
+        margin-top: 9rem;
     }
 
     .date {
@@ -32,8 +33,12 @@
             align-items: center;
             height: 5.5rem;
 
-            @include mq640 {
+            @include mq768 {
                 height: 5rem;
+            }
+
+            @include mq430 {
+                height: 4.7rem;
             }
 
             input {
@@ -55,11 +60,13 @@
 
                 @include mq430 {
                     width: 65%;
+                    font-size: 2rem;
                 }
             }
 
             button {
                 margin: 0;
+                padding: 0;
                 width: 20rem;
                 font-size: 2.5rem;
                 height: 100%;
@@ -80,6 +87,7 @@
 
                 @include mq430 {
                     width: 35%;
+                    font-size: 2rem;
                 }
             }
         }

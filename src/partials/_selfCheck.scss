@@ -1,24 +1,26 @@
 .selfCheck {
-    margin: 12rem auto 5rem;
-    width: 80%;
+    margin: 15rem auto 5rem;
+
+    @include mq1120 {
+        margin-top: 14.3rem;
+    }
 
     @include mq768 {
-        width: 90%;
-        margin-top: 8rem;
+        margin-top: 9rem;
     }
 
     .selfCheckDescription {
 
         h2 {
-            font-size: 3.7rem;
+            font-size: 4rem;
             margin: 0 0 2rem;
 
             @include mq768 {
-                font-size: 3.3rem;
+                font-size: 3.5rem;
             }
 
             @include mq430 {
-                font-size: 3rem;
+                font-size: 3.2rem;
             }
         }
 
@@ -46,6 +48,7 @@
 
             @include mq768 {
                 font-size: 1.5rem;
+                line-height: 2.5rem;
             }
 
             @include mq430 {
@@ -62,7 +65,7 @@
             margin: 3rem 0;
         }
 
-        a {
+        .selfCheckStartButton {
             @include button;
             display: flex;
             justify-content: center;

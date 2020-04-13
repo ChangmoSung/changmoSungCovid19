@@ -57,9 +57,7 @@ class Article extends Component {
 
                                 <p className='articleDescription'>{article.description}</p>
 
-                                <a href={article.url} target='_blank' rel='noopener noreferrer'>
-                                    <span tabIndex='0'>Link to the article</span>
-                                </a>
+                                <a href={article.url} target='_blank' rel='noopener noreferrer'>Link to the article</a>
                             </li>
                         )
                     })}

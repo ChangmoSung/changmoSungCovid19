@@ -1,23 +1,26 @@
 .aboutCovid {
     margin: 15rem auto 5rem;
-    width: 80%;
+
+    @include mq1120 {
+        margin-top: 14.3rem;
+    }
 
     @include mq768 {
-        margin-top: 8rem;
+        margin-top: 9rem;
     }
 
     h2 {
         font-size: 4rem;
-        line-height: 5.5rem;
+        line-height: 5.1rem;
 
         @include mq768 {
             font-size: 3.5rem;
-            line-height: 5rem;
+            line-height: 4.6rem;
         }
 
         @include mq430 {
             font-size: 3.2rem;
-            line-height: 4.5rem;
+            line-height: 4.2rem;
         }
     }
 
@@ -49,15 +52,18 @@
     }
     
     ul {
-        font-size:1.6rem; 
+        font-size:1.6rem;
+        line-height: 2.6rem; 
 
         @include mq768 {
             font-size: 1.5rem;
+            line-height: 2.4rem;
         }
 
         @include mq430 {
             font-size: 1.4rem;
             padding-left: 2rem;
+            line-height: 2.3rem;
         }
 
         li {
@@ -67,16 +73,17 @@
 
     p {
         font-size: 1.6rem;
-        line-height: 2.6rem;
+        line-height: 2.5rem;
         margin: 1rem 0;
 
         @include mq768 {
             font-size: 1.5rem;
+            line-height: 2.4rem;
         }
 
         @include mq430 {
             font-size: 1.4rem;
-            line-height: 2.5rem;
+            line-height: 2.3rem;
         }
     }
 

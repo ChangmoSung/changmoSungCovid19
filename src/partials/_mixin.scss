@@ -34,7 +34,8 @@
   box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:focus {
       top: 2.5px;
       left: 2.5px;
       box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
@@ -101,6 +102,7 @@
 
     @include mq375 {
       font-size: 1.8rem;
+      line-height: 3.3rem;
     }
   }
 }

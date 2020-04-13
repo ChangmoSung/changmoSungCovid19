@@ -14,15 +14,11 @@ const SelfCare = () => {
 
             <ul>
                 <li>
-                    <a href='https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html' rel='noopener noreferrer' target='_blank' >
-                        <span tabIndex='0'>Health Canada</span>
-                    </a>
+                    <a href='https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html' rel='noopener noreferrer' target='_blank' >Health Canada</a>
                 </li>
 
                 <li>
-                    <a href='https://www.who.int/emergencies/diseases/novel-coronavirus-2019' rel='noopener noreferrer' target='_blank'>
-                        <span tabIndex='0'>World Health Organization</span>
-                    </a>
+                    <a href='https://www.who.int/emergencies/diseases/novel-coronavirus-2019' rel='noopener noreferrer' target='_blank'>World Health Organization</a>
                 </li>
             </ul>
 
@@ -58,11 +54,9 @@ const SelfCare = () => {
 
             <h3>Seek help</h3>
 
-            <p>You know your body and your body's signs of stress. If you are having trouble managing your mental health, contact your healthcare provider or call 8-1-1.</p>
+            <p>You know your body and your body's signs of stress. If you are having trouble managing your mental health, contact your healthcare provider or call <a href='tel:811'>8-1-1</a>.</p>
 
-            <Link to='/changmoSungCovid19/info/aboutCovid19' className='routerLink'>
-                <span tabIndex='0'>go back</span>
-            </Link>
+            <Link to='/changmoSungCovid19/info/aboutCovid19' className='routerLink'>go back</Link>
         </div>
     );
 }

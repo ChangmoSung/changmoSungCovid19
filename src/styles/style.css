@@ -238,6 +238,26 @@ html {
 img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+
+.wrapper {
+  width: 60%;
+}
+@media (max-width: 1120px) {
+  .wrapper {
+    width: 70%;
+  }
+}
+@media (max-width: 768px) {
+  .wrapper {
+    width: 80%;
+  }
+}
+@media (max-width: 430px) {
+  .wrapper {
+    width: 85%;
+  }
 }
 
 .nav {
@@ -250,10 +270,15 @@ img {
   left: 0;
   transition: all 0.5s;
   background: #3816d4;
+  z-index: 999;
 }
 .nav.showNav {
   top: 0;
-  z-index: 999;
+}
+@media (max-width: 1120px) {
+  .nav {
+    height: 8.3rem;
+  }
 }
 @media (max-width: 768px) {
   .nav {
@@ -265,8 +290,6 @@ img {
 }
 .nav .navTrigger {
   display: none;
-  justify-content: center;
-  align-items: center;
   position: fixed;
   z-index: 999;
   padding: 0;
@@ -288,14 +311,20 @@ img {
   color: white;
   font-size: 4rem;
 }
-.nav .navTrigger:hover {
+.nav .navTrigger.hideNavTrigger:hover, .nav .navTrigger.hideNavTrigger:focus {
+  top: 2rem;
+  right: 2rem;
+  box-shadow: 5px 5px #3816d4, 0 0 3px 3.5px #3816d4 inset;
+  font-size: 5.5rem;
+}
+.nav .navTrigger:hover, .nav .navTrigger:focus {
   top: 2.25rem;
   right: 1.75rem;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 3px 3.5px #3816d4 inset;
 }
 @media (max-width: 768px) {
   .nav .navTrigger {
-    display: flex;
+    display: block;
   }
 }
 .nav ul {
@@ -322,8 +351,11 @@ img {
 }
 @media (max-width: 1120px) {
   .nav ul a {
-    font-size: 2.9rem;
+    font-size: 2.6rem;
   }
+}
+.nav ul a:hover, .nav ul a:focus {
+  border-bottom: 2px solid white;
 }
 
 header {
@@ -336,7 +368,6 @@ header {
 header h1 {
   font-size: 7rem;
   margin: 0;
-  width: 90%;
   text-align: center;
 }
 @media (max-width: 1120px) {
@@ -346,7 +377,7 @@ header h1 {
 }
 @media (max-width: 768px) {
   header h1 {
-    width: 95%;
+    width: 90%;
     font-size: 5.3rem;
     margin-bottom: 2rem;
   }
@@ -413,32 +444,37 @@ header .currentStatusList li {
 @media (max-width: 375px) {
   header .currentStatusList li {
     font-size: 1.8rem;
+    line-height: 3.3rem;
   }
 }
 
 .aboutCovid {
   margin: 15rem auto 5rem;
-  width: 80%;
+}
+@media (max-width: 1120px) {
+  .aboutCovid {
+    margin-top: 14.3rem;
+  }
 }
 @media (max-width: 768px) {
   .aboutCovid {
-    margin-top: 8rem;
+    margin-top: 9rem;
   }
 }
 .aboutCovid h2 {
   font-size: 4rem;
-  line-height: 5.5rem;
+  line-height: 5.1rem;
 }
 @media (max-width: 768px) {
   .aboutCovid h2 {
     font-size: 3.5rem;
-    line-height: 5rem;
+    line-height: 4.6rem;
   }
 }
 @media (max-width: 430px) {
   .aboutCovid h2 {
     font-size: 3.2rem;
-    line-height: 4.5rem;
+    line-height: 4.2rem;
   }
 }
 .aboutCovid h3 {
@@ -472,16 +508,19 @@ header .currentStatusList li {
 }
 .aboutCovid ul {
   font-size: 1.6rem;
+  line-height: 2.6rem;
 }
 @media (max-width: 768px) {
   .aboutCovid ul {
     font-size: 1.5rem;
+    line-height: 2.4rem;
   }
 }
 @media (max-width: 430px) {
   .aboutCovid ul {
     font-size: 1.4rem;
     padding-left: 2rem;
+    line-height: 2.3rem;
   }
 }
 .aboutCovid ul li {
@@ -489,18 +528,19 @@ header .currentStatusList li {
 }
 .aboutCovid p {
   font-size: 1.6rem;
-  line-height: 2.6rem;
+  line-height: 2.5rem;
   margin: 1rem 0;
 }
 @media (max-width: 768px) {
   .aboutCovid p {
     font-size: 1.5rem;
+    line-height: 2.4rem;
   }
 }
 @media (max-width: 430px) {
   .aboutCovid p {
     font-size: 1.4rem;
-    line-height: 2.5rem;
+    line-height: 2.3rem;
   }
 }
 .aboutCovid .linkContainer {
@@ -531,7 +571,7 @@ header .currentStatusList li {
   width: 23rem;
   margin: 4rem 5rem 0 0;
 }
-.aboutCovid .linkContainer a:hover {
+.aboutCovid .linkContainer a:hover, .aboutCovid .linkContainer a:focus {
   top: 2.5px;
   left: 2.5px;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
@@ -576,7 +616,7 @@ header .currentStatusList li {
   width: 23rem;
   margin: 4rem 5rem 0 0;
 }
-.aboutCovid .routerLink:hover {
+.aboutCovid .routerLink:hover, .aboutCovid .routerLink:focus {
   top: 2.5px;
   left: 2.5px;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
@@ -603,27 +643,30 @@ header .currentStatusList li {
 }
 
 .selfCheck {
-  margin: 12rem auto 5rem;
-  width: 80%;
+  margin: 15rem auto 5rem;
+}
+@media (max-width: 1120px) {
+  .selfCheck {
+    margin-top: 14.3rem;
+  }
 }
 @media (max-width: 768px) {
   .selfCheck {
-    width: 90%;
-    margin-top: 8rem;
+    margin-top: 9rem;
   }
 }
 .selfCheck .selfCheckDescription h2 {
-  font-size: 3.7rem;
+  font-size: 4rem;
   margin: 0 0 2rem;
 }
 @media (max-width: 768px) {
   .selfCheck .selfCheckDescription h2 {
-    font-size: 3.3rem;
+    font-size: 3.5rem;
   }
 }
 @media (max-width: 430px) {
   .selfCheck .selfCheckDescription h2 {
-    font-size: 3rem;
+    font-size: 3.2rem;
   }
 }
 .selfCheck .selfCheckDescription h3 {
@@ -653,6 +696,7 @@ header .currentStatusList li {
   .selfCheck .selfCheckDescription li,
 .selfCheck .selfCheckDescription p {
     font-size: 1.5rem;
+    line-height: 2.5rem;
   }
 }
 @media (max-width: 430px) {
@@ -668,7 +712,7 @@ header .currentStatusList li {
 .selfCheck .selfCheckDescription p:nth-of-type(4) {
   margin: 3rem 0;
 }
-.selfCheck .selfCheckDescription a {
+.selfCheck .selfCheckDescription .selfCheckStartButton {
   position: relative;
   width: 16rem;
   height: 5rem;
@@ -687,13 +731,13 @@ header .currentStatusList li {
   color: black;
   width: 20rem;
 }
-.selfCheck .selfCheckDescription a:hover {
+.selfCheck .selfCheckDescription .selfCheckStartButton:hover, .selfCheck .selfCheckDescription .selfCheckStartButton:focus {
   top: 2.5px;
   left: 2.5px;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
 }
 @media (max-width: 430px) {
-  .selfCheck .selfCheckDescription a {
+  .selfCheck .selfCheckDescription .selfCheckStartButton {
     height: 4.7rem;
     font-size: 1.8rem;
   }
@@ -875,11 +919,15 @@ header .currentStatusList li {
   margin: 3rem 0;
   width: 20rem;
 }
-.call911 button:hover,
+.call911 button:hover, .call911 button:focus,
 .consultFamilyDoctor button:hover,
+.consultFamilyDoctor button:focus,
 .selfIsolate button:hover,
+.selfIsolate button:focus,
 .resultIsSelfIsolate button:hover,
-.noNeedToBeTested button:hover {
+.resultIsSelfIsolate button:focus,
+.noNeedToBeTested button:hover,
+.noNeedToBeTested button:focus {
   top: 2.5px;
   left: 2.5px;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
@@ -1096,7 +1144,7 @@ header .currentStatusList li {
   box-shadow: 5px 5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
   cursor: pointer;
 }
-.questions .questionContainer .buttonContainer div button:hover {
+.questions .questionContainer .buttonContainer div button:hover, .questions .questionContainer .buttonContainer div button:focus {
   top: 2.5px;
   left: 2.5px;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
@@ -1141,7 +1189,7 @@ header .currentStatusList li {
   cursor: pointer;
   width: 22rem;
 }
-.questions .questionContainer .startAgain:hover {
+.questions .questionContainer .startAgain:hover, .questions .questionContainer .startAgain:focus {
   top: 2.5px;
   left: 2.5px;
   box-shadow: 2.5px 2.5px #3816d4, 0 0 2px 3.5px #3816d4 inset;
@@ -1163,95 +1211,102 @@ header .currentStatusList li {
   }
 }
 
-.statistic {
-  margin: 13rem auto 5rem;
+.statistics {
+  margin: 15rem auto 5rem;
   width: 80%;
 }
 @media (max-width: 1120px) {
-  .statistic {
+  .statistics {
     width: 95%;
+    margin-top: 14.3rem;
   }
 }
 @media (max-width: 768px) {
-  .statistic {
-    margin-top: 8rem;
+  .statistics {
+    margin-top: 9rem;
   }
 }
-.statistic .date {
+.statistics .date {
   font-size: 5rem;
   text-align: center;
   margin: 3rem 0;
 }
 @media (max-width: 1120px) {
-  .statistic .date {
+  .statistics .date {
     font-size: 4.5rem;
   }
 }
 @media (max-width: 768px) {
-  .statistic .date {
+  .statistics .date {
     margin: 2rem 0;
     font-size: 4rem;
   }
 }
 @media (max-width: 430px) {
-  .statistic .date {
+  .statistics .date {
     font-size: 3.7rem;
   }
 }
 @media (max-width: 375px) {
-  .statistic .date {
+  .statistics .date {
     font-size: 3.5rem;
   }
 }
-.statistic .currentStatusList {
+.statistics .currentStatusList {
   list-style: none;
   padding: 0;
   margin: 0;
   line-height: 4rem;
   text-align: center;
 }
-.statistic .currentStatusList li {
+.statistics .currentStatusList li {
   line-height: 4.5rem;
   font-size: 2.5rem;
 }
 @media (max-width: 768px) {
-  .statistic .currentStatusList li {
+  .statistics .currentStatusList li {
     font-size: 2.2rem;
     line-height: 3.7rem;
   }
 }
 @media (max-width: 430px) {
-  .statistic .currentStatusList li {
+  .statistics .currentStatusList li {
     font-size: 2rem;
     line-height: 3.4rem;
   }
 }
 @media (max-width: 375px) {
-  .statistic .currentStatusList li {
+  .statistics .currentStatusList li {
     font-size: 1.8rem;
+    line-height: 3.3rem;
   }
 }
-.statistic .searchFormContainer {
+.statistics .searchFormContainer {
   margin-top: 3rem;
 }
 @media (max-width: 768px) {
-  .statistic .searchFormContainer {
+  .statistics .searchFormContainer {
     margin-top: 3rem;
   }
 }
-.statistic .searchFormContainer form {
+.statistics .searchFormContainer form {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 5.5rem;
 }
-@media (max-width: 640px) {
-  .statistic .searchFormContainer form {
+@media (max-width: 768px) {
+  .statistics .searchFormContainer form {
     height: 5rem;
   }
 }
-.statistic .searchFormContainer form input {
+@media (max-width: 430px) {
+  .statistics .searchFormContainer form {
+    height: 4.7rem;
+  }
+}
+.statistics .searchFormContainer form input {
   width: 50%;
   font-size: 2.8rem;
   height: 100%;
@@ -1260,23 +1315,25 @@ header .currentStatusList li {
   padding-left: 1.5rem;
 }
 @media (max-width: 768px) {
-  .statistic .searchFormContainer form input {
+  .statistics .searchFormContainer form input {
     font-size: 2.5rem;
   }
 }
 @media (max-width: 640px) {
-  .statistic .searchFormContainer form input {
+  .statistics .searchFormContainer form input {
     width: 70%;
     font-size: 2.2rem;
   }
 }
 @media (max-width: 430px) {
-  .statistic .searchFormContainer form input {
+  .statistics .searchFormContainer form input {
     width: 65%;
+    font-size: 2rem;
   }
 }
-.statistic .searchFormContainer form button {
+.statistics .searchFormContainer form button {
   margin: 0;
+  padding: 0;
   width: 20rem;
   font-size: 2.5rem;
   height: 100%;
@@ -1287,26 +1344,27 @@ header .currentStatusList li {
   cursor: pointer;
 }
 @media (max-width: 768px) {
-  .statistic .searchFormContainer form button {
+  .statistics .searchFormContainer form button {
     width: 15rem;
   }
 }
 @media (max-width: 640px) {
-  .statistic .searchFormContainer form button {
+  .statistics .searchFormContainer form button {
     width: 30%;
     font-size: 2.2rem;
   }
 }
 @media (max-width: 430px) {
-  .statistic .searchFormContainer form button {
+  .statistics .searchFormContainer form button {
     width: 35%;
+    font-size: 2rem;
   }
 }
-.statistic table {
+.statistics table {
   margin-top: 3rem;
   width: 100%;
 }
-.statistic table tr {
+.statistics table tr {
   border-bottom: 1px solid black;
   height: 6rem;
   text-align: center;
@@ -1315,85 +1373,85 @@ header .currentStatusList li {
   align-items: center;
 }
 @media (max-width: 430px) {
-  .statistic table tr {
+  .statistics table tr {
     height: 5.5rem;
   }
 }
-.statistic table tr th {
+.statistics table tr th {
   font-size: 2.5rem;
   width: calc(100% / 6);
 }
 @media (max-width: 1120px) {
-  .statistic table tr th {
+  .statistics table tr th {
     font-size: 2.2rem;
   }
 }
 @media (max-width: 768px) {
-  .statistic table tr th {
+  .statistics table tr th {
     font-size: 2rem;
   }
 }
 @media (max-width: 640px) {
-  .statistic table tr th {
+  .statistics table tr th {
     width: calc(100% / 4);
   }
 }
 @media (max-width: 430px) {
-  .statistic table tr th {
+  .statistics table tr th {
     font-size: 1.7rem;
   }
 }
 @media (max-width: 640px) {
-  .statistic table tr th:nth-child(4),
-.statistic table tr th:nth-child(5) {
+  .statistics table tr th:nth-child(4),
+.statistics table tr th:nth-child(5) {
     display: none;
   }
 }
-.statistic table tr td {
+.statistics table tr td {
   font-size: 1.8rem;
   width: calc(100% / 6);
 }
 @media (max-width: 1120px) {
-  .statistic table tr td {
+  .statistics table tr td {
     font-size: 1.6rem;
   }
 }
 @media (max-width: 640px) {
-  .statistic table tr td {
+  .statistics table tr td {
     width: calc(100% / 4);
   }
 }
 @media (max-width: 430px) {
-  .statistic table tr td {
+  .statistics table tr td {
     font-size: 1.45rem;
   }
 }
 @media (max-width: 640px) {
-  .statistic table tr td:nth-child(4),
-.statistic table tr td:nth-child(5) {
+  .statistics table tr td:nth-child(4),
+.statistics table tr td:nth-child(5) {
     display: none;
   }
 }
-.statistic table tr .searchedCountry {
+.statistics table tr .searchedCountry {
   color: blue;
 }
-.statistic table tr .totalCases,
-.statistic table tr .totalDeaths {
+.statistics table tr .totalCases,
+.statistics table tr .totalDeaths {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.statistic table tr .totalCases span:nth-child(2),
-.statistic table tr .totalCases span:nth-child(2),
-.statistic table tr .totalDeaths span:nth-child(2),
-.statistic table tr .totalDeaths span:nth-child(2) {
+.statistics table tr .totalCases span:nth-child(2),
+.statistics table tr .totalCases span:nth-child(2),
+.statistics table tr .totalDeaths span:nth-child(2),
+.statistics table tr .totalDeaths span:nth-child(2) {
   display: flex;
   justify-content: center;
   align-items: center;
   color: red;
 }
-.statistic table tr .totalCases .arrow,
-.statistic table tr .totalDeaths .arrow {
+.statistics table tr .totalCases .arrow,
+.statistics table tr .totalDeaths .arrow {
   color: red;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
@@ -1402,18 +1460,19 @@ header .currentStatusList li {
 }
 
 .article {
-  margin: 12rem auto 5rem;
+  margin: 15rem auto 5rem;
   width: 80%;
 }
 @media (max-width: 1120px) {
   .article {
     width: 90%;
+    margin-top: 14.3rem;
   }
 }
 @media (max-width: 768px) {
   .article {
     width: 95%;
-    margin-top: 8rem;
+    margin-top: 9rem;
   }
 }
 .article .articleList {
@@ -1432,7 +1491,7 @@ header .currentStatusList li {
   width: 31%;
   border: 2px solid black;
   padding: 2rem;
-  margin-bottom: 5rem;
+  margin-bottom: 4.5rem;
   border-radius: 1rem;
 }
 @media (max-width: 1120px) {
@@ -1451,12 +1510,34 @@ header .currentStatusList li {
   }
 }
 .article .articleList li h3 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-top: 0;
-  line-height: 2.7rem;
+  line-height: 3rem;
+}
+@media (max-width: 768px) {
+  .article .articleList li h3 {
+    font-size: 2rem;
+    line-height: 2.8rem;
+  }
 }
 .article .articleList li .articleImage {
   margin: 2rem 0;
+  height: 20rem;
+}
+@media (max-width: 1120px) {
+  .article .articleList li .articleImage {
+    height: 27rem;
+  }
+}
+@media (max-width: 768px) {
+  .article .articleList li .articleImage {
+    height: 38rem;
+  }
+}
+@media (max-width: 430px) {
+  .article .articleList li .articleImage {
+    height: 32rem;
+  }
 }
 .article .articleList li p {
   font-size: 1.3rem;
@@ -1466,10 +1547,27 @@ header .currentStatusList li {
 .article .articleList li a {
   font-size: 1.6rem;
 }
+@media (max-width: 768px) {
+  .article .articleList li a {
+    font-size: 1.5rem;
+  }
+}
 .article .articleList li p:nth-child(5) {
   font-size: 1.6rem;
   margin-bottom: 2rem;
   line-height: 2.5rem;
+}
+@media (max-width: 768px) {
+  .article .articleList li p:nth-child(5) {
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+  }
+}
+@media (max-width: 430px) {
+  .article .articleList li p:nth-child(5) {
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+  }
 }
 .article .articleList li:nth-child(3n+2) {
   margin: 0 3.5% 5rem;

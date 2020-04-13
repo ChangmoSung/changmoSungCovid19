@@ -8,10 +8,14 @@
   left: 0;
   transition: all 0.5s;
   background: #3816d4;
+  z-index: 999;
 
   &.showNav {
     top:0;
-    z-index: 999;
+  }
+
+  @include mq1120 {
+    height: 8.3rem;
   }
 
   @include mq768 {
@@ -23,8 +27,6 @@
 
   .navTrigger {
     display: none;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     z-index: 999;
     padding: 0;
@@ -45,16 +47,25 @@
       background: none;
       color: white;
       font-size: 4rem;
+
+      &:hover,
+      &:focus {
+        top: 2rem;
+        right: 2rem;
+        box-shadow: 5px 5px #3816d4, 0 0 3px 3.5px #3816d4 inset;
+        font-size: 5.5rem;
+      }
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       top: 2.25rem;
       right: 1.75rem;
       box-shadow: 2.5px 2.5px #3816d4, 0 0 3px 3.5px #3816d4 inset;
     }
 
     @include mq768 {
-      display: flex;
+      display: block;
     }
   }
 
@@ -80,7 +91,12 @@
       text-transform: uppercase;
 
       @include mq1120 {
-        font-size: 2.9rem;
+        font-size: 2.6rem;
+      }
+
+      &:hover,
+      &:focus {
+        border-bottom: 2px solid white;
       }
     }
   }

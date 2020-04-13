@@ -6,8 +6,8 @@ import {
 import AboutCovid from './contents/AboutCovid';
 import SelfCare from './contents/covidCareInfo/SelfCare';
 import HandHygiene from './contents/covidCareInfo/HandHygiene';
-import Statistic from './contents/Statistic';
-import Article from './contents/Article';
+import Statistics from './contents/Statistics';
+import Articles from './contents/Articles';
 import SelfCheck from './contents/SelfCheck';
 import Questions from './contents/questions/Questions';
 
@@ -41,7 +41,7 @@ const Main = props => {
 
 
             <Route path='/changmoSungCovid19/info/statistic'>
-                <Statistic
+                <Statistics
                     currentDate={props.currentDate}
                     currentStatus={props.currentStatus}
                 />
@@ -49,7 +49,7 @@ const Main = props => {
 
 
             <Route path='/changmoSungCovid19/info/article'>
-                <Article />
+                <Articles />
             </Route>
         </main>
     );

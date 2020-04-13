@@ -14,12 +14,12 @@ class SelfCheck extends Component {
 
     render() {
         return (
-            <div className='selfCheck'>
+            <div className='selfCheck wrapper'>
 
                 <div className='selfCheckDescription'>
                     <h2>COVID-19 Self-Check</h2>
 
-                    <p>This self-assessment tool, developed with 811 HealthLine, will help determine whether you may need further assessment or testing for COVID-19. You can complete this assessment for yourself, or on behalf of someone else. If you have respiratory symptoms and a serious ongoing condition, or are in the third trimester of pregnancy, please follow the advice of your specialist.</p>
+                    <p>This self-assessment tool, developed with <a href='https://www.811healthline.ca/' rel='noopener noreferrer' target='_blank'>811 HealthLine</a>, will help determine whether you may need further assessment or testing for COVID-19. You can complete this assessment for yourself, or on behalf of someone else. If you have respiratory symptoms and a serious ongoing condition, or are in the third trimester of pregnancy, please follow the advice of your specialist.</p>
 
                     <h3>Most people do not need to be tested for COVID-19 because it will not change your care.</h3>
 
@@ -49,9 +49,7 @@ class SelfCheck extends Component {
 
                     <p>Anyone who has symptoms - including a fever, cough, sneezing, or sore throat - should self-isolate for 14 days. Continue to complete this assessment to determine if you may need care.</p>
 
-                    <Link to='/changmoSungCovid19/info/selfcheck/questions'>
-                        <span tabIndex='0'>self-check</span>
-                    </Link>
+                    <Link to='/changmoSungCovid19/info/selfcheck/questions' className='selfCheckStartButton'>self-check</Link>
                 </div>
             </div>
         );

@@ -129,7 +129,7 @@ const HandHygiene = () => {
 
                 <li>If you have children, teach them good hygiene and how to wash their hands properly. Young children should be supervised while washing their hands</li>
 
-                <li>If you use bar soap, kepp it in a self-draining holder that can be cleaned thoroughly before a new bar is added</li>
+                <li>If you use bar soap, keep it in a self-draining holder that can be cleaned thoroughly before a new bar is added</li>
 
                 <li>Use individual damp cloths to wash each child's hands when a sink with warm running water is unavailble</li>
 
@@ -140,9 +140,7 @@ const HandHygiene = () => {
                 <li>Change cleaning cloths daily and launder them using detergent. Germs thrive on moist surfaces</li>
             </ul>
 
-            <Link to='/changmoSungCovid19/info/aboutCovid19' className='routerLink'>
-                <span tabIndex='0'>go back</span>
-            </Link>
+            <Link to='/changmoSungCovid19/info/aboutCovid19' className='routerLink'>go back</Link>
         </div>
         );
 }

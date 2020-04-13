@@ -1,14 +1,15 @@
 .article {
-  margin: 12rem auto 5rem;
+  margin: 15rem auto 5rem;
   width: 80%;
 
   @include mq1120 {
     width: 90%;
+    margin-top: 14.3rem;
   }
 
   @include mq768 {
     width: 95%;
-    margin-top: 8rem;
+    margin-top: 9rem;
   }
 
   .articleList {
@@ -26,7 +27,7 @@
             width: 31%;
             border: 2px solid black;
             padding: 2rem;
-            margin-bottom: 5rem;
+            margin-bottom: 4.5rem;
             border-radius: 1rem;
 
             @include mq1120 {
@@ -42,13 +43,31 @@
             }
 
             h3 {
-                font-size: 2rem;
+                font-size: 2.2rem;
                 margin-top: 0;
-                line-height: 2.7rem;
+                line-height: 3rem;
+
+                @include mq768 {
+                    font-size: 2rem;
+                    line-height: 2.8rem;
+                }
             }
 
             .articleImage {
                 margin: 2rem 0;
+                height: 20rem;
+
+                @include mq1120 {
+                    height: 27rem;
+                }
+
+                @include mq768 {
+                    height: 38rem;
+                }
+
+                @include mq430 {
+                    height: 32rem;
+                }
             }
 
             p {
@@ -59,12 +78,26 @@
 
             a {
                 font-size: 1.6rem;
+
+                @include mq768 {
+                    font-size: 1.5rem;
+                }
             }
 
             p:nth-child(5) {
                 font-size: 1.6rem;
                 margin-bottom: 2rem;
                 line-height: 2.5rem;
+
+                @include mq768 {
+                    font-size: 1.5rem;
+                    line-height: 2.4rem;
+                }
+
+                @include mq430 {
+                    font-size: 1.4rem;
+                    line-height: 2.3rem;
+                }
             }
         }
 
