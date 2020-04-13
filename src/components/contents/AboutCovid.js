@@ -20,9 +20,9 @@ const AboutCovid = () => {
                 <p>It can be spread by touch if a person has used their hands to cover their mouth or nose when they cough. That's why we recommend you cough or sneeze into your arm and wash your hands regularly.</p>
 
                 <div className='linkContainer'>
-                    <Link to='/changmoSungCovid19/info/aboutCovid19/selfCare'>show self care</Link>
+                    <Link to='/info/aboutCovid19/selfCare'>show self care</Link>
 
-                    <Link to='/changmoSungCovid19/info/aboutCovid19/handHygiene'>hand hygiene</Link>
+                    <Link to='/info/aboutCovid19/handHygiene'>hand hygiene</Link>
                 </div>
             </div>
         </div>

@@ -39,7 +39,7 @@ const SelfCheck = () => {
 
                 <p>Anyone who has symptoms - including a fever, cough, sneezing, or sore throat - should self-isolate for 14 days. Continue to complete this assessment to determine if you may need care.</p>
 
-                <Link to='/changmoSungCovid19/info/selfcheck/questions' className='selfCheckStartButton'>self-check</Link>
+                <Link to='/info/selfcheck/questions' className='selfCheckStartButton'>self-check</Link>
             </div>
         </div>
     )

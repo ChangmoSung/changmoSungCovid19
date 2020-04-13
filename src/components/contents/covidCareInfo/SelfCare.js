@@ -56,7 +56,7 @@ const SelfCare = () => {
 
             <p>You know your body and your body's signs of stress. If you are having trouble managing your mental health, contact your healthcare provider or call <a href='tel:811'>8-1-1</a>.</p>
 
-            <Link to='/changmoSungCovid19/info/aboutCovid19' className='routerLink'>go back</Link>
+            <Link to='/info/aboutCovid19' className='routerLink'>go back</Link>
         </div>
     );
 }

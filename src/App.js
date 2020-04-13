@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
 } from 'react-router-dom';
 import axios from 'axios';
@@ -42,17 +42,17 @@ class App extends Component {
 
   render() { 
     return ( 
-      <Router>
+      <Router basename='/'>
         <Nav />
         
-        <Route path='/changmoSungCovid19/' exact >
+        <Route path='/' exact >
           <Header 
             currentStatus={this.state.currentStatus}
             currentDate={this.state.currentDate} 
           />
         </Route>
 
-        <Route path='/changmoSungCovid19/info/' >
+        <Route path='/info/' >
           <Main 
             currentStatus={this.state.currentStatus}
             currentDate={this.state.currentDate} 

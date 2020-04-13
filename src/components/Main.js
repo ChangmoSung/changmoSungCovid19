@@ -15,32 +15,32 @@ const Main = props => {
     return (
         <main>
             <Switch>
-                <Route path='/changmoSungCovid19/info/aboutCovid19/selfCare'>
+                <Route path='/info/aboutCovid19/selfCare'>
                     <SelfCare />
                 </Route>
 
-                <Route path='/changmoSungCovid19/info/aboutCovid19/handHygiene'>
+                <Route path='/info/aboutCovid19/handHygiene'>
                     <HandHygiene />
                 </Route>
 
-                <Route path='/changmoSungCovid19/info/aboutCovid19'>
+                <Route path='/info/aboutCovid19'>
                     <AboutCovid />
                 </Route>
             </Switch>
 
 
             <Switch>
-                <Route path='/changmoSungCovid19/info/selfcheck/questions'>
+                <Route path='/info/selfcheck/questions'>
                     <Questions />
                 </Route>
 
-                <Route path='/changmoSungCovid19/info/selfcheck'>
+                <Route path='/info/selfcheck'>
                     <SelfCheck />
                 </Route>
             </Switch>
 
 
-            <Route path='/changmoSungCovid19/info/statistic'>
+            <Route path='/info/statistic'>
                 <Statistics
                     currentDate={props.currentDate}
                     currentStatus={props.currentStatus}
@@ -48,7 +48,7 @@ const Main = props => {
             </Route>
 
 
-            <Route path='/changmoSungCovid19/info/article'>
+            <Route path='/info/article'>
                 <Articles />
             </Route>
         </main>

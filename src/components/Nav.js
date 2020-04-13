@@ -16,24 +16,24 @@ const Nav = () => {
 
             <ul>
                 <li>
-                    <Link to='/changmoSungCovid19/' onClick={toggleNav}>home
+                    <Link to='/' onClick={toggleNav}>home
                     </Link>
                 </li>
 
                 <li>
-                    <Link to='/changmoSungCovid19/info/aboutCovid19' onClick={toggleNav}>covid-19</Link>
+                    <Link to='/info/aboutCovid19' onClick={toggleNav}>covid-19</Link>
                 </li>
 
                 <li>
-                    <Link to='/changmoSungCovid19/info/selfcheck' onClick={toggleNav}>self-check</Link>
+                    <Link to='/info/selfcheck' onClick={toggleNav}>self-check</Link>
                 </li>
 
                 <li>
-                    <Link to='/changmoSungCovid19/info/statistic' onClick={toggleNav}>statistics</Link>
+                    <Link to='/info/statistic' onClick={toggleNav}>statistics</Link>
                 </li>
 
                 <li>
-                    <Link to='/changmoSungCovid19/info/article' onClick={toggleNav}>articles</Link>
+                    <Link to='/info/article' onClick={toggleNav}>articles</Link>
                 </li>
             </ul>
         </nav>
