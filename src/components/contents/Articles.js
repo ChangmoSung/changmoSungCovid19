@@ -10,6 +10,8 @@ class Article extends Component {
         }
     }
 
+
+    // To get data for news articles here
     componentDidMount() {
         axios({
             url: 'https://newsapi.org/v2/top-headlines',

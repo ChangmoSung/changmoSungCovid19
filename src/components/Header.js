@@ -1,14 +1,13 @@
 import React from 'react';
 
 const Header = props => {
+    
+    // To add commas to number
     const addCommas = num => {
-        if (typeof num === 'number') {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        } else {
-            return 0;
-        }
+        return `${typeof num === 'number' ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}`
     }
 
+    
     return ( 
         <header>
             <h1>SAVE THE ONE YOU LOVE</h1>

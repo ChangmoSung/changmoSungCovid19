@@ -16,8 +16,11 @@ class Questions extends Component {
     }
 
 
+    // Every question has an attribute for result. Based on that result, this function determines the next step for users
     result = e => {
         const result = e.target.dataset.result;
+
+        // Every time users move on to the next question, this question number goes up by 1 and this is what determines what question users should be seeing
         this.setState({ questionNumber: this.state.questionNumber + 1 })
 
         if(result === 'call911') {
@@ -41,6 +44,7 @@ class Questions extends Component {
     }
 
 
+    // There is a warning about self isolation. Users have to confirm this warning to continue the self-check. This warning pops up when the prop called selfIsolate is true and goes away when the prop is false.
     selfIsolateConfirmed = () => {
         this.setState({
             selfIsolate: false,
@@ -48,6 +52,7 @@ class Questions extends Component {
     }
 
 
+    // If users would like to start over, the question number becomes 0 to go back to the first question and all results get false
     startAgain = () => {
         this.setState({
             questionNumber: 0,

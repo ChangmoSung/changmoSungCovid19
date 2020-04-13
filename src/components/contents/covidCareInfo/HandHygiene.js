@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const HandHygiene = () => {
     return ( 
-        <div className='aboutCovid'>
+        <div className='aboutCovid wrapper'>
             <h2>Hand hygiene</h2>
 
             <h3>Handwashing and infection prevention</h3>

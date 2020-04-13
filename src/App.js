@@ -9,6 +9,7 @@ import Nav from './components/Nav';
 import Header from './components/Header';
 import Main from './components/Main';
 
+
 class App extends Component {
   constructor() {
     super();
@@ -18,6 +19,8 @@ class App extends Component {
     }
   }
 
+
+  // To get the current date and api data for current status here and pass them to main and header
   componentDidMount() {
     const now = new Date();
     const year = now.getFullYear();
@@ -35,6 +38,7 @@ class App extends Component {
       })
     })
   }
+
 
   render() { 
     return ( 

@@ -13,11 +13,13 @@ class Statistic extends Component {
     }
 
     
+    // To get data for statistics here. 
     componentDidMount() {
         axios({
             url: `https://corona.lmao.ninja/countries?sort=country`,
             method: "GET",
         }).then(res => {
+            // To sort in the order of the most vulnerable countries 
             const seriousness = res.data.sort((a, b) => a.cases > b.cases ? -1 : 1);
             
             this.setState({
@@ -27,11 +29,13 @@ class Statistic extends Component {
     }
 
 
+    // To add commas to number
     addCommas = num => {
         return `${typeof num === 'number' ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}`
     }
 
 
+    // To search a specific country
     searchCountry = e => {
         e.preventDefault();
 

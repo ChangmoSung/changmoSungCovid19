@@ -2,6 +2,8 @@ import React  from 'react';
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
+
+    // To toggle nav at 768px when it turns into hamburger nav
     const toggleNav = () => {
         document.querySelector('nav').classList.toggle('showNav');
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SelfCare = () => {
     return ( 
-        <div className='aboutCovid'>
+        <div className='aboutCovid wrapper'>
             <h2>Managing COVID-19 Stress, Anxiety, and Depression</h2>
 
             <p>News and information about the spread of COVID-19 around the world is coming at us quickly. It can be hard to keep up and if you are keeping up on the latest, it can be even harder to remain calm given all that is going on. Stress, anxiety, and depression are not unusual for people of all ages. But there are things we can do as individuals and collec tively to deal with stress and support one another during these challenging times.</p>

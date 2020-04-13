@@ -5,6 +5,8 @@ import SelfIsolate from './SelfIsolate';
 import NoNeedToBeTested from './NoNeedToBeTested';
 import ResultIsSelfIsolate from './ResultIsSelfIsolate';
 
+
+// Based on the result, the proper result pops up
 const Results = props => {
     return (
         <div>
