@@ -11,6 +11,11 @@ This app is to let users know important live information about COVID-19 and prov
 
 ## Images
 
+![](https://github.com/ChangmoSung/changmoSungCovid19/blob/master/assets/statistics.jpeg)
+![](https://github.com/ChangmoSung/changmoSungCovid19/blob/master/assets/selfAssessment.jpeg)
+![](https://github.com/ChangmoSung/changmoSungCovid19/blob/master/assets/articles.jpeg)
+![](https://github.com/ChangmoSung/changmoSungCovid19/blob/master/assets/whatIsCovid.jpeg)
+
 ### Skills
 * React
 * API
