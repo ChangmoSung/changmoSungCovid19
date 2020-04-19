@@ -44,6 +44,7 @@ const Main = props => {
                 <Statistics
                     currentDate={props.currentDate}
                     currentStatus={props.currentStatus}
+                    currentStatistics={props.currentStatistics}
                 />
             </Route>
 

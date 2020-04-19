@@ -1,34 +1,16 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 class Statistic extends Component {
     constructor() {
         super();
 
         this.state = {
-            worldStatus: [],
             searchedCountry: [],
         };
         this.searchInput = React.createRef();
     }
 
     
-    // To get data for statistics here. 
-    componentDidMount() {
-        axios({
-            url: `https://corona.lmao.ninja/countries?sort=country`,
-            method: "GET",
-        }).then(res => {
-            // To sort in the order of the most vulnerable countries 
-            const seriousness = res.data.sort((a, b) => a.cases > b.cases ? -1 : 1);
-            
-            this.setState({
-                worldStatus: seriousness
-            })
-        })
-    }
-
-
     // To add commas to number
     addCommas = num => {
         return `${typeof num === 'number' ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}`
@@ -41,7 +23,7 @@ class Statistic extends Component {
 
         const country = this.searchInput.current.value;
 
-        const searchedCountry = this.state.worldStatus.filter(status => status.country.toLowerCase().includes(country.toLowerCase()));
+        const searchedCountry = this.props.currentStatistics.filter(status => status.Country.toLowerCase().includes(country.toLowerCase()));
 
         if(searchedCountry.length === 0) {
             alert('There is no matching country');
@@ -61,18 +43,21 @@ class Statistic extends Component {
                 <h2 className='date'>As of {this.props.currentDate}</h2>
                 
                 <ul className='currentStatusList'>
-                    <li>Affected countries: {this.addCommas(this.state.worldStatus.length)}</li>
-                    <li>Total cases: {this.addCommas(this.props.currentStatus.cases)}</li>
-                    <li>Total active: {this.addCommas(this.props.currentStatus.active)}</li>
-                    <li>Total recovered: {this.addCommas(this.props.currentStatus.recovered)}</li>
-                    <li>Total deaths: {this.addCommas(this.props.currentStatus.deaths)}</li>
+                    <li>Affected countries: {this.addCommas(this.props.currentStatistics.length)}</li>
+
+                    <li>Total cases: {this.addCommas(this.props.currentStatus.TotalConfirmed)}</li>
+
+                    <li>Total recovered: {this.addCommas(this.props.currentStatus.TotalRecovered)}</li>
+
+                    <li>Total deaths: {this.addCommas(this.props.currentStatus.TotalDeaths)}</li>
+                    
+                    <li>Death toll: {this.props.currentStatus.TotalConfirmed ? (100 / (this.props.currentStatus.TotalConfirmed / this.props.currentStatus.TotalDeaths)).toFixed(2) : 0}%</li>
                 </ul>
 
                 <div className='searchFormContainer'>
                     <form onSubmit={this.searchCountry}>
                         <input
                             ref={this.searchInput} 
-                            id='country'
                             type='text'
                             placeholder='type a country'
                             required>
@@ -89,8 +74,6 @@ class Statistic extends Component {
 
                             <th>Cases</th>
 
-                            <th>Active</th>
-
                             <th>Recovered</th>
 
                             <th>Deaths</th>
@@ -103,80 +86,100 @@ class Statistic extends Component {
                         {this.state.searchedCountry.map((country, i) => {
                             return (
                                 <tr key={i}>
-                                    <td className='searchedCountry'>* {country.country}</td>
+                                    <td className='searchedCountry'>* {country.Country}</td>
 
                                     <td className='totalCases'>
                                         <span>
-                                            {this.addCommas(country.cases)}
+                                            {this.addCommas(country.TotalConfirmed)}
                                         </span>
 
-                                        {country.todayCases > 0 
+                                        {country.NewConfirmed > 0 
                                         ?
                                             <span>
                                                 <span className='arrow'></span>
-                                                {this.addCommas(country.todayCases)}
+
+                                                {this.addCommas(country.NewConfirmed)}
                                             </span>
                                         :null}
                                     </td>
 
-                                    <td>{this.addCommas(country.active)}</td>
-
-                                    <td>{this.addCommas(country.recovered)}</td>
+                                    <td>{this.addCommas(country.TotalRecovered)}</td>
 
                                     <td className='totalDeaths'>
-                                        <span>{this.addCommas(country.deaths)}</span>
+                                        <span>
+                                            {this.addCommas(country.TotalDeaths)}
+                                        </span>
                                         
-                                        {country.todayDeaths > 0 
+                                        {country.NewDeaths > 0 
                                         ?
                                             <span>
                                                 <span className='arrow'></span>
 
-                                                {this.addCommas(country.todayDeaths)}
+                                                {this.addCommas(country.NewDeaths)}
                                             </span>
                                         :null}
                                     </td>
 
-                                    <td>{(100 / (country.cases / country.deaths)).toFixed(2)}%</td>
+                                    <td>{(100 / (country.TotalConfirmed / country.TotalDeaths)).toFixed(2)}%</td>
                                 </tr>
                             )
                         })}
 
-                        {this.state.worldStatus.map((status, i) => {
+                        {this.props.currentStatistics.map((status, i) => {
                             return (
                                 <tr key={i}>
-                                    <td>{status.country}</td>
+                                    <td>{status.Country}</td>
 
                                     <td className='totalCases'>
-                                        <span>{this.addCommas(status.cases)}</span>
+                                        <span>
+                                            {this.addCommas(status.TotalConfirmed)}
+                                        </span>
 
-                                        {status.todayCases > 0 
+                                        {status.NewConfirmed > 0
+                                        ? 
+                                        <span>
+                                            <span className='arrow'></span>
+
+                                            <span>
+                                                {this.addCommas(status.NewConfirmed)}
+                                            </span>
+                                        </span>
+                                        : null}
+                                    </td>
+
+                                    <td className='totalRecovered'>
+                                        <span>
+                                            {this.addCommas(status.TotalRecovered)}
+                                        </span>
+                                    
+                                        {status.NewRecovered > 0
                                         ?
                                         <span>
                                             <span className='arrow'></span>
 
-                                            <span>{this.addCommas(status.todayCases)}</span>
+                                            <span>{this.addCommas(status.NewRecovered)}</span>
                                         </span>
-                                        :null}
+                                        : null}
                                     </td>
-
-                                    <td>{this.addCommas(status.active)}</td>
-
-                                    <td>{this.addCommas(status.recovered)}</td>
 
                                     <td className='totalDeaths'>
-                                        <span>{this.addCommas(status.deaths)}</span>
+                                        <span>
+                                            {this.addCommas(status.TotalDeaths)}
+                                        </span>
 
-                                        {status.todayDeaths > 0 
+                                        {status.NewDeaths > 0 
                                         ?
                                         <span>
                                             <span className='arrow'></span>
 
-                                            <span>{this.addCommas(status.todayDeaths)}</span>
+                                            <span>
+                                                {this.addCommas(status.NewDeaths)}
+                                            </span>
                                         </span>
                                         :null}
                                     </td>
 
-                                    <td>{(100 / (status.cases / status.deaths)).toFixed(2)}%</td>
+                                    <td>{(100 / (status.TotalConfirmed / status.TotalDeaths)).toFixed(2)}%</td>
                                 </tr>
                             )
                         })}

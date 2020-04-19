@@ -1402,8 +1402,7 @@ header .currentStatusList li {
   }
 }
 @media (max-width: 640px) {
-  .statistics table tr th:nth-child(4),
-.statistics table tr th:nth-child(5) {
+  .statistics table tr th:nth-child(5) {
     display: none;
   }
 }
@@ -1427,8 +1426,7 @@ header .currentStatusList li {
   }
 }
 @media (max-width: 640px) {
-  .statistics table tr td:nth-child(4),
-.statistics table tr td:nth-child(5) {
+  .statistics table tr td:nth-child(5) {
     display: none;
   }
 }
@@ -1436,7 +1434,8 @@ header .currentStatusList li {
   color: blue;
 }
 .statistics table tr .totalCases,
-.statistics table tr .totalDeaths {
+.statistics table tr .totalDeaths,
+.statistics table tr .totalRecovered {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1444,14 +1443,17 @@ header .currentStatusList li {
 .statistics table tr .totalCases span:nth-child(2),
 .statistics table tr .totalCases span:nth-child(2),
 .statistics table tr .totalDeaths span:nth-child(2),
-.statistics table tr .totalDeaths span:nth-child(2) {
+.statistics table tr .totalDeaths span:nth-child(2),
+.statistics table tr .totalRecovered span:nth-child(2),
+.statistics table tr .totalRecovered span:nth-child(2) {
   display: flex;
   justify-content: center;
   align-items: center;
   color: red;
 }
 .statistics table tr .totalCases .arrow,
-.statistics table tr .totalDeaths .arrow {
+.statistics table tr .totalDeaths .arrow,
+.statistics table tr .totalRecovered .arrow {
   color: red;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
