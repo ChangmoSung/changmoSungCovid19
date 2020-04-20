@@ -1402,7 +1402,8 @@ header .currentStatusList li {
   }
 }
 @media (max-width: 640px) {
-  .statistics table tr th:nth-child(5) {
+  .statistics table tr th:nth-child(4),
+.statistics table tr th:nth-child(6) {
     display: none;
   }
 }
@@ -1426,7 +1427,8 @@ header .currentStatusList li {
   }
 }
 @media (max-width: 640px) {
-  .statistics table tr td:nth-child(5) {
+  .statistics table tr td:nth-child(4),
+.statistics table tr td:nth-child(6) {
     display: none;
   }
 }

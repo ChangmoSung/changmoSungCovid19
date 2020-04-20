@@ -130,7 +130,8 @@
                 }
             }
 
-            th:nth-child(5) {
+            th:nth-child(4),
+            th:nth-child(6) {
                 @include mq640 {
                     display: none;
                 }
@@ -153,7 +154,8 @@
                 }
             }
 
-            td:nth-child(5) {
+            td:nth-child(4),
+            td:nth-child(6) {
                 @include mq640 {
                 display: none;
                 }

@@ -24,11 +24,14 @@ class App extends Component {
   // To get the api data for current status here and pass them to main and header
   componentDidMount() {
     axios({
-      url: `https://api.covid19api.com/summary`,
+      url: 'https://api.covid19api.com/summary',
       method: "GET",
     }).then(res => {
+      // To filter only countries that have at least 1 infected person
+      const affectedCountries = res.data.Countries.filter(country => country.TotalConfirmed > 0);
+
       // To sort in the order of the most vulnerable countries 
-      const seriousness = res.data.Countries.sort((a, b) => a.TotalConfirmed > b.TotalConfirmed ? -1 : 1);
+      const seriousness = affectedCountries.sort((a, b) => a.TotalConfirmed > b.TotalConfirmed ? - 1 : 1);
 
       const currentDate = res.data.Date.slice(0, 10);
 
@@ -50,7 +53,6 @@ class App extends Component {
           <Header 
             currentDate={this.state.currentDate} 
             currentStatus={this.state.currentStatus}
-            currentStatistics={this.state.currentStatistics}
           />
         </Route>
 

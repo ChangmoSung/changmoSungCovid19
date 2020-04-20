@@ -19,9 +19,8 @@ class Article extends Component {
             params: {
                 language: 'en',
                 q: 'COVID',
-                from: '2020-03-16',
                 sortBy: 'publishedAt',
-                apiKey: '0741cdf2415e4f44a92f80f69c904834',
+                apiKey: '7a50435871b44203ac210b60d2fdae74',
                 pageSize: '50',
                 page: '1'
             }
@@ -41,8 +40,8 @@ class Article extends Component {
                             <li key={i}>
                                 <h3>{article.title}</h3>
 
-                                <p>By 
-                                    {! article.author || article.author.includes('http') 
+                                <p>
+                                    By {! article.author || article.author.includes('http') 
                                         ? 'anonymous author' 
                                         : article.author}
                                 </p>
