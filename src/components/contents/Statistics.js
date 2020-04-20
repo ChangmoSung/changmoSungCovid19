@@ -70,11 +70,11 @@ class Statistic extends Component {
 
                             <th>Recovered</th>
 
-                            <th>Recovery toll</th>
+                            <th>Recovery rate</th>
 
                             <th>Deaths</th>
 
-                            <th>Death toll</th>
+                            <th>Death rate</th>
                         </tr>
                     </thead>
 
