@@ -1,3 +1,9 @@
+@mixin mq1440 {
+    @media(max-width: 1440px) {
+        @content;
+    }
+}
+
 @mixin mq1120 {
     @media(max-width: 1120px) {
         @content;

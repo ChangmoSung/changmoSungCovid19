@@ -24,9 +24,9 @@ class Statistic extends Component {
     searchCountry = e => {
         e.preventDefault();
 
-        const country = this.searchInput.current.value;
+        const country = this.searchInput.current.value.replace(/[^\w]/gi, '').toLowerCase();
 
-        const searchedCountry = this.props.currentStatistics.filter(status => status.Country.toLowerCase().includes(country.toLowerCase()));
+        const searchedCountry = this.props.currentStatistics.filter(status => status.Country.replace(/[^\w]/gi, '').toLowerCase().includes(country));
 
         if(searchedCountry.length === 0) {
             alert('There is no matching country');
@@ -93,7 +93,7 @@ class Statistic extends Component {
                                             {this.addCommas(status.TotalConfirmed)}
                                         </span>
 
-                                        {status.NewConfirmed > 0
+                                        {status.NewConfirmed && status.NewConfirmed != status.TotalConfirmed
                                         ? 
                                         <span>
                                             <span className='arrow'></span>
@@ -107,10 +107,12 @@ class Statistic extends Component {
 
                                     <td className='totalRecovered'>
                                         <span>
-                                            {this.addCommas(status.TotalRecovered)}
+                                            {status.TotalRecovered ? 
+                                                this.addCommas(status.TotalRecovered)
+                                            : 'NEI'}
                                         </span>
                                     
-                                        {status.NewRecovered > 0
+                                        {status.NewRecovered && status.NewRecovered != status.TotalRecovered
                                         ?
                                         <span>
                                             <span className='arrow'></span>
@@ -121,20 +123,22 @@ class Statistic extends Component {
                                     </td>
 
                                     <td>
-                                        {status.TotalRecovered > 0
+                                        {status.TotalRecovered
                                         ?
                                         <span>
                                             {(100 / (status.TotalConfirmed / status.TotalRecovered)).toFixed(2)}%
                                         </span>
-                                        : 0}
+                                        : <span>NEI</span>}
                                     </td>
 
                                     <td className='totalDeaths'>
                                         <span>
-                                            {this.addCommas(status.TotalDeaths)}
+                                            {status.TotalDeaths ? 
+                                                this.addCommas(status.TotalDeaths)
+                                            : 'NEI'}
                                         </span>
 
-                                        {status.NewDeaths > 0 
+                                        {status.NewDeaths && status.NewDeaths != status.TotalDeaths
                                         ?
                                         <span>
                                             <span className='arrow'></span>
@@ -147,12 +151,12 @@ class Statistic extends Component {
                                     </td>
 
                                     <td>
-                                        {status.TotalDeaths > 0
+                                        {status.TotalDeaths
                                         ? 
                                         <span>
                                             {(100 / (status.TotalConfirmed / status.TotalDeaths)).toFixed(2)}%
                                         </span>
-                                        : 0}
+                                        : <span>NEI</span>}
                                     </td>
                                 </tr>
                             )

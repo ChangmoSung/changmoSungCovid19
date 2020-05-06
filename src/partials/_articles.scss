@@ -2,6 +2,10 @@
   margin: 15rem auto 5rem;
   width: 80%;
 
+  @include mq1440 {
+      width: 85%;
+  }
+
   @include mq1120 {
     width: 90%;
     margin-top: 14.3rem;
@@ -19,27 +23,28 @@
         margin: 0 auto;
         list-style: none;
 
-        @include mq1120 {
+        @include mq1440 {
             justify-content: space-between;
         }
 
         li {
-            width: 31%;
+            width: 31.3%;
             border: 2px solid black;
             padding: 2rem;
             margin-bottom: 4.5rem;
             border-radius: 1rem;
 
+            @include mq1440 {
+                width: 48.2%;
+            }
+
             @include mq1120 {
                 width: 48%;
+                margin-bottom: 4rem;
             }
 
             @include mq768 {
                 width: 100%;
-            }
-
-            @include mq430 {
-                margin-bottom: 3rem;
             }
 
             h3 {
@@ -62,7 +67,7 @@
                 margin: 2rem 0;
                 height: 27rem;
 
-                @include mq1120 {
+                @include mq1440 {
                     height: 30rem;
                 }
 
@@ -111,10 +116,14 @@
         }
 
         li:nth-child(3n + 2) {
-            margin: 0 3.5% 5rem;
+            margin: 0 3.05% 4.5rem;
+
+            @include mq1440 {
+                margin: 0 0 4.5rem;
+            }
 
             @include mq1120 {
-                margin: 0 0 5rem;
+                margin-bottom: 4rem;
             }
         }
     }

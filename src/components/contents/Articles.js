@@ -31,7 +31,7 @@ class Article extends Component {
         })
     }
 
-    render() { 
+    render() {
         return ( 
             <div className='article'>
                 <ul className='articleList'>

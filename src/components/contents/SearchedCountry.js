@@ -3,7 +3,7 @@ import React from 'react';
 const SearchedCountry = props => {
     // To add commas to number
     const addCommas = num => {
-        return `${typeof num === 'number' ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}`
+        return `${typeof num === 'number' ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}`;
     }
 
 
