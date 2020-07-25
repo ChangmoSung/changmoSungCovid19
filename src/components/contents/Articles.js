@@ -6,10 +6,9 @@ class Article extends Component {
         super();
 
         this.state = {
-            article: [],
+            articles: [],
         }
     }
-
 
     // To get data for news articles here
     componentDidMount() {
@@ -20,45 +19,47 @@ class Article extends Component {
                 language: 'en',
                 q: 'COVID',
                 sortBy: 'publishedAt',
-                apiKey: '7a50435871b44203ac210b60d2fdae74',
+                apiKey: '6dd80b26ac444d33aa5955bcb6e9eefe',
                 pageSize: '50',
                 page: '1'
             }
-        }).then(res => {
+        }).then(({ data: { articles } }) => {
             this.setState({
-                article: res.data.articles
+                articles
             })
         })
     }
 
     render() {
+        const { articles } = this.state;
+
         return ( 
             <div className='article'>
                 <ul className='articleList'>
-                    {this.state.article.map((article, i) => {
+                    {articles.map(({ title, author, publishedAt, urlToImage, description, url }, i) => {
                         return (
                             <li key={i}>
-                                <h3>{article.title}</h3>
+                                <h3>{title}</h3>
 
                                 <p>
-                                    By {! article.author || article.author.includes('http') 
+                                    By {! author || author.includes('http') 
                                         ? 'anonymous author' 
-                                        : article.author}
+                                        : author}
                                 </p>
 
-                                <p>Published on {article.publishedAt.slice(0, 10)}</p>
+                                <p>Published on {publishedAt.slice(0, 10)}</p>
 
                                 <div className='articleImage'>
-                                    {article.urlToImage 
+                                    {urlToImage 
                                     ?
-                                        <img src={article.urlToImage} alt='article'></img>
+                                        <img src={urlToImage} alt='article'></img>
                                     : 
                                         <p>There is no image for this article</p>}
                                 </div>
 
-                                <p className='articleDescription'>{article.description}</p>
+                                <p className='articleDescription'>{description}</p>
 
-                                <a href={article.url} target='_blank' rel='noopener noreferrer'>Link to the article</a>
+                                <a href={url} target='_blank' rel='noopener noreferrer'>Link to the article</a>
                             </li>
                         )
                     })}

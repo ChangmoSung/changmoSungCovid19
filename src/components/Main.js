@@ -11,7 +11,7 @@ import Articles from './contents/Articles';
 import SelfCheck from './contents/SelfCheck';
 import Questions from './contents/questions/Questions';
 
-const Main = props => {
+const Main = ({ currentDate, currentStatus, currentStatistics }) => {
     return (
         <main>
             <Switch>
@@ -42,9 +42,9 @@ const Main = props => {
 
             <Route path='/info/statistic'>
                 <Statistics
-                    currentDate={props.currentDate}
-                    currentStatus={props.currentStatus}
-                    currentStatistics={props.currentStatistics}
+                    currentDate={currentDate}
+                    currentStatus={currentStatus}
+                    currentStatistics={currentStatistics}
                 />
             </Route>
 

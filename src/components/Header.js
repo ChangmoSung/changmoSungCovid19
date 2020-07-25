@@ -1,14 +1,14 @@
 import React from 'react';
 import Status from './contents/Status';
 
-const Header = props => {
+const Header = ({ currentDate, currentStatus }) => {
     return ( 
         <header>
             <h1>SAVE THE ONE YOU LOVE</h1>
 
             <Status 
-                currentDate={props.currentDate}
-                currentStatus={props.currentStatus}
+                currentDate={currentDate}
+                currentStatus={currentStatus}
             />
         </header>
     );

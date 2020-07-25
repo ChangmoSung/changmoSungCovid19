@@ -1,78 +1,77 @@
 import React from 'react';
 
-const SearchedCountry = props => {
+const SearchedCountry = ({ searchedCountry }) => {
     // To add commas to number
     const addCommas = num => {
         return `${typeof num === 'number' ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}`;
     }
 
-
     return (
         <React.Fragment>
-            {props.searchedCountry.map((country, i) => {
+            {searchedCountry.map(({ Country, TotalConfirmed, NewConfirmed, TotalRecovered, NewRecovered, TotalDeaths, NewDeaths }, i) => {
                 return (
                     <tr key={i}>
-                        <td className='searchedCountry'>* {country.Country}</td>
+                        <td className='searchedCountry'>* {Country}</td>
 
                         <td className='totalCases'>
                             <span>
-                                {addCommas(country.TotalConfirmed)}
+                                {addCommas(TotalConfirmed)}
                             </span>
 
-                            {country.NewConfirmed > 0
+                            {NewConfirmed > 0
                                 ?
                                 <span>
                                     <span className='arrow'></span>
 
-                                    {addCommas(country.NewConfirmed)}
+                                    {addCommas(NewConfirmed)}
                                 </span>
                                 : null}
                         </td>
 
                         <td className='totalRecovered'>
                             <span>
-                                {addCommas(country.TotalRecovered)}
+                                {addCommas(TotalRecovered)}
                             </span>
 
-                            {country.NewRecovered > 0
+                            {NewRecovered > 0
                                 ?
                                 <span>
                                     <span className='arrow'></span>
 
-                                    {addCommas(country.NewRecovered)}
+                                    {addCommas(NewRecovered)}
                                 </span>
                                 : null}
                         </td>
 
                         <td>
-                            {country.TotalRecovered > 0
+                            {TotalRecovered > 0
                                 ?
                                 <span>
-                                    {(100 / (country.TotalConfirmed / country.TotalRecovered)).toFixed(2)}%
+                                    {(100 / (TotalConfirmed / TotalRecovered)).toFixed(2)}%
                                         </span>
                                 : '0%'}
                         </td>
 
                         <td className='totalDeaths'>
                             <span>
-                                {addCommas(country.TotalDeaths)}
+                                {addCommas(TotalDeaths)}
                             </span>
 
-                            {country.NewDeaths > 0
+                            {NewDeaths > 0
                                 ?
                                 <span>
                                     <span className='arrow'></span>
 
-                                    {addCommas(country.NewDeaths)}
+                                    {addCommas(NewDeaths)}
                                 </span>
                                 : null}
                         </td>
 
                         <td>
-                            {country.TotalDeaths > 0
+                            {TotalDeaths > 0
                                 ?
                                 <span>
-                                    {(100 / (country.TotalConfirmed / country.TotalDeaths)).toFixed(2)}%
+                                    {(100 / (TotalConfirmed / TotalDeaths)).toFixed(2)}%
                                         </span>
                                 : '0%'}
                         </td>

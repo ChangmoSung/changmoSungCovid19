@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Status = props => {
+const Status = ({ currentDate, currentStatus: { TotalConfirmed, TotalDeaths, TotalRecovered } }) => {
     // To add commas to number
     const addCommas = num => {
         return `${typeof num === 'number' ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}`
@@ -8,24 +8,24 @@ const Status = props => {
 
     return (
         <div>
-            <h2 className='date'>As of {props.currentDate}</h2>
+            <h2 className='date'>As of {currentDate}</h2>
 
             <ul className='currentStatusList'>
-                <li>Total cases: {addCommas(props.currentStatus.TotalConfirmed)}</li>
+                <li>Total cases: {addCommas(TotalConfirmed)}</li>
 
-                <li>Total recovered: {addCommas(props.currentStatus.TotalRecovered)}</li>
+                <li>Total recovered: {addCommas(TotalRecovered)}</li>
 
-                <li>Recovery rate: {props.currentStatus.TotalRecovered > 0
+                <li>Recovery rate: {TotalRecovered > 0
                     ?
                     <span>
-                        {(100 / (props.currentStatus.TotalConfirmed / props.currentStatus.TotalRecovered)).toFixed(2)}%
+                        {(100 / (TotalConfirmed / TotalRecovered)).toFixed(2)}%
                         </span>
                     : 0}
                 </li>
 
-                <li>Total deaths: {addCommas(props.currentStatus.TotalDeaths)}</li>
+                <li>Total deaths: {addCommas(TotalDeaths)}</li>
 
-                <li>Death rate: {props.currentStatus.TotalConfirmed ? (100 / (props.currentStatus.TotalConfirmed / props.currentStatus.TotalDeaths)).toFixed(2) : 0}%</li>
+                <li>Death rate: {TotalConfirmed ? (100 / (TotalConfirmed / TotalDeaths)).toFixed(2) : 0}%</li>
             </ul>
         </div>
     )

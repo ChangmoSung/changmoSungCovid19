@@ -17,11 +17,11 @@ class Questions extends Component {
 
 
     // Every question has an attribute for result. Based on that result, this function determines the next step for users
-    result = e => {
-        const result = e.target.dataset.result;
+    result = ({ target: { dataset: { result } } }) => {
+        const { questionNumber } = this.state;
 
         // Every time users move on to the next question, this question number goes up by 1 and this is what determines what question users should be seeing
-        this.setState({ questionNumber: this.state.questionNumber + 1 })
+        this.setState({ questionNumber: questionNumber + 1 })
 
         if(result === 'call911') {
             this.setState({
@@ -64,70 +64,73 @@ class Questions extends Component {
 
 
     render() {
+        const { questionNumber, call911, consultFamilyDoctor, selfIsolate, resultIsSelfIsolate  } = this.state;
+        const { result, selfIsolateConfirmed, startAgain } = this;
+        
         return (
             <div className='questions'>
-                {!this.state.call911
-                    && !this.state.consultFamilyDoctor
-                    && !this.state.selfIsolate
-                    && this.state.questionNumber < 6
+                {!call911
+                    && !consultFamilyDoctor
+                    && !selfIsolate
+                    && questionNumber < 6
                     ?
                     < div className='questionContainer'>
-                        <h3>{questionList[this.state.questionNumber].question}</h3>
+                        <h3>{questionList[questionNumber].question}</h3>
 
-                        {questionList[this.state.questionNumber].paragraph
+                        {questionList[questionNumber].paragraph
                         ?
-                            <p>{questionList[this.state.questionNumber].paragraph}</p>
+                            <p>{questionList[questionNumber].paragraph}</p>
                         : null}
 
                         <ul>
-                            {questionList[this.state.questionNumber].example1
+                            {questionList[questionNumber].example1
                             ?
-                                <li>{questionList[this.state.questionNumber].example1}</li>
+                                <li>{questionList[questionNumber].example1}</li>
                             : null}
 
-                            {questionList[this.state.questionNumber].example2
+                            {questionList[questionNumber].example2
                             ?
-                                <li>{questionList[this.state.questionNumber].example2}</li>
+                                <li>{questionList[questionNumber].example2}</li>
                             : null}
 
-                            {questionList[this.state.questionNumber].example3
+                            {questionList[questionNumber].example3
                             ?
-                                <li>{questionList[this.state.questionNumber].example3}</li>
+                                <li>{questionList[questionNumber].example3}</li>
                             : null}
 
-                            {questionList[this.state.questionNumber].example4
+                            {questionList[questionNumber].example4
                             ?
-                                <li>{questionList[this.state.questionNumber].example4}</li>
+                                <li>{questionList[questionNumber].example4}</li>
                             : null}
 
-                            {questionList[this.state.questionNumber].example5
+                            {questionList[questionNumber].example5
                             ?
-                                <li>{questionList[this.state.questionNumber].example5}</li>
+                                <li>{questionList[questionNumber].example5}</li>
                             : null}
                         </ul>
 
                         <div className='buttonContainer'>
                             <div>
-                                <button data-result={questionList[this.state.questionNumber].result} onClick={this.result}>yes</button>
+                                <button data-result={questionList[questionNumber].result} onClick={result}>yes</button>
 
-                                <button data-result='no' onClick={this.result}>no</button>
+                                <button data-result='no' onClick={result}>no</button>
                             </div>
 
-                            {this.state.questionNumber > 0
+                            {questionNumber > 0
                             ?
-                                <button className='startAgain' onClick={this.startAgain}>start again</button>
+                                <button className='startAgain' onClick={startAgain}>start again</button>
                             : null}
                         </div>
                     </div>
                     :
                     <Results
-                        questionNumber={this.state.questionNumber}
-                        startAgain={this.startAgain}
-                        call911={this.state.call911}
-                        consultFamilyDoctor={this.state.consultFamilyDoctor}
-                        selfIsolate={this.state.selfIsolate}
-                        selfIsolateConfirmed={this.selfIsolateConfirmed}
-                        resultIsSelfIsolate={this.state.resultIsSelfIsolate}
+                        questionNumber={questionNumber}
+                        startAgain={startAgain}
+                        call911={call911}
+                        consultFamilyDoctor={consultFamilyDoctor}
+                        selfIsolate={selfIsolate}
+                        selfIsolateConfirmed={selfIsolateConfirmed}
+                        resultIsSelfIsolate={resultIsSelfIsolate}
                     />
                 }
             </div>

@@ -26,18 +26,18 @@ class App extends Component {
     axios({
       url: 'https://api.covid19api.com/summary',
       method: "GET",
-    }).then(res => {
+    }).then(({ data: { Countries, Date, Global } }) => {
       // To filter only countries that have at least 1 infected person
-      const affectedCountries = res.data.Countries.filter(country => country.TotalConfirmed > 0);
+      const affectedCountries = Countries.filter(({TotalConfirmed}) => TotalConfirmed > 0);
 
       // To sort in the order of the most vulnerable countries 
-      const seriousness = affectedCountries.sort((a, b) => a.TotalConfirmed > b.TotalConfirmed ? - 1 : 1);
+      const currentStatistics = affectedCountries.sort((a, b) => a.TotalConfirmed > b.TotalConfirmed ? - 1 : 1);
 
-      const currentDate = res.data.Date.slice(0, 10);
+      const currentDate = Date.slice(0, 10);
 
       this.setState({
-        currentStatistics: seriousness,
-        currentStatus: res.data.Global,
+        currentStatus: Global,
+        currentStatistics,
         currentDate
       })
     })
@@ -45,22 +45,24 @@ class App extends Component {
 
 
   render() { 
+    const {currentDate, currentStatus, currentStatistics} = this.state;
+
     return ( 
       <Router basename='/'>
         <Nav />
         
         <Route path='/' exact >
           <Header 
-            currentDate={this.state.currentDate} 
-            currentStatus={this.state.currentStatus}
+            currentDate={currentDate} 
+            currentStatus={currentStatus}
           />
         </Route>
 
         <Route path='/info/' >
           <Main 
-            currentDate={this.state.currentDate}
-            currentStatus={this.state.currentStatus}
-            currentStatistics={this.state.currentStatistics}
+            currentDate={currentDate}
+            currentStatus={currentStatus}
+            currentStatistics={currentStatistics}
           />
         </Route>
       </Router>

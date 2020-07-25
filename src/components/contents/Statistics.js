@@ -26,32 +26,36 @@ class Statistic extends Component {
 
         const country = this.searchInput.current.value.replace(/[^\w]/gi, '').toLowerCase();
 
-        const searchedCountry = this.props.currentStatistics.filter(status => status.Country.replace(/[^\w]/gi, '').toLowerCase().includes(country));
+        const searchedCountry = this.props.currentStatistics.filter(({ Country }) => Country.replace(/[^\w]/gi, '').toLowerCase().includes(country));
 
-        if(searchedCountry.length === 0) {
+        if(searchedCountry.length > 0) {
+            this.setState({
+                searchedCountry
+            })
+        } else {
             alert('There is no matching country');
         }
-
-        this.setState({
-            searchedCountry
-        })
 
         this.searchInput.current.value = '';
     }
 
 
     render() { 
+        const { currentDate, currentStatus, currentStatistics } = this.props;
+        const { searchCountry, searchInput, addCommas } = this;
+        const { searchedCountry } = this.state;
+
         return ( 
             <div className='statistics'>
                 <Status 
-                    currentDate={this.props.currentDate}
-                    currentStatus={this.props.currentStatus}
+                    currentDate={currentDate}
+                    currentStatus={currentStatus}
                 />
 
                 <div className='searchFormContainer'>
-                    <form onSubmit={this.searchCountry}>
+                    <form onSubmit={searchCountry}>
                         <input
-                            ref={this.searchInput} 
+                            ref={searchInput} 
                             type='text'
                             placeholder='type a country'
                             required>
@@ -80,26 +84,26 @@ class Statistic extends Component {
 
                     <tbody>
                         <SearchedCountry 
-                            searchedCountry={this.state.searchedCountry}
+                            searchedCountry={searchedCountry}
                         />
 
-                        {this.props.currentStatistics.map((status, i) => {
+                        {currentStatistics.map(({ Country, TotalConfirmed, TotalDeaths, TotalRecovered, NewConfirmed, NewDeaths, NewRecovered }, i) => {
                             return (
                                 <tr key={i}>
-                                    <td>{status.Country}</td>
+                                    <td>{Country}</td>
 
                                     <td className='totalCases'>
                                         <span>
-                                            {this.addCommas(status.TotalConfirmed)}
+                                            {addCommas(TotalConfirmed)}
                                         </span>
 
-                                        {status.NewConfirmed && status.NewConfirmed != status.TotalConfirmed
+                                        {NewConfirmed && NewConfirmed != TotalConfirmed
                                         ? 
                                         <span>
                                             <span className='arrow'></span>
 
                                             <span>
-                                                {this.addCommas(status.NewConfirmed)}
+                                                {addCommas(NewConfirmed)}
                                             </span>
                                         </span>
                                         : null}
@@ -107,54 +111,54 @@ class Statistic extends Component {
 
                                     <td className='totalRecovered'>
                                         <span>
-                                            {status.TotalRecovered ? 
-                                                this.addCommas(status.TotalRecovered)
+                                            {TotalRecovered ? 
+                                                addCommas(TotalRecovered)
                                             : 'NEI'}
                                         </span>
                                     
-                                        {status.NewRecovered && status.NewRecovered != status.TotalRecovered
+                                        {NewRecovered && NewRecovered != TotalRecovered
                                         ?
                                         <span>
                                             <span className='arrow'></span>
 
-                                            <span>{this.addCommas(status.NewRecovered)}</span>
+                                            <span>{addCommas(NewRecovered)}</span>
                                         </span>
                                         : null}
                                     </td>
 
                                     <td>
-                                        {status.TotalRecovered
+                                        {TotalRecovered
                                         ?
                                         <span>
-                                            {(100 / (status.TotalConfirmed / status.TotalRecovered)).toFixed(2)}%
+                                            {(100 / (TotalConfirmed / TotalRecovered)).toFixed(2)}%
                                         </span>
                                         : <span>NEI</span>}
                                     </td>
 
                                     <td className='totalDeaths'>
                                         <span>
-                                            {status.TotalDeaths ? 
-                                                this.addCommas(status.TotalDeaths)
+                                            {TotalDeaths ? 
+                                                addCommas(TotalDeaths)
                                             : 'NEI'}
                                         </span>
 
-                                        {status.NewDeaths && status.NewDeaths != status.TotalDeaths
+                                        {NewDeaths && NewDeaths != TotalDeaths
                                         ?
                                         <span>
                                             <span className='arrow'></span>
 
                                             <span>
-                                                {this.addCommas(status.NewDeaths)}
+                                                {addCommas(NewDeaths)}
                                             </span>
                                         </span>
                                         : null}
                                     </td>
 
                                     <td>
-                                        {status.TotalDeaths
+                                        {TotalDeaths
                                         ? 
                                         <span>
-                                            {(100 / (status.TotalConfirmed / status.TotalDeaths)).toFixed(2)}%
+                                            {(100 / (TotalConfirmed / TotalDeaths)).toFixed(2)}%
                                         </span>
                                         : <span>NEI</span>}
                                     </td>
