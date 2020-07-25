@@ -43,7 +43,6 @@ class App extends Component {
     })
   }
 
-
   render() { 
     const {currentDate, currentStatus, currentStatistics} = this.state;
 
