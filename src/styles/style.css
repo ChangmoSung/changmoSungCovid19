@@ -283,7 +283,7 @@ img {
 @media (max-width: 768px) {
   .nav {
     height: 100vh;
-    top: -110%;
+    top: -120%;
     background: #3816d4;
     position: fixed;
   }
